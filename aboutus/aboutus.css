@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+body {
+    font-weight: bold; 
+    font-size: 16px; 
+}
+
+/* Styling for the main header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa; 
+}
+
+/* Logo styles */
+.logo img {
+    width: 100px; 
+}
+
+/* Search bar styles */
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+/* User section styles */
+.user-section {
+    display: flex;
+    align-items: center;
+}
+
+.user-section i {
+    font-size: 24px; /* Adjust icon size */
+    margin-right: 10px; /* Add spacing between icons */
+    cursor: pointer;
+}
+
+/* Navigation styles */
+.main-nav {
+    text-align: center; /* Center align the navigation */
+    margin-top: 20px;
+}
+
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Center align the navigation items */
+}
+
+.main-nav ul li {
+    margin-right: 20px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.about-us {
+    padding: 0.5px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.about-heading {
+    padding: 10px;
+}
+
+.about-heading h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Introduction Section styles */
+.introduction {
+    padding: 50px 0;
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center;
+}
+
+.introduction .section-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse; /* Image on the left, text on the right */
+    font-weight: normal;
+}
+
+.introduction .section-image {
+    max-width: 500px; 
+    max-height: 600px; 
+    overflow: hidden; 
+}
+
+
+.introduction .section-image img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.introduction .section-text {
+    max-width: 400px; /* Limit text width */
+    padding: 0 20px;
+    text-align: left;
+}
+
+.introduction .section-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Establishment Section styles */
+.establishment {
+    padding: 50px 0;
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center;
+}
+
+.establishment .section-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row; /* Image on the right, text on the left */
+    font-weight: normal;
+}
+
+/* Establishment Section styles */
+.establishment .section-image {
+    max-width: 500px; 
+    max-height: 600px; 
+    overflow: hidden; 
+
+}
+
+.establishment .section-image img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.establishment .section-text {
+    max-width: 400px; /* Limit text width */
+    padding: 0 20px;
+    text-align: left;
+}
+
+.establishment .section-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+/* Testimonials Carousel styles */
+.testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    flex: 0 0 33.33%; /* Display three testimonials per slide */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.testimonial-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: normal;
+}
+
+.testimonial img {
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+
+/* Navigation Arrows */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+/* Footer styles */
+.main-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Add spacing between social icons */
+}
+
+.social-icons img {
+    background: white;
+    width: 60px; /* Adjust the size of social icons */
+    height: 60px;
+    border-radius: 10px; /* Rounded corners for square shape */
+}

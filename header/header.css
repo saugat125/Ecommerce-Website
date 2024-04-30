@@ -1,0 +1,95 @@
+header {
+  background-color: #fff;
+}
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 90px;
+  }
+  
+  .logo img {
+    width: 120px;
+    height: 60px;
+  }
+  
+  .search-bar input {
+    padding: 12px 16px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 440px;
+  }
+
+  .search-bar{
+    position: relative;
+  }
+
+  .search-bar .search{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%,-50%);
+  }
+
+  .search button{
+    border: none;
+    cursor: pointer;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li button {
+    padding: 10px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-btn {
+    background-color: #fff;
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  
+  .signup-btn {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #1A1A1A;
+  }
+  
+  nav ul li a i {
+    margin-right: 5px;
+  }
+  
+  .menu {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
