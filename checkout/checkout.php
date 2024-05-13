@@ -11,7 +11,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="logo.png" alt="C-Fresh Logo">  
+                <img src="../image/login-register/logo.png" alt="C-Fresh Logo">  
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search by products, and more">
