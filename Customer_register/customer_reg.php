@@ -16,15 +16,14 @@
             <p>Begin purchasing from us and show your support for regional goods.</p>
         </div>
         <div class="right-side">
-            <form>
+            <form method="post" action="register.php">
                 <h1>Create Account</h1>
                 <div class="form-group">
-
                     <div class="form-control">
-                        <input type="text" placeholder="First Name" required>
+                        <input type="text" name="first_name" placeholder="First Name" required>
                     </div>
                     <div class="form-control">
-                        <input type="text" placeholder="Last Name" required>
+                        <input type="text" name="last_name" placeholder="Last Name" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -34,11 +33,11 @@
                 </div>
                 <div class="form-group">
                     <div class="form-control">
-                        <input type="date" id="date-of-birth" name="date-of-birth" placeholder="Date of  Birth"
+                        <input type="date" id="date-of-birth" name="date_of_birth" placeholder="Date of Birth"
                             required>
                     </div>
                     <div class="form-control">
-                        <select id="gender" name="gender" placeholder="Gender" required>
+                        <select id="gender" name="gender" required>
                             <option value="">Select Gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -48,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <div class="form-control">
-                        <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number" required>
+                        <input type="tel" id="phone-number" name="phone_number" placeholder="Phone Number" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -58,14 +57,14 @@
                 </div>
                 <div class="form-group">
                     <div class="form-control">
-                        <input type="password" id="confirm-password" name="confirm-password"
+                        <input type="password" id="confirm-password" name="confirm_password"
                             placeholder="Confirm Password" required>
                     </div>
                 </div>
                 <div class="form">
                     <div class="terms">
                         <label>
-                            <input type="checkbox" name="terms-and-conditions" required>
+                            <input type="checkbox" name="terms_and_conditions" required>
                             Terms and Conditions.
                         </label>
                     </div>
