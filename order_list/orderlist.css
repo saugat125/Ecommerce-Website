@@ -1,4 +1,3 @@
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +33,8 @@ nav {
 .icons {
     margin-right: 20px;
 }
-.nav-icons .user{
+
+.nav-icons .user {
     padding-left: 1000px;
 }
 
@@ -115,3 +115,15 @@ button:hover {
     margin-left: 1320px;
 }
 
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .nav-icons .user {
+        padding-left: 10px; /* Adjust spacing for smaller screens */
+    }
+    .search-bar select {
+        margin-left: 10px; /* Adjust margin for smaller screens */
+    }
+    .add-product {
+        margin-left: 10px; /* Adjust margin for smaller screens */
+    }
+}
