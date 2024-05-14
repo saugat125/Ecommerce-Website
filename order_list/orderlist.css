@@ -1,0 +1,117 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Header Styles */
+header {
+    background-color: #f5f5f5;
+    color: #000000;
+    padding: 10px 20px;
+    height: 70px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.icons {
+    margin-right: 20px;
+}
+.nav-icons .user{
+    padding-left: 1000px;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Main Styles */
+main {
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 1200px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #ddd;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.add-product {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #000000;
+    margin-left: 1320px;
+}
+
