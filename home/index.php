@@ -6,10 +6,11 @@
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
 </head>
+<?php include ('../header/header.php') ?>
 <body>
 <div class="hero-section">
     <div class="slider">
-        <img src="images/bannerimage1.webp" alt="Local Market" class="slide active">
+        <img src="images/banner.png" alt="Local Market" class="slide active">
         <img src="images/bannerimage2.webp" alt="Second Image" class="slide">
         <img src="images/bannerimage3.webp" alt="Third Image" class="slide">
     </div>
@@ -357,5 +358,7 @@
             </div>
         </div>
     </div>
+
 </body>
+<?php include ('../footer/footer.php') ?>
 </html>

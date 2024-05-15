@@ -27,10 +27,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><button class="login-btn">Login</button></li>
-                    <li><button class="signup-btn">Signup</button></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i>Cart</a></li>
-                    <li><a href="#"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
+                    <li><a href="../login/login.php"><button class="login-btn">Login</button></a></li>
+                    <li><a href="../Customer_register/register.php"></a><button class="signup-btn">Signup</button></a></li>
+                    <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
+                    <li><a href="../"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
                 </ul>
             </nav>
         </div>
