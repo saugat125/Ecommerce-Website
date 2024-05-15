@@ -17,9 +17,9 @@
         </div>
         <div class="right-side">
             <h2>Log In</h2>
-            <form>
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
+            <form action = "login_handle.php", method = "post">
+                <input type="email" placeholder="Email Address" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
                 <div class="remember-forgot">
                     <label>
                         <input type="checkbox"> Remember me
@@ -28,7 +28,7 @@
                         <a href="#">Forgot Password?</a>
                     </div>
                 </div>
-                <button type="submit">Login Â»</button>
+                <button type="submit">Login As</button>
             </form>
             <p class="create-account">Don't have an account? <a href="#">Create Your Account</a></p>
         </div>
