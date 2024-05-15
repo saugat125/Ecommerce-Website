@@ -16,11 +16,7 @@
             <p>Begin purchasing from us and show your support for regional goods.</p>
         </div>
         <div class="right-side">
-<<<<<<< HEAD
-        <form action="insert_data.php" method="post">
-=======
-            <form method="post" action="register.php">
->>>>>>> 6da1ddd1d5dac43484ccbdcc9bac68b0c5ce5d55
+        <form action="register.php" method="post">
                 <h1>Create Account</h1>
                 <div class="form-group">
                     <div class="form-control">
@@ -40,17 +36,6 @@
                         <input type="date" id="date-of-birth" name="date_of_birth" placeholder="Date of Birth"
                             required>
                     </div>
-<<<<<<< HEAD
-=======
-                    <div class="form-control">
-                        <select id="gender" name="gender" required>
-                            <option value="">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
->>>>>>> 6da1ddd1d5dac43484ccbdcc9bac68b0c5ce5d55
                 </div>
                 <div class="form-group">
                     <div class="form-control">
