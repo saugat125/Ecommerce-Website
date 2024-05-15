@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare SQL statement for insertion into USERS table
     $sql_users = "INSERT INTO USERS (user_name, email, password, user_role, first_name, last_name, date_of_birth, phone_number) 
-                  VALUES (:email, :email, :password, 'customer', :first_name, :last_name, TO_DATE(:date_of_birth, 'YYYY-MM-DD'), :phone_number)";
+                  VALUES (:email, :email, :password, 'trader', :first_name, :last_name, TO_DATE(:date_of_birth, 'YYYY-MM-DD'), :phone_number)";
     $stmt_users = oci_parse($conn, $sql_users);
     oci_bind_by_name($stmt_users, ':email', $email);
     oci_bind_by_name($stmt_users, ':password', $password);
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_free_statement($stmt_user_id);
 
     // Prepare SQL statement for insertion into CUSTOMER table
-    $sql_customer = "INSERT INTO CUSTOMER (user_id, date_joined, isVerified) 
+    $sql_customer = "INSERT INTO TRADER (user_id, date_joined, isVerified) 
                      VALUES (:user_id, SYSDATE, 'N')";
     $stmt_customer = oci_parse($conn, $sql_customer);
     oci_bind_by_name($stmt_customer, ':user_id', $user_id);
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute SQL statement for insertion into CUSTOMER table
     $result_customer = oci_execute($stmt_customer);
     if (!$result_customer) {
-        echo "Error inserting into CUSTOMER table: " . oci_error($stmt_customer);
+        echo "Error inserting into TRADER table: " . oci_error($stmt_customer);
         exit;
     }
 
