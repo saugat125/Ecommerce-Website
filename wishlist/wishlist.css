@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.wishlist-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wishlist-header i {
+    font-size: 32px;
+    color: #000; /* Change this as needed */
+}
+
+.wishlist-header h1 {
+    margin-top: 0.5em; /* Adjust the spacing */
+}
+
+.wishlist-container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.product-details {
+    display: flex;
+    flex-grow: 1; /* Allows the product details to expand and use available space */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-details h2, .product-details p {
+    margin: 0 10px; /* Adds spacing around text elements */
+}
+
+.add-to-cart {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #444;
+}
+
+
+.product-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.product-details h2 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.product-details .price {
+    font-weight: bold;
+}
+
+.product-details .old-price {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.product-details .stock-status {
+    color: green;
+}
+
+.product-details .added-date {
+    color: #666;
+    font-size: 0.8em;
+}
+
+.product-details .add-to-cart {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.product-details .add-to-cart:hover {
+    background-color: #444;
+}
