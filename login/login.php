@@ -20,6 +20,15 @@
             <form action = "login_handle.php", method = "post">
                 <input type="email" placeholder="Email Address" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
+                <div class="login-as">Login As</div>
+                <div class="login-options">
+                    <label>
+                        <input type="radio" name="user_role" value="customer" checked> Customer
+                    </label>
+                    <label>
+                        <input type="radio" name="user_role" value="trader"> Trader
+                    </label>
+                </div>
                 <div class="remember-forgot">
                     <label>
                         <input type="checkbox"> Remember me
