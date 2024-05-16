@@ -17,9 +17,17 @@
         </div>
     </nav>
   </header>
+
+<div class="flex-page">
+
+<div class="sidebar">
+  <?php include ('../sidebar/sidebar.html')?>
+</div>
+
+<div class="dashboard">
 <div class="dashboard-header">
   <h1>Greetings, Harefields</h1>
-  <button>Add Product +</button>
+  <button><a href="../addproduct/AddProdcut.html">Add Product +</a></button>
 </div>
 
 <div class="dashboard-stats">
@@ -42,6 +50,8 @@
     <h2>3</h2>
     <p>New Orders Today</p>
   </div>
+</div>
+</div>
 </div>
 
 </body>
