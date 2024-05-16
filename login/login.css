@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,11 +5,10 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif; /* Applying Montserrat font */
+  font-family: 'Montserrat', sans-serif;
   background-color: #382929;
   color: #fff;
   display: flex;
-  
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -25,12 +22,13 @@ body {
   background-color: #fff;
   color: #000;
   overflow: hidden;
+  position: relative;
 }
 
 .left-side {
   flex: 0 0 40%;
-  background-color: #000;
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+  color: #ffffff;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -38,10 +36,27 @@ body {
   align-items: center;
   text-align: center;
   margin-top: -150px;
+  position: relative;
+  z-index: 1; /* Increase the z-index to make the text appear on top of the blurred image */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Horizontal offset, Vertical offset, Blur radius, Color */
+}
+
+.left-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../3.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Apply blur effect */
+  z-index: -1; /* Decrease the z-index to make the blurred image appear behind the text */
 }
 
 .left-side .logo {
-  max-width: 200px;
+  max-width: 300px;
   margin-bottom: 20px;
 }
 
@@ -55,13 +70,12 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
-
 .right-side {
   flex: 0 0 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; 
+  align-items: flex-start;
   padding: 40px;
 }
 
@@ -73,24 +87,27 @@ body {
 }
 
 .right-side form {
-  width: 100%; 
+  width: 100%;
   padding-left: 100px;
 }
 
 .right-side form input {
-  width: 70%; 
-  padding: 14px 14px; 
+  width: 70%;
+  padding: 14px 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 20px;
-  font-size: 16px; /* Increase font size */
+  font-size: 16px;
 }
-.right-side form .login-as{
+
+.right-side form .login-as {
   font-size: large;
 }
+
 .right-side form .radio {
   width: 70%;
 }
+
 .right-side form .radio input[type="radio"] {
   margin-right: 5px;
   margin-left: -170px;
@@ -100,10 +117,11 @@ body {
   display: inline-block;
   margin-left: -160px;
 }
+
 .remember-forgot {
   display: flex;
-  justify-content: space-between; /* Spread the elements apart */
-  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+  align-items: center;
   font-size: 14px;
   margin-bottom: 10px;
   width: 70%;
@@ -111,12 +129,12 @@ body {
 }
 
 .remember-forgot label {
-  display: flex; /* Make label a flex container */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
 }
 
 .remember-forgot label input {
-  margin-right: 5px; /* Add some margin between the checkbox and the text */
+  margin-right: 5px;
 }
 
 .remember-forgot a {
@@ -125,7 +143,7 @@ body {
 
 .right-side form button {
   width: 70%;
-  margin-right: 14px; 
+  margin-right: 14px;
   padding: 12px 16px;
   background-color: #000;
   color: #fff;
@@ -146,12 +164,9 @@ body {
   color: #007bff;
   text-decoration: none;
 }
+
 .login-container .login-as {
-  margin-bottom: 20px; /* Adjust the margin as needed */
-  padding-left: 100px; /* Add padding to align with the radio buttons */
+  margin-bottom: 20px;
+  padding-left: 100px;
   margin-left: -100px;
 }
-.login-container .login-options{
-  margin-left: -380px;
-} 
-

@@ -10,8 +10,8 @@
 
 <body>
     <div class="login-container">
-        <div class="left-side">
-            <img src="../image/login-register/logo.png" alt="C-Fresh Logo" class="logo">
+    <div class="left-side blurred-background">
+            <img src="../image/logos.png" alt="C-Fresh Logo" class="logo">
             <h1>Login to your<br>C-Fresh Account</h1>
             <p>Begin purchasing from us and show your<br>support for regional goods.</p>
         </div>
