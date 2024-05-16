@@ -11,8 +11,7 @@ body {
   background-color: #382929;
   color: #fff;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -86,7 +85,21 @@ body {
   margin-bottom: 20px;
   font-size: 16px; /* Increase font size */
 }
+.right-side form .login-as{
+  font-size: large;
+}
+.right-side form .radio {
+  width: 70%;
+}
+.right-side form .radio input[type="radio"] {
+  margin-right: 5px;
+  margin-left: -170px;
+}
 
+.right-side form .radio label {
+  display: inline-block;
+  margin-left: -160px;
+}
 .remember-forgot {
   display: flex;
   justify-content: space-between; /* Spread the elements apart */
@@ -94,6 +107,7 @@ body {
   font-size: 14px;
   margin-bottom: 10px;
   width: 70%;
+  margin-left: -10px;
 }
 
 .remember-forgot label {
@@ -132,54 +146,12 @@ body {
   color: #007bff;
   text-decoration: none;
 }
-
-@media only screen and (max-width: 768px) {
-  .login-container {
-    flex-direction: column;
-  }
-
-  .left-side {
-    flex: 1 1 auto;
-  }
-
-  .right-side {
-    flex: 1 1 auto;
-    padding: 20px;
-  }
-
-  .right-side h2 {
-    padding-left: 0;
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-
-  .right-side form {
-    padding-left: 0;
-  }
-
-  .right-side form input {
-    width: 100%;
-  }
-
-  .remember-forgot {
-    width: 100%;
-    padding: 0 20px;
-    margin-bottom: 20px;
-  }
-
-  .remember-forgot label,
-  .remember-forgot a {
-    display: block;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .create-account {
-    padding-left: 0;
-    text-align: center;
-  }
+.login-container .login-as {
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  padding-left: 100px; /* Add padding to align with the radio buttons */
+  margin-left: -100px;
 }
+.login-container .login-options{
+  margin-left: -380px;
+} 
 
-.login-as{
-  margin-bottom : 100px;
-}

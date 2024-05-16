@@ -21,15 +21,12 @@
                 <input type="email" placeholder="Email Address" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
                 <div class="login-as">Login As</div>
-                <div class="login-options">
-                    <label>
-                        <input type="radio" name="user_role" value="customer" checked> Customer
-                    </label>
-                    <label>
-                        <input type="radio" name="user_role" value="trader"> Trader
-                    </label>
-                </div>
-                <div class="remember-forgot">
+                <div class="radio">
+                <input type="radio" id="trader" name="fav_language" value="trader" />
+                <label for="trader">Trader</label><br/>
+                <input type="radio" id="customer" name="fav_language" value="customer" />
+                <label for="customer">Customer</label><br/></div>
+                        <div class="remember-forgot">
                     <label>
                         <input type="checkbox"> Remember me
                     </label>
@@ -37,7 +34,7 @@
                         <a href="#">Forgot Password?</a>
                     </div>
                 </div>
-                <button type="submit">Login As</button>
+                <button type="submit">Login</button>
             </form>
             <p class="create-account">Don't have an account? <a href="#">Create Your Account</a></p>
         </div>
