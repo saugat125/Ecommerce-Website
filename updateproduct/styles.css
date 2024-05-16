@@ -28,6 +28,12 @@ body {
     align-items: center;
 }
 
+.flex-page{
+    display: flex;
+}
+.main-container{
+    width: 100%;
+}
 .menu {
     display: flex;
     align-items: center;

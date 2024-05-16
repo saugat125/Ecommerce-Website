@@ -30,8 +30,12 @@ nav {
     padding-top: 15px;
 }
 
-.icons {
+/* .icons {
     margin-right: 20px;
+} */
+
+.flex-page{
+    display: flex;
 }
 
 .nav-icons .user {
@@ -107,16 +111,20 @@ button {
 button:hover {
     background-color: #555;
 }
-
+.add-btn{
+    text-align: right;
+    margin-top: 40px;
+}
 .add-product {
     margin-top: 20px;
     padding: 15px 30px;
     background-color: #000000;
-    margin-left: 1320px;
+    
 }
 .add-product a{
     color: white;
     text-decoration: none;
+    font-size: 14px;
 }
 td button a{
     color: white;
