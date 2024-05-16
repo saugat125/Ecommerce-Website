@@ -114,10 +114,9 @@ body {
     display: flex;
 }
 
-.side-menu {
-    background-color: #f7f7f7;
-    padding: 20px;
-    width: 250px; /* Adjust as needed */
+.sidebar {
+    width: 300px; /* Adjust as needed */
+    overflow-y: auto;
 }
 
 .content {

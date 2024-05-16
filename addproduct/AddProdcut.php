@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="navbar-left">
             <div class="menu">
                 <div class="menu-icon">&#9776;</div>
-                <span>Products > Update Products</span>
+                <span>Products > Add New Products</span>
             </div>
         </div>
         <div class="navbar-right">
@@ -30,12 +31,13 @@
         </div>
     </nav>
     <div class="main-container">
-        <div class="side-menu">
-            <!-- Side menu content (to be added later) -->
-        </div>
+        <div class="sidebar">
+            <?php include ('../sidebar/sidebar.html')?>
+          </div>          
+
         <div class="content">
             <div class="inner-box">
-                <h2>Update Product</h2>
+                <h2>Add New Product</h2>
                 <div class="form-container">
                     <div class="container">
                         <div class="section">
@@ -118,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="update-product-button">Update Product</button>
+                <button class = "add-product-button">Add Product</button>
             </div>
         </div>
     </div>

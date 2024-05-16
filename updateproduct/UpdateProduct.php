@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Update Product</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <div class="navbar-left">
             <div class="menu">
                 <div class="menu-icon">&#9776;</div>
-                <span>Products > Add New Products</span>
+                <span>Products > Update Products</span>
             </div>
         </div>
         <div class="navbar-right">
@@ -30,12 +30,13 @@
         </div>
     </nav>
     <div class="main-container">
-        <div class="side-menu">
-            <!-- Side menu content (to be added later) -->
-        </div>
+        <div class="sidebar">
+            <?php include ('../sidebar/sidebar.html')?>
+          </div>     
+
         <div class="content">
             <div class="inner-box">
-                <h2>Add New Product</h2>
+                <h2>Update Product</h2>
                 <div class="form-container">
                     <div class="container">
                         <div class="section">
@@ -118,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <button class = "add-product-button">Add Product</button>
+                <button class="update-product-button">Update Product</button>
             </div>
         </div>
     </div>

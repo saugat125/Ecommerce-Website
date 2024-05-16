@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
-
 body {
     margin: 0;
     font-family: "Montserrat", sans-serif;
@@ -114,10 +111,8 @@ body {
     display: flex;
 }
 
-.side-menu {
-    background-color: #f7f7f7;
-    padding: 20px;
-    width: 250px; /* Adjust as needed */
+.sidebar {
+width: 300 px;
 }
 
 .content {
