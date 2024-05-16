@@ -22,10 +22,10 @@
                 <input type="password" placeholder="Password" name="password" required>
                 <div class="login-as">Login As</div>
                 <div class="radio">
-                <input type="radio" id="trader" name="fav_language" value="trader" />
-                <label for="trader">Trader</label><br/>
-                <input type="radio" id="customer" name="fav_language" value="customer" />
-                <label for="customer">Customer</label><br/></div>
+                <input type="radio" id="customer" name="user_role" value="customer" />
+                <label for="customer">Customer</label><br/>
+                <input type="radio" id="trader" name="user_role" value="trader" />
+                <label for="trader">Trader</label><br/></div>
                         <div class="remember-forgot">
                     <label>
                         <input type="checkbox"> Remember me
