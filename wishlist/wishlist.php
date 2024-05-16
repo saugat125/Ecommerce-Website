@@ -5,42 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Wishlist</title>
     <link rel="stylesheet" href="wishlist.css">
+    <!-- Include FontAwesome CDN for the heart icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+    <div class="wishlist-header">
+        <i class="fa fa-heart"></i> <!-- Heart icon -->
+        <h1>My Wishlist</h1>
+    </div>
     <div class="wishlist-container">
-        <header>
-            <h1>My Wishlist</h1>
-        </header>
         <div class="product-list">
             <div class="product-item">
-                <img src="beanie-logo.jpg" alt="Beanie with Logo">
+                <img src="organic-carrots.jpg" alt="Organic Carrots">
                 <div class="product-details">
-                    <h2>Beanie with Logo</h2>
-                    <p class="price"><span class="old-price">$20.00</span> $18.00</p>
+                    <h2>Organic Carrots</h2>
+                    <p class="price">€2.50</p>
                     <p class="stock-status">In Stock</p>
-                    <p class="added-date">Added on: December 5, 2019</p>
-                    <button class="add-to-cart">Add to cart</button>
                 </div>
+                <button class="add-to-cart">ADD TO CART+</button>
             </div>
             <div class="product-item">
-                <img src="classy-shirt.jpg" alt="Classy shirt">
+                <img src="fresh-apples.jpg" alt="Fresh Apples">
                 <div class="product-details">
-                    <h2>Classy shirt</h2>
-                    <p class="price">$16.00</p>
+                    <h2>Fresh Apples</h2>
+                    <p class="price">€3.00</p>
                     <p class="stock-status">In Stock</p>
-                    <p class="added-date">Added on: December 6, 2019</p>
-                    <button class="add-to-cart">Add to cart</button>
                 </div>
+                <button class="add-to-cart">ADD TO CART+</button>
             </div>
             <div class="product-item">
-                <img src="beanie.jpg" alt="Beanie">
+                <img src="ribeye-steak.jpg" alt="Ribeye Steak">
                 <div class="product-details">
-                    <h2>Beanie</h2>
-                    <p class="price"><span class="old-price">$20.00</span> $18.00</p>
+                    <h2>Ribeye Steak</h2>
+                    <p class="price">€15.00</p>
                     <p class="stock-status">In Stock</p>
-                    <p class="added-date">Added on: December 6, 2019</p>
-                    <button class="add-to-cart">Add to cart</button>
                 </div>
+                <button class="add-to-cart">ADD TO CART+</button>
+            </div>
+            <div class="product-item">
+                <img src="cheddar-cheese.jpg" alt="Cheddar Cheese">
+                <div class="product-details">
+                    <h2>Cheddar Cheese</h2>
+                    <p class="price">€4.50</p>
+                    <p class="stock-status">In Stock</p>
+                </div>
+                <button class="add-to-cart">ADD TO CART+</button>
+            </div>
+            <div class="product-item">
+                <img src="organic-bananas.jpg" alt="Organic Bananas">
+                <div class="product-details">
+                    <h2>Organic Bananas</h2>
+                    <p class="price">€3.50</p>
+                    <p class="stock-status">In Stock</p>
+                </div>
+                <button class="add-to-cart">ADD TO CART+</button>
             </div>
         </div>
     </div>
