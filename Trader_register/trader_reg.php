@@ -20,6 +20,11 @@
                 <h1>Create Account</h1>
                 <div class="form-group">
                     <div class="form-control">
+                        <p style="font-weight: bold; font-size: 30px;">Trader Details</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-control">
                         <input type="text" name="first_name" placeholder="First Name" required>
                     </div>
                     <div class="form-control">
@@ -51,6 +56,24 @@
                     <div class="form-control">
                         <input type="password" id="confirm-password" name="confirm_password"
                             placeholder="Confirm Password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-control">
+                        <p style="font-weight: bold; font-size: 30px; margin-top: 20px;">Shop Details</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-control">
+                        <input type="text" name="shop_name" placeholder="Shop Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="shop_desc" placeholder="Shop Description" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-control">
+                        <input type="text" id="address" name="shop_address" placeholder="Shop Address" required>
                     </div>
                 </div>
                 <div class="form">

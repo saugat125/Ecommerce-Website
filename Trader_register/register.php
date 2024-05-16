@@ -10,6 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
+    $shop_name = $_POST['shop_name'];
+    $shop_desc = $_POST['shop_desc'];
+    $shop_address = $_POST['shop_address'];
+
     // Prepare SQL statement for insertion into USERS table
     $sql_users = "INSERT INTO USERS (user_name, email, password, user_role, first_name, last_name, date_of_birth, phone_number) 
                   VALUES (:email, :email, :password, 'trader', :first_name, :last_name, TO_DATE(:date_of_birth, 'YYYY-MM-DD'), :phone_number)";
@@ -39,21 +43,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_free_statement($stmt_users);
     oci_free_statement($stmt_user_id);
 
-    // Prepare SQL statement for insertion into CUSTOMER table
-    $sql_customer = "INSERT INTO TRADER (user_id, date_joined, isVerified) 
+    // Prepare SQL statement for insertion into TRADER table
+    $sql_trader = "INSERT INTO TRADER (user_id, date_joined, isVerified) 
                      VALUES (:user_id, SYSDATE, 'N')";
-    $stmt_customer = oci_parse($conn, $sql_customer);
-    oci_bind_by_name($stmt_customer, ':user_id', $user_id);
+    $stmt_trader = oci_parse($conn, $sql_trader);
+    oci_bind_by_name($stmt_trader, ':user_id', $user_id);
 
-    // Execute SQL statement for insertion into CUSTOMER table
-    $result_customer = oci_execute($stmt_customer);
-    if (!$result_customer) {
+    // Execute SQL statement for insertion into TRADER table
+    $result_trader = oci_execute($stmt_trader);
+    if (!$result_trader) {
         echo "Error inserting into TRADER table: " . oci_error($stmt_customer);
         exit;
     }
 
+
+    //Prepare SQL query to update SHOP of TRADER
+    $sql_shop = "UPDATE SHOP
+    SET shop_name = :shop_name,
+        shop_description = :shop_description,
+        address = :address
+    WHERE trader_id = :trader_id";
+
+    $stmt_shop = oci_parse($conn, $sql_shop);
+
+    oci_bind_by_name($stmt_shop, ':shop_name', $shop_name);
+    oci_bind_by_name($stmt_shop, ':shop_description', $shop_desc);
+    oci_bind_by_name($stmt_shop, ':address', $shop_address);
+    oci_bind_by_name($stmt_shop, ':trader_id', $user_id);
+
+    $result_shop = oci_execute($stmt_shop);
+
+    if (!$result_shop) {
+    echo "Error updating SHOP table: " . oci_error($stmt_shop);
+    exit;
+    }
+
+
     // Free statement
-    oci_free_statement($stmt_customer);
+    oci_free_statement($stmt_trader);
+    oci_free_statement($stmt_shop);
 
     echo "Account created successfully!";
 
