@@ -42,10 +42,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../3.jpg');
+  background-image: url('../image/login-register/grape.jpg');
   background-size: cover;
   background-position: center;
-  filter: blur(5px); /* Apply blur effect */
+  filter: blur(1px); /* Apply blur effect */
   z-index: -1; /* Decrease the z-index to make the blurred image appear behind the text */
 }
 
