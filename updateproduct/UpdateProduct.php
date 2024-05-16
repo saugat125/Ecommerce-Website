@@ -37,10 +37,6 @@
     </div>
 
     <div class="main-container">
-        <div class="sidebar">
-            <?php include ('../sidebar/sidebar.html')?>
-          </div>     
-
         <div class="content">
             <div class="inner-box">
                 <h2>Update Product</h2>
