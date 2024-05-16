@@ -114,6 +114,14 @@ button:hover {
     background-color: #000000;
     margin-left: 1320px;
 }
+.add-product a{
+    color: white;
+    text-decoration: none;
+}
+td button a{
+    color: white;
+    text-decoration: none;
+}
 
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
