@@ -27,7 +27,7 @@
 <div class="dashboard">
 <div class="dashboard-header">
   <h1>Greetings, Harefields</h1>
-  <button><a href="../addproduct/AddProdcut.html">Add Product +</a></button>
+  <button><a href="../addproduct/AddProdcut.php">Add Product +</a></button>
 </div>
 
 <div class="dashboard-stats">

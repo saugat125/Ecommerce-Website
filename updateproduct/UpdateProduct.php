@@ -29,6 +29,13 @@
             </div>
         </div>
     </nav>
+
+    <div class="flex-page">
+
+    <div class="sidebar">
+        <?php include ('../sidebar/sidebar.html') ?>
+    </div>
+
     <div class="main-container">
         <div class="sidebar">
             <?php include ('../sidebar/sidebar.html')?>
@@ -122,6 +129,7 @@
                 <button class="update-product-button">Update Product</button>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

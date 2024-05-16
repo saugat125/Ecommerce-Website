@@ -25,10 +25,18 @@ body {
     align-items: center;
 }
 
+.flex-page{
+    display: flex;
+}
 .menu {
     display: flex;
     align-items: center;
     cursor: pointer;
+    
+}
+
+.main-container{
+    width: 100%;
 }
 
 .menu-icon {

@@ -17,6 +17,12 @@
             </div>
         </nav>
     </header>
+
+    <div class="flex-page">
+
+    <div class="sidebar">
+        <?php include ('../sidebar/sidebar.html')?>
+    </div>
     <main>
         <h1>Products</h1>
         <div class="search-bar">
@@ -47,7 +53,7 @@
                         <td>**************</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
-                        <td><button><a href="../updateproduct/UpdateProduct.html">Edit</a></button></td>
+                        <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
                     </tr>
                     <!-- Add more rows as needed -->
                     <tr>
@@ -57,7 +63,7 @@
                         <td>**************</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
-                        <td><button><a href="../updateproduct/UpdateProduct.html">Edit</a></button></td>
+                        <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
                     </tr>
                     <tr>
                         <td>****</td>
@@ -66,7 +72,7 @@
                         <td>**************</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
-                        <td><button><a href="../updateproduct/UpdateProduct.html">Edit</a></button></td>
+                        <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
                     </tr>
                     <tr>
                         <td>****</td>
@@ -75,7 +81,7 @@
                         <td>**************</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
-                        <td><button><a href="../updateproduct/UpdateProduct.html">Edit</a></button></td>
+                        <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
                     </tr>
                     <tr>
                         <td>****</td>
@@ -84,12 +90,16 @@
                         <td>**************</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
-                        <td><button><a href="../updateproduct/UpdateProduct.html">Edit</a></button></td>
+                        <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <button class="add-product"><a href="../addproduct/AddProdcut.html">ADD PRODUCT</a></button>
+        <div class="add-btn">
+            <button class="add-product"><a href="../addproduct/AddProdcut.php">ADD PRODUCT</a></button>
+        </div>
+        
     </main>
+    </div>
 </body>
 </html>
