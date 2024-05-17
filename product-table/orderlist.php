@@ -36,11 +36,12 @@
             <table>
                 <thead>
                     <tr>
+                        <th>PRODUCT IMAGE</th>
                         <th>PRODUCT NAME</th>
-                        <th>DESCRIPTION</th>
                         <th>STOCK</th>
                         <th>PRICE(£)</th>
                         <th>ALLERGY INFO</th>
+                        <th>MAX ORDER</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -50,7 +51,8 @@
                         <td>****</td>
                         <td>****</td>
                         <td>****</td>
-                        <td>**************</td>
+                        <td>****</td>
+                        <td>xxxx</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
                         <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
@@ -60,7 +62,8 @@
                         <td>****</td>
                         <td>****</td>
                         <td>****</td>
-                        <td>**************</td>
+                        <td>****</td>
+                        <td>xxxx</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
                         <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
@@ -69,7 +72,8 @@
                         <td>****</td>
                         <td>****</td>
                         <td>****</td>
-                        <td>**************</td>
+                        <td>****</td>
+                        <td>xxxx</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
                         <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
@@ -78,7 +82,8 @@
                         <td>****</td>
                         <td>****</td>
                         <td>****</td>
-                        <td>**************</td>
+                        <td>****</td>
+                        <td>xxxx</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
                         <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>
@@ -87,7 +92,8 @@
                         <td>****</td>
                         <td>****</td>
                         <td>****</td>
-                        <td>**************</td>
+                        <td>****</td>
+                        <td>xxxx</td>
                         <td>xxxx</td>
                         <td><button>Delete</button></td>
                         <td><button><a href="../updateproduct/UpdateProduct.php">Edit</a></button></td>

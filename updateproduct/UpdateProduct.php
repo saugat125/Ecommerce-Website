@@ -37,22 +37,12 @@
     </div>
 
     <div class="main-container">
-        <div class="content">
+        <div<div class="content">
             <div class="inner-box">
-                <h2>Update Product</h2>
+                <h2 >Update Product</h2>
                 <div class="form-container">
                     <div class="container">
                         <div class="section">
-                            <h3>Product Images</h3>
-                            <p class ="grey-text">Upload images</p>
-                            <div class="upload-box">
-                                <!-- Upload image box -->
-                                <input type="file" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="section">
-                            <h3>Product Information</h3>
-                            <p class="grey-text">Please provide detailed information</p>
                             <div class="section">
                                 <h3>Product Name</h3>
                                 <div class="input-box">
@@ -60,58 +50,8 @@
                                 </div>
                             </div>
                             <div class="section">
-                                <h3>Product Category</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Category">
-                                </div>
-                            </div>
-                            <div class="section">
                                 <h3>Description</h3>
                                 <textarea class="description-box" placeholder="Description"></textarea>
-                            </div>
-                            <div class="section">
-                                <h3>Shop Name</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Shop Name">
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="pricing-container">
-                    <div class="form-container">
-                        <h2>Pricing</h2>
-                        <p class="grey-text">Please provide detailed information</p>
-                        <div class="container">
-                            <div class="section">
-                                <h3>Base Price</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Base Price">
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h3>Offer Type</h3>
-                                <div class="input-box">
-                                    <select>
-                                        <option>Choose Offer Type</option>
-                                        <option>Discount</option>
-                                        <option>Bundle Offer</option>
-                                        <option>None</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h3>Quantity</h3>
-                                <div class="input-box">
-                                    <select>
-                                        <option>Please select</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
                             </div>
                             <div class="section">
                                 <h3>Stock</h3>
@@ -119,10 +59,42 @@
                                     <input type="text" placeholder="Stock">
                                 </div>
                             </div>
+                            <div class="section">
+                                <h3>Price</h3>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h3>Allergy Information</h3>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Allergy">
+                                </div>
+                            </div>
+                            <!-- <div class="section">
+                                <h3>Minimum Order</h3>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Minumum">
+                                </div>
+                            </div> -->
+                            <div class="section">
+                                <h3>Maximum Order</h3>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Maximum">
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h3>Product Image</h3>
+                                <p class ="grey-text">Upload image</p>
+                                <div class="upload-box">
+                                    <input type="file" accept="image/*">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="update-product-button">Update Product</button>
+
+                <button class = "update-product-button">Update Product</button>
             </div>
         </div>
     </div>
