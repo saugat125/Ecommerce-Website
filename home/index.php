@@ -10,9 +10,10 @@
 <body>
 <div class="hero-section">
     <div class="slider">
-        <img src="images/banner.png" alt="Local Market" class="slide active">
-        <img src="images/bannerimage2.webp" alt="Second Image" class="slide">
-        <img src="images/bannerimage3.webp" alt="Third Image" class="slide">
+        <img src="images/banner1.jpg" alt="Local Market" class="slide active">
+        <img src="images/banner2.jpg" alt="Second Image" class="slide">
+        <img src="images/banner3.jpg" alt="Second Image" class="slide">
+        <img src="images/banner4.jpg" alt="Third Image" class="slide">
     </div>
 </div>
 <script>

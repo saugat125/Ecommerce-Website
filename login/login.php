@@ -36,7 +36,7 @@
                 </div>
                 <button type="submit">Login</button>
             </form>
-            <p class="create-account">Don't have an account? <a href="#">Create Your Account</a></p>
+            <p class="create-account">Don't have an account? <a href="../Customer_register/customer_reg.php">Create Your Account</a></p>
         </div>
     </div>
 </body>
