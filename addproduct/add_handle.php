@@ -22,7 +22,6 @@
             echo'<script>alert("ERROR: '.oci_error($insert_stmt).'")</script>';
         }
 
-
     }
-
+    oci_close($conn);
 ?>
