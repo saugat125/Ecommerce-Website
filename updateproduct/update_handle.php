@@ -21,7 +21,8 @@
 
         if (oci_execute($update_stmt)) {
             header('location: ../product-table/manage_product.php');
-        } else {
+        } 
+        else {
             echo '<script>alert("ERROR: ' . oci_error($update_stmt) . '")</script>';
         }
 
