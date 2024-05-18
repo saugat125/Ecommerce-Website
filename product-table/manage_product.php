@@ -85,7 +85,7 @@
                             }
                             echo "</td>";
                             echo '    <td><button class="delete-btn"><a href="../deleteproduct/deleteProduct.php?ID=' . $row['PRODUCT_ID'] . '">Delete</a></button></td>';
-                            echo "<td><button class='update-btn'><a href=''>Edit</a></button></td>";
+                            echo '    <td><button class="update-btn"><a href="../updateproduct/UpdateProduct.php?ID=' . $row['PRODUCT_ID'] . '">Edit</a></button></td>';
                             echo "</tr>";
                         }
 

@@ -49,29 +49,29 @@
                                 <div class="section">
                                     <h3>Product Name</h3>
                                     <div class="input-box">
-                                        <input type="text" placeholder="Sample product" name="name">
+                                        <input type="text" placeholder="Sample product" name="name" required>
                                     </div>
                                 </div>
                                 <div class="section">
                                     <h3>Description</h3>
-                                    <textarea class="description-box" placeholder="Description" name="description"></textarea>
+                                    <textarea class="description-box" placeholder="Description" name="description" required></textarea>
                                 </div>
                                 <div class="section">
                                     <h3>Stock</h3>
                                     <div class="input-box">
-                                        <input type="text" placeholder="Stock" name="stock">
+                                        <input type="text" placeholder="Stock" name="stock" required>
                                     </div>
                                 </div>
                                 <div class="section">
                                     <h3>Price</h3>
                                     <div class="input-box">
-                                        <input type="text" placeholder="Price" name="price">
+                                        <input type="text" placeholder="Price" name="price" required>
                                     </div>
                                 </div>
                                 <div class="section">
                                     <h3>Allergy Information</h3>
                                     <div class="input-box">
-                                        <input type="text" placeholder="Allergy" name="allergy">
+                                        <input type="text" placeholder="Allergy" name="allergy" required>
                                     </div>
                                 </div>
                                 <!-- <div class="section">
@@ -83,15 +83,16 @@
                                 <div class="section">
                                     <h3>Maximum Order</h3>
                                     <div class="input-box">
-                                        <input type="text" placeholder="Maximum" name="max_order">
+                                        <input type="text" placeholder="Maximum" name="max_order" required>
                                     </div>
                                 </div>
                                 <div class="section">
                                     <h3>Product Image</h3>
                                     <p class ="grey-text">Upload image</p>
                                     <div class="upload-box">
-                                        <input type="file" accept="image/*" name="image">
+                                        <input type="file" accept="image/*" name="image" id="pimage" required>
                                     </div>
+                                    <img id="image-preview" width="160px" height="160px" src="#" alt="Image Preview" style="display: none;">
                                 </div>
                             </div>
                         </div>
@@ -105,5 +106,29 @@
         </div>
     </div>
     </div>
+    <script>
+        document.getElementById('pimage').addEventListener('change', function() {
+            const fileInput = this;
+            const fileNameDisplay = document.getElementById('file-name');
+            const imagePreview = document.getElementById('image-preview');
+
+            const file = fileInput.files[0];
+            if (file) {
+
+
+                // Check if the selected file is an image
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+            } 
+            else {
+                fileNameDisplay.textContent = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

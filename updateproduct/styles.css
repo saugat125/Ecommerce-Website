@@ -246,4 +246,6 @@ h2 {
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px; /* Add some space between the button and the pricing box */
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
