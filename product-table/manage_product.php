@@ -71,8 +71,6 @@
 
                         while ($row = oci_fetch_assoc($product_stmt)) {
 
-                            $product_id = $row['PRODUCT_ID'];
-
                             echo "<tr>";
                             echo '<td><img src="../image/' . $row['PRODUCT_IMAGE'] . '" width="80px" height="auto" alt="Image"></td>';
                             echo "<td>" . $row['PRODUCT_NAME'] . "</td>";
@@ -86,7 +84,7 @@
                                 echo "Not Approved";
                             }
                             echo "</td>";
-                            echo "<td><button class='delete-btn'><a href='../deleteproduct/deleteProduct.php'>Delete</a></button></td>";
+                            echo '    <td><button class="delete-btn"><a href="../deleteproduct/deleteProduct.php?ID=' . $row['PRODUCT_ID'] . '">Delete</a></button></td>';
                             echo "<td><button class='update-btn'><a href=''>Edit</a></button></td>";
                             echo "</tr>";
                         }
