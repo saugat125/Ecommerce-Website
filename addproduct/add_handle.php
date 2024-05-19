@@ -16,7 +16,7 @@
         $insert_stmt = oci_parse($conn,$query);
 
         if(oci_execute($insert_stmt)){
-            header ('location: ../product-table/orderlist.php');
+            header ('location: ../product-table/manage_product.php');
         }
         else{
             echo'<script>alert("ERROR: '.oci_error($insert_stmt).'")</script>';

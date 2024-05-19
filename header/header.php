@@ -29,20 +29,20 @@
                     <li><a href="../login/login.php"><button class="login-btn">Login</button></a></li>
                     <li><a href="../Customer_register/register.php"></a><button class="signup-btn">Signup</button></a></li>
                     <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
-                    <li><a href="../"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
+                    <li><a href="../wishlist/wishlist.php"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
                 </ul>
             </nav>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="../home/index.php">Home</a></li>
+                <li><a href="../allproducts/allproducts.php">Products</a></li>
+                <li><a href="../aboutus/aboutus.php">About us</a></li>
+                <li><a href="../contact/contactus.php">Contact us</a></li>
             </ul>
         </div>
     </header>
-
+    <script src="header.js"></script>
  </body>
  </html>
     

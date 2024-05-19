@@ -8,8 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $role = $_POST['user_role'];
 
-    // Preparing the SQL statement
-    $sql = 'SELECT user_id FROM users WHERE user_name = :email AND password = :password AND user_role = :role';
+    // Preparing the SQL statement with a join between users and customer tables
+    $sql = "SELECT u.user_id 
+            FROM users u 
+            JOIN customer c ON u.user_id = c.user_id 
+            WHERE u.user_name = :email 
+              AND u.password = :password 
+              AND u.user_role = :role 
+              AND c.isverified = 'Y'";
 
     $stid = oci_parse($conn, $sql);
 
@@ -30,16 +36,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $row['USER_ID'];
         $_SESSION['user_role'] = $role;
 
-        echo "Login successful!";
+        $_SESSION['notification'] = [
+            'message' => 'Login successful!',
+            'type' => 'success'
+        ];
+
         // Redirect to the appropriate page
         header("Location: ../home/index.php");
         exit;
     } else {
-        echo "Invalid email or password.";
-    }
+        $_SESSION['notification'] = [
+            'message' => 'Invalid email or password.',
+            'type' => 'error'
+        ];
 
+        // Redirect back to the login page
+        header("Location: login.php");
+        exit;
+    }
     // Freeing the statement and closing the connection
     oci_free_statement($stid);
     oci_close($conn);
-}
+}   
 ?>
