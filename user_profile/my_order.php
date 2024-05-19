@@ -7,6 +7,10 @@
 </head>
 
 <body>
+  
+  <!-- Include Header -->
+  <?php include ('../header/header.php') ?>
+
   <!-- User Profile Section-->
   <div class="flex">
     <!-- Manage Account Section -->
@@ -52,6 +56,9 @@
     </div>
   </div>
   
+    <!-- Include Footer -->
+    <?php include ('../footer/footer.php') ?>
+
 <script src="https://cdn.tailwindcss.com"></script>
 </body>
 

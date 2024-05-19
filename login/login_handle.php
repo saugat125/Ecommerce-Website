@@ -8,8 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $role = $_POST['user_role'];
 
-    // Preparing the SQL statement
-    $sql = 'SELECT user_id FROM users WHERE user_name = :email AND password = :password AND user_role = :role';
+    // Preparing the SQL statement with a join between users and customer tables
+    $sql = "SELECT u.user_id 
+            FROM users u 
+            JOIN customer c ON u.user_id = c.user_id 
+            WHERE u.user_name = :email 
+              AND u.password = :password 
+              AND u.user_role = :role 
+              AND c.isverified = 'Y'";
 
     $stid = oci_parse($conn, $sql);
 
