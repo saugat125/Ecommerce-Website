@@ -1,4 +1,7 @@
-<?php include ('../connect.php') ?>
+<?php 
+    include ('../connect.php');
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,9 @@
                 <tbody>
 
                     <?php
-                        $shop_id_query = "SELECT SHOP_ID FROM SHOP WHERE TRADER_ID = 1";
+                        $trader_id = $_SESSION['user_id'];
+
+                        $shop_id_query = "SELECT SHOP_ID FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
                         $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = :shop_id";
 
