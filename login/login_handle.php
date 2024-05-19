@@ -61,6 +61,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
             //Redirect to Trader Dashboard
+            $trader_id = $_SESSION['user_id'];
+            $shop_query = "SELECT * FROM SHOP WHERE TRADER_ID = '$trader_id'";
+
+            $shop_stmt = oci_parse($conn, $shop_query);
+            oci_execute($shop_stmt);
+
+            $row = oci_fetch_assoc($shop_stmt);
+            $_SESSION['shop_id'] = $row['SHOP_ID'];
+
             header("Location: ../trader-dashboard/homepage.php");
         }
         

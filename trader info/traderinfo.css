@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -71,6 +71,7 @@ body {
 
 h1 {
     margin: 10px 0;
+    font-size: 30px!important;
 }
 
 .trader-info {
@@ -79,9 +80,10 @@ h1 {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-bottom: 50px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
 }
@@ -98,16 +100,14 @@ form input {
 
 form button {
     padding: 10px;
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
-
-form button:hover {
-    background-color: #0056b3;
-}
-
 
 
 
