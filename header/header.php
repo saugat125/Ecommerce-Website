@@ -35,10 +35,10 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="../home/index.php">Home</a></li>
+                <li><a href="../allproducts/allproducts.php">Products</a></li>
+                <li><a href="../aboutus/aboutus.php">About us</a></li>
+                <li><a href="../contact/contactus.php">Contact us</a></li>
             </ul>
         </div>
     </header>
