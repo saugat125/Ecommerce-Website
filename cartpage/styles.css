@@ -18,22 +18,27 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
     background-color: #fff;
 }
-
 .continue-shopping-box {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin-bottom: 20px; /* Add margin to separate boxes */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
-.continue-shopping {
-    width: 100%;
-}
-
-.continue-shopping a {
+.continue-shopping-box a {
     text-decoration: none;
     color: #333;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.continue-shopping-box:hover {
+    background-color: black; /* Changes the background to black on hover */
+}
+
+.continue-shopping-box:hover a {
+    color: white; /* Changes the text color to white on hover */
 }
 
 .shopping-cart {
@@ -66,9 +71,8 @@ body {
 
 .product-image {
     width: 100px;
-    height: 100 px;
+    height: 100px; /* Corrected from 100 px to 100px */
     overflow: hidden;
-
 }
 
 .product-image img {
