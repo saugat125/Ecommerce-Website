@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +13,16 @@
 </head>
 
 <body>
+<?php
+    if (isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+        $message_type = $_SESSION['message_type'];
+        echo "<div class='alert $message_type'>$message</div>";
+        unset($_SESSION['message']);
+        unset($_SESSION['message_type']);
+    }
+    ?>
+
     <div class="container">
         <div class="left-side blurred-background">
             <img src="../image/logos.png" alt="C-Fresh Logo" class="logo">
@@ -69,6 +83,20 @@
             </form>
         </div>
     </div>
+    <script>
+        window.onload = function() {
+            var alert = document.querySelector('.alert');
+            if (alert) {
+                setTimeout(function() {
+                    alert.style.opacity = '0';
+                    setTimeout(function() {
+                        alert.remove();
+                    }, 600);
+                }, 3000);
+            }
+        };
+    </script>
+    
 </body>
 
 </html>

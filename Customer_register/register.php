@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../connect.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -182,13 +183,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_bind_by_name($stmt_users, ':phone_number', $phone_number);
 
     // Execute SQL statement for insertion into USERS table
+<<<<<<< HEAD
     $result_users = oci_execute($stmt_users, OCI_COMMIT_ON_SUCCESS);
     if (!$result_users) {
         $e = oci_error($stmt_users);
         echo "Error inserting into USERS table: " . htmlentities($e['message']);
+=======
+    if (!oci_execute($stmt_users)) {
+        $_SESSION['message'] = "Error inserting into USERS table: " . oci_error($stmt_users);
+        $_SESSION['message_type'] = 'error';
+        header("Location: Customer_register/customer_reg.php");
+>>>>>>> 446e89b79afd50f06293dc1f1e712f09cf80e210
         exit;
     }
-
     // Get the user_id of the newly inserted user from USERS table
     $user_id_query = "SELECT user_id_seq.CURRVAL AS user_id FROM dual";
     $stmt_user_id = oci_parse($conn, $user_id_query);
@@ -211,6 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_bind_by_name($stmt_customer, ':verification_code', $verification_code);
 
     // Execute SQL statement for insertion into CUSTOMER table
+<<<<<<< HEAD
     $result_customer = oci_execute($stmt_customer, OCI_COMMIT_ON_SUCCESS);
     if (!$result_customer) {
         $e = oci_error($stmt_customer);
@@ -220,15 +228,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!sendMail($email, $verification_code)){
         echo "Error in sending mail.";
+=======
+    if (!oci_execute($stmt_customer)) {
+        $_SESSION['message'] = "Error inserting into CUSTOMER table: " . oci_error($stmt_customer);
+        $_SESSION['message_type'] = 'error';
+        header("Location: Customer_register/customer_reg.php");
+        exit;
+    }
+
+    if (!sendMail($email, $verification_code)) {
+        $_SESSION['message'] = "Error in sending email. Please try again.";
+        $_SESSION['message_type'] = 'error';
+        header("Location: Customer_register/customer_reg.php");
+        exit;
+>>>>>>> 446e89b79afd50f06293dc1f1e712f09cf80e210
     }
 
     // Free statement
     oci_free_statement($stmt_customer);
 
-    echo "Account created successfully!";
 
-    // Redirect to login.php
-    header("Location: ../login/login.php");
+    $_SESSION['message'] = "Account created successfully! Please check your email to verify your account.";
+    $_SESSION['message_type'] = 'success';
+    header("Refresh: 3; URL= login/login.php"); // Delay before redirecting
     exit;
 }
 

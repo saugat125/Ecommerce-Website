@@ -36,16 +36,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $row['USER_ID'];
         $_SESSION['user_role'] = $role;
 
-        echo "Login successful!";
+        $_SESSION['notification'] = [
+            'message' => 'Login successful!',
+            'type' => 'success'
+        ];
+
         // Redirect to the appropriate page
         header("Location: ../home/index.php");
         exit;
     } else {
-        echo "Invalid email or password.";
-    }
+        $_SESSION['notification'] = [
+            'message' => 'Invalid email or password.',
+            'type' => 'error'
+        ];
 
+        // Redirect back to the login page
+        header("Location: login.php");
+        exit;
+    }
     // Freeing the statement and closing the connection
     oci_free_statement($stid);
     oci_close($conn);
-}
+}   
 ?>

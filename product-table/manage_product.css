@@ -95,7 +95,9 @@ th, td {
 th {
     background-color: #ddd;
 }
-
+img{
+    margin-left: 10px;
+}
 /* Button Styles */
 button {
     padding: 10px 20px;
@@ -106,10 +108,13 @@ button {
     color: #fff;
     transition: background-color 0.3s ease;
     border-radius: 10px;
+    transition: 0.3s all ease;
 }
 
 button:hover {
-    background-color: #555;
+    /* background-color: #555; */
+    text-decoration: underline;
+    transition: 0.3s all ease;
 }
 .add-btn{
     text-align: right;
@@ -127,8 +132,14 @@ button:hover {
     font-size: 14px;
 }
 td button a{
-    color: white;
+    color: black;
     text-decoration: none;
+}
+.delete-btn a:hover{
+    color: red;
+}
+.delete-btn:hover{
+    color: red;
 }
 
 /* Responsive Styles */

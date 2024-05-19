@@ -1,4 +1,5 @@
 <?php
+session_start();
     include "../connect.php";
 
     if (isset($_GET['email']) && isset($_GET['verification_code']))
@@ -40,19 +41,34 @@
                     oci_bind_by_name($query_parse_update, ':user_id', $user_id);
                     oci_execute($query_parse_update);
 
+ 
                     if (oci_commit($conn)) {
-                        echo "User with user_id: $user_id has been verified successfully.";
+                        $_SESSION['message'] = "User with user_id: $user_id has been verified successfully.";
+                        $_SESSION['message_type'] = 'success';
                     } else {
-                        echo "Error occurred while verifying the user.";
+                        $_SESSION['message'] = "Error occurred while verifying the user.";
+                        $_SESSION['message_type'] = 'error';
                     }
                 } else {
-                    echo "Email is already verified";
+                    $_SESSION['message'] = "Email is already verified.";
+                    $_SESSION['message_type'] = 'error';
                 }
-        } 
-        else {
-            echo "No user found with email: $email";
+            } else {
+                $_SESSION['message'] = "Invalid verification code.";
+                $_SESSION['message_type'] = 'error';
+            }
+        } else {
+            $_SESSION['message'] = "No user found with email: $email.";
+            $_SESSION['message_type'] = 'error';
         }
-
+    } else {
+        $_SESSION['message'] = "Email or verification code not provided.";
+        $_SESSION['message_type'] = 'error';
     }
-    }
-?>
+    
+    oci_close($conn);
+    
+    // Redirect back to customer_reg.php after displaying the message
+    header("Location: customer_reg.php");
+    exit;
+    ?>

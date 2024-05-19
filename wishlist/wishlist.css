@@ -18,6 +18,25 @@ body {
 .wishlist-header h1 {
     margin-top: 0.5em; /* Adjust the spacing */
 }
+.continue-shopping {
+    text-align: center;
+    margin-top: 20px; /* Adjust this value based on your layout */
+}
+
+.continue-shopping-link {
+    background-color: #fff;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.continue-shopping-link:hover {
+    background-color: black;
+    color: white;
+}
 
 .wishlist-container {
     width: 80%;
@@ -56,10 +75,12 @@ body {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .add-to-cart:hover {
     background-color: #444;
+    text-decoration: none;
 }
 
 

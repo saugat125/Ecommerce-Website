@@ -1,3 +1,5 @@
+<?php include ('../connect.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +32,8 @@
         </div>
     </nav>
 
+    
+
     <div class="flex-page">
 
     <div class="sidebar">
@@ -37,95 +41,113 @@
     </div>
 
     <div class="main-container">
-        <div class="content">
+        <div<div class="content">
             <div class="inner-box">
-                <h2>Update Product</h2>
+                <h2 >Update Product</h2>
                 <div class="form-container">
-                    <div class="container">
-                        <div class="section">
-                            <h3>Product Images</h3>
-                            <p class ="grey-text">Upload images</p>
-                            <div class="upload-box">
-                                <!-- Upload image box -->
-                                <input type="file" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="section">
-                            <h3>Product Information</h3>
-                            <p class="grey-text">Please provide detailed information</p>
-                            <div class="section">
-                                <h3>Product Name</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Sample product">
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h3>Product Category</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Category">
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h3>Description</h3>
-                                <textarea class="description-box" placeholder="Description"></textarea>
-                            </div>
-                            <div class="section">
-                                <h3>Shop Name</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Shop Name">
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="pricing-container">
-                    <div class="form-container">
-                        <h2>Pricing</h2>
-                        <p class="grey-text">Please provide detailed information</p>
+
+                    <?php
+
+                    $product_id = $_GET['ID'];
+
+                    $product_query = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = '$product_id'";
+                    $product_stmt = oci_parse($conn, $product_query);
+
+                    oci_execute($product_stmt);
+
+                    while ($row = oci_fetch_assoc($product_stmt)){
+
+                    ?>
+
+                    <form action="update_handle.php" method="post" enctype="multipart/form-data">
                         <div class="container">
                             <div class="section">
-                                <h3>Base Price</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Base Price">
+                                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
+                                <div class="section">
+                                    <h3>Product Name</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Sample product" name="name" value="<?php echo $row['PRODUCT_NAME']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="section">
-                                <h3>Offer Type</h3>
-                                <div class="input-box">
-                                    <select>
-                                        <option>Choose Offer Type</option>
-                                        <option>Discount</option>
-                                        <option>Bundle Offer</option>
-                                        <option>None</option>
-                                    </select>
+                                <div class="section">
+                                    <h3>Description</h3>
+                                    <textarea class="description-box" placeholder="Description" name="description"><?php echo $row['DESCRIPTION']; ?></textarea>
                                 </div>
-                            </div>
-                            <div class="section">
-                                <h3>Quantity</h3>
-                                <div class="input-box">
-                                    <select>
-                                        <option>Please select</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
+                                <div class="section">
+                                    <h3>Stock</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Stock" name="stock" value="<?php echo $row['STOCK_AVAILABLE']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="section">
-                                <h3>Stock</h3>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Stock">
+                                <div class="section">
+                                    <h3>Price</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Price" name="price" value="<?php echo $row['PRICE']; ?>">
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h3>Allergy Information</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Allergy" name="allergy" value="<?php echo $row['ALLERGY_INFORMATION']; ?>">
+                                    </div>
+                                </div>
+                                <!-- <div class="section">
+                                    <h3>Minimum Order</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Minumum">
+                                    </div>
+                                </div> -->
+                                <div class="section">
+                                    <h3>Maximum Order</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Maximum" name="max_order" value="<?php echo $row['MAX_ORDER']; ?>">
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h3>Product Image</h3>
+                                    <p class ="grey-text">Upload image</p>
+                                    <div class="upload-box">
+                                        <input type="file" accept="image/*" id="pimage" name="image" value="<?php echo $row['PRODUCT_IMAGE']; ?>">
+                                    </div>
+                                    <input type="hidden" name="image-alt" value="<?php echo $row['PRODUCT_IMAGE']; ?>">
+                                    <img id="image-preview" width="160px" height="160px" src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="Image Preview">
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <button class = "update-product-button" type="submit" name="submit">Update Product</button>
+                    </form>
+                    <?php
+                    }
+                    ?>
                 </div>
-                <button class="update-product-button">Update Product</button>
+                
             </div>
         </div>
     </div>
     </div>
+<script>
+        document.getElementById('pimage').addEventListener('change', function() {
+            const fileInput = this;
+            const fileNameDisplay = document.getElementById('file-name');
+            const imagePreview = document.getElementById('image-preview');
+
+            const file = fileInput.files[0];
+            if (file) {
+
+
+                // Check if the selected file is an image
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+            } 
+            else {
+                fileNameDisplay.textContent = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
