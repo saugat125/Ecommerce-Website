@@ -40,8 +40,9 @@
     justify-content: center;
 }
 .products .container .card img {
-    width: 208px;
-    height: 208px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 .products .container .card h2 {
     text-align: left;

@@ -1,3 +1,5 @@
+<?php include ('../connect.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,58 +41,36 @@
     <div class="trending-products">
     <h2>Trending Products</h2>
         <div class="container">
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/mixedveg.jpg" alt="Mixed Vegetables">
+
+            <?php
+
+            $product_limit = 0;
+
+            $query = "SELECT * FROM PRODUCT ORDER BY DBMS_RANDOM.VALUE";
+
+            $result = oci_parse($conn, $query);
+            oci_execute($result);
+
+            while (($row = oci_fetch_assoc($result)) && $product_limit < 4) {
+                ?>
+            
+                <div class="card">
+                    <div class="img-div">
+                        <img src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="<?php echo $row['PRODUCT_NAME']; ?>">
+                    </div>
+                    <div>
+                        <h2><?php echo $row['PRODUCT_NAME']; ?></h2>
+                        <!-- <p><?php echo $row['DESCRIPTION']; ?></p> -->
+                        <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
+                    </div>
+                    <div class="btn-div">
+                        <a href="../cartpage.Cart.html" class="add-btn">ADD +</a>
+                    </div>
                 </div>
-                <div>
-                    <h2>Mixed Vegetables</h2>
-                    <p>2 lb bag</p>
-                    <p class="rate">€12.00</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/primebeef.jpg" alt="Prime Beef">
-                </div>
-                <div>
-                    <h2>Prime Beef</h2>
-                    <p>1 lb</p>
-                    <p class="rate">€25.00</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/milk.jpg" alt="Organic Milk">
-                </div>
-                <div>
-                    <h2>Organic Milk</h2>
-                    <p>1 liter</p>
-                    <p class="rate">€1.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/salmon.jpg" alt="Fresh Salmon">
-                </div>
-                <div>
-                    <h2>Fresh Salmon</h2>
-                    <p>500 g</p>
-                    <p class="rate">€20.00</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
+            
+                <?php $product_limit++;
+            } ?>
+
         </div>
     </div>
 
@@ -232,136 +212,33 @@
             </div>
         </div>
         <div class="container">
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
+            <?php
+
+                $product_limit = 0;
+
+            $query = "SELECT * FROM PRODUCT ORDER BY DBMS_RANDOM.VALUE";
+
+                $result = oci_parse($conn, $query);
+                oci_execute($result);
+
+                while (($row = oci_fetch_assoc($result)) && $product_limit<10) {
+                ?>
+            
+                <div class="card">
+                    <div class="img-div">
+                        <img src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="<?php echo $row['PRODUCT_NAME']; ?>">
+                    </div>
+                    <div>
+                        <h2><?php echo $row['PRODUCT_NAME']; ?></h2>
+                        <!-- <p><?php echo $row['DESCRIPTION']; ?></p> -->
+                        <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
+                    </div>
+                    <div class="btn-div">
+                        <a href="../cartpage.Cart.html" class="add-btn">ADD +</a>
+                    </div>
                 </div>
-                <div>
-                    <h2>Goat Cheese</h2>
-                    <p>8 oz</p>
-                    <p class="rate">€7.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Sweet corn</h2>
-                    <p>6 ears</p>
-                    <p class="rate">€1.80</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Veal Cutlets</h2>
-                    <p>1 lb</p>
-                    <p class="rate">€12.00</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Mangoes</h2>
-                    <p>4 pack</p>
-                    <p class="rate">€4.75</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Pears</h2>
-                    <p>3 lb bag</p>
-                    <p class="rate">€3.00</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Bacon</h2>
-                    <p>1 lb bag</p>
-                    <p class="rate">€4.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Kiwi Fruit</h2>
-                    <p>6 pack</p>
-                    <p class="rate">€3.25</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Cream Cheese</h2>
-                    <p>8 oz</p>
-                    <p class="rate">€2.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Grapes</h2>
-                    <p>2 lb bunch</p>
-                    <p class="rate">€3.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Beef Jerky</h2>
-                    <p>250g pack</p>
-                    <p class="rate">€6.50</p>
-                </div>
-                <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
+            
+            <?php $product_limit++; } ?>
         </div>
     </div>
 
