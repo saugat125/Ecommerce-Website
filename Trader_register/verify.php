@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
     include "../connect.php";
 
     if (isset($_GET['email']) && isset($_GET['verification_code']))
@@ -69,6 +69,6 @@ session_start();
     oci_close($conn);
     
     // Redirect back to customer_reg.php after displaying the message
-    header("Location: trader_reg.php");
+    header("Location: ../login/login.php");
     exit;
     ?>

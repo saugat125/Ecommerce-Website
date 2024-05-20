@@ -47,6 +47,7 @@
                         <th>STOCK</th>
                         <th>PRICE(£)</th>
                         <th>MAX ORDER</th>
+                        <th>DISCOUNT (%)</th>
                         <th>STATUS</th>
                         <th></th>
                         <th></th>
@@ -83,6 +84,7 @@
                             echo "<td>" . $row['STOCK_AVAILABLE'] . "</td>";
                             echo "<td>" . $row['PRICE'] . "</td>";            
                             echo "<td>" . $row['MAX_ORDER'] . "</td>";
+                            echo "<td>" . $row['DISCOUNT'] . "</td>";
                             echo "<td>";
                             if ($row['ISAPPROVED'] == 'Y') {
                                 echo "Approved";

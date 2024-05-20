@@ -69,6 +69,6 @@ session_start();
     oci_close($conn);
     
     // Redirect back to customer_reg.php after displaying the message
-    header("Location: customer_reg.php");
+    header("Location: ../login/login.php");
     exit;
     ?>
