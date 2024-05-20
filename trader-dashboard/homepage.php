@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
     <nav>
         <div class="nav-icons">
             <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHome  &nbsp >   &nbsp Overview</i></span>
-            <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> Harefields fam</i></span>
+            <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $shopName; ?></i></span>
         </div>
     </nav>
   </header>
@@ -26,7 +31,7 @@
 
 <div class="dashboard">
 <div class="dashboard-header">
-  <h1>Greetings, Harefields</h1>
+  <h1>Greetings,  <?php echo $shopName; ?></h1>
   <button><a href="../addproduct/AddProdcut.php">Add Product +</a></button>
 </div>
 

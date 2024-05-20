@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 WHERE u.user_name = :email 
                 AND u.password = :password 
                 AND u.user_role = :role 
+                AND t.otpverified = 'Y'
                 AND t.isverified = 'Y'";
     }
 
@@ -69,12 +70,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $row = oci_fetch_assoc($shop_stmt);
             $_SESSION['shop_id'] = $row['SHOP_ID'];
+            $_SESSION['shop_name'] = $row['SHOP_NAME'];
 
             header("Location: ../trader-dashboard/homepage.php");
         }
         
         exit;
-    } else {
+    } 
+    else {
         $_SESSION['notification'] = [
             'message' => 'Invalid email or password.',
             'type' => 'error'
