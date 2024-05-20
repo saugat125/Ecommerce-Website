@@ -1,6 +1,7 @@
 <?php 
     include ('../connect.php');
     session_start();
+    $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
         <nav>
             <div class="nav-icons">
                 <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProducts  &nbsp >   &nbsp Product List</i></span>
-                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> Harefields fam</i></span>
+                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $shopName; ?></i></span>
             </div>
         </nav>
     </header>

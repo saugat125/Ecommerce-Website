@@ -87,6 +87,12 @@
                                     </div>
                                 </div>
                                 <div class="section">
+                                    <h3>Discount (%)</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Maximum" name="discount" required>
+                                    </div>
+                                </div>
+                                <div class="section">
                                     <h3>Product Image</h3>
                                     <p class ="grey-text">Upload image</p>
                                     <div class="upload-box">
