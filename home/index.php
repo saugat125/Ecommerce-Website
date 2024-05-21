@@ -106,71 +106,33 @@ session_start();
             <h2>Offer Products</h2>
         </div>
         <div class="container">
+
+            <?php
+
+                $offer_query = "SELECT * FROM PRODUCT WHERE DISCOUNT > 0";
+
+                $offer_stmt = oci_parse($conn, $offer_query);
+                oci_execute($offer_stmt);
+
+                while ($offer_row = oci_fetch_assoc($offer_stmt)){
+
+            ?>
+
             <div class="card">
+                <a href="../product_detail/product_detail.php?ID=<?php echo $offer_row['PRODUCT_ID']; ?>">
                 <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
+                    <img src="../image/<?php echo $offer_row['PRODUCT_IMAGE']; ?>" alt="<?php echo $offer_row['PRODUCT_NAME']; ?>">
                 </div>
                 <div>
-                    <h2>Whole Wheat Bread</h2>
-                    <p>1 loaf</p>
-                    <p class="rate">€1.50</p>
+                    <h2><?php echo $offer_row['PRODUCT_NAME']; ?></h2>
+                    <p class="rate">€ <?php echo $offer_row['PRICE']; ?></p>
                 </div>
                 <div class="btn-div">
                     <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
                 </div>
+                </a>
             </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Organic Bananas</h2>
-                    <p>5 lb bunch</p>
-                    <p class="rate">€3.50</p>
-                </div>
-                <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Red Onions</h2>
-                    <p>2 lb bag</p>
-                    <p class="rate">€1.75</p>
-                </div>
-                <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Turkey Sausage</h2>
-                    <p>1 lb</p>
-                    <p class="rate">€3.99</p>
-                </div>
-                <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-div">
-                    <img src="images/Frame 7286.png" alt="">
-                </div>
-                <div>
-                    <h2>Fresh Roma Tomato</h2>
-                    <p>3 lb bag</p>
-                    <p class="rate">€20.00</p>
-                </div>
-                <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
