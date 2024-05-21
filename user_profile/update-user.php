@@ -24,6 +24,7 @@
 
         // Executing the query
         if(oci_execute($query_stmt)){
+            $_SESSION['first_name'] = $first_name;
             header('location: user_profile.php');
 
         } else {

@@ -1,3 +1,7 @@
+<?php
+    $name = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : 'Customer';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +30,10 @@
            </div>
            <nav>
                <ul>
-                   <li><a><a href="../user_profile/user_profile.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                   <li><a><a href="../user_profile/user_profile.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo $name; ?></a></li>
                    <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
                    <li><a href="../wishlist/wishlist.php"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
-                   <li><a href="../login/login.php"><button class="login-btn">Logout</button></a></li>
+                   <li><a href="../logout/logout.php"><button class="login-btn">Logout</button></a></li>
                </ul>
            </nav>
        </div>

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($role === 'customer') {
         // SQL statement for customer role
-        $sql = "SELECT u.user_id 
+        $sql = "SELECT * 
                 FROM users u 
                 JOIN customer c ON u.user_id = c.user_id 
                 WHERE u.user_name = :email 
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 AND c.isverified = 'Y'";
     } else {
         // SQL statement for other roles (e.g., trader)
-        $sql = "SELECT u.user_id 
+        $sql = "SELECT *
                 FROM users u 
                 JOIN trader t ON u.user_id = t.user_id 
                 WHERE u.user_name = :email 
@@ -51,6 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['user_id'] = $row['USER_ID'];
         $_SESSION['user_role'] = $role;
+        $_SESSION['first_name'] = $row['FIRST_NAME'];
+        $_SESSION['last_name'] = $row['LAST_NAME'];
+
 
         $_SESSION['notification'] = [
             'message' => 'Login successful!',
