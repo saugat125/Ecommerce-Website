@@ -1,3 +1,7 @@
+<?php include ('../connect.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,19 +41,7 @@
         </div>
 
         <!-- Logout Option -->
-<<<<<<< HEAD
         <a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
-=======
-        <div class="flex items-center my-4 mx-8">
-          <a href="#" class="text-black hover:text-gray-700 flex items-center">
-            <!-- SVG Icon -->
-            <span class="material-symbols-outlined mx-2">
-              logout
-            </span>
-            LOGOUT
-          </a>
-        </div>
->>>>>>> f4a4189ab485b59a17db7d543b6df8c18f1746e2
       </nav>
     </div>
 
@@ -59,40 +51,46 @@
         <div class="flex justify-between items-center mb-6">
           <h1 class="text-xl font-semibold">Manage My Account</h1>
         </div>
-        <form>
+        <?php 
+              $user_id = $_SESSION['user_id'];
+
+
+              $user_query = "SELECT * FROM USERS WHERE USER_ID = '$user_id'";
+          
+              $user_stmt = oci_parse($conn, $user_query);
+              oci_execute($user_stmt);
+
+              while ($row = oci_fetch_assoc($user_stmt)){
+
+              
+        ?>
+        <form action="update-user.php" method="post">
           <div class="mb-4">
             <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
-            <input type="text" id="firstName" placeholder="Enter your first name"
+            <input type="text" id="firstName" placeholder="Enter your first name" value="<?php echo $row['FIRST_NAME']; ?>" name = "first_name"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div class="mb-4">
             <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
-            <input type="text" id="lastName" placeholder="Enter your last name"
+            <input type="text" id="lastName" placeholder="Enter your last name" value="<?php echo $row['LAST_NAME']; ?>" name = "last_name"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div class="mb-4">
             <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-            <input type="password" id="password" value="********"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div class="mb-4">
-            <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth:</label>
-            <input type="text" id="dob" value="01/11/2023"
+            <input type="text" id="password" value="<?php echo $row['PASSWORD']; ?>" name = "password"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div class="mb-4">
             <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
-            <input type="tel" id="phone" value="9857011098"
+            <input type="tel" id="phone" value="<?php echo $row['PHONE_NUMBER']; ?>" name = "phone"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div class="flex justify-between">
-            <button type="submit"
+            <button type="submit" name = "submit"
               class="bg-white text-black border border-gray-400 rounded py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline">Update</button>
-            <button type="button"
-              class="bg-white text-black border border-gray-400 rounded py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline">Change
-              Password</button>
           </div>
         </form>
+              <?php } ?>
       </div>
     </div>
   </div>
