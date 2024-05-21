@@ -1,4 +1,8 @@
-<?php include ('../connect.php') ?>
+<?php 
+    include ('../connect.php');
+    session_start();
+    $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@
         <nav>
             <div class="nav-icons">
                 <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProducts  &nbsp >   &nbsp Product List</i></span>
-                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> Harefields fam</i></span>
+                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $shopName; ?></i></span>
             </div>
         </nav>
     </header>
@@ -43,6 +47,7 @@
                         <th>STOCK</th>
                         <th>PRICE(£)</th>
                         <th>MAX ORDER</th>
+                        <th>DISCOUNT (%)</th>
                         <th>STATUS</th>
                         <th></th>
                         <th></th>
@@ -51,7 +56,9 @@
                 <tbody>
 
                     <?php
-                        $shop_id_query = "SELECT SHOP_ID FROM SHOP WHERE TRADER_ID = 1";
+                        $trader_id = $_SESSION['user_id'];
+
+                        $shop_id_query = "SELECT SHOP_ID FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
                         $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = :shop_id";
 
@@ -77,6 +84,7 @@
                             echo "<td>" . $row['STOCK_AVAILABLE'] . "</td>";
                             echo "<td>" . $row['PRICE'] . "</td>";            
                             echo "<td>" . $row['MAX_ORDER'] . "</td>";
+                            echo "<td>" . $row['DISCOUNT'] . "</td>";
                             echo "<td>";
                             if ($row['ISAPPROVED'] == 'Y') {
                                 echo "Approved";

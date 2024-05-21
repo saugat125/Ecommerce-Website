@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -11,6 +11,10 @@ body {
 
 .shop{
     width: 100%;
+}
+
+.fa-user-circle:before{
+    margin-right: 10px;
 }
 
 .profile-container {
@@ -64,13 +68,19 @@ body {
 
 .profile-picture input {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: -20px;
     opacity: 0.7;
+    border: none;
+    cursor: pointer;
 }
 
 h1 {
     margin: 10px 0;
+}
+
+#store-name{
+    font-size: 30px;
 }
 
 .trader-info {
@@ -79,9 +89,15 @@ h1 {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-bottom: 50px;
+}
+.trader-info h2{
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-form {
+
+.form {
     display: flex;
     flex-direction: column;
 }
@@ -98,16 +114,14 @@ form input {
 
 form button {
     padding: 10px;
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
-
-form button:hover {
-    background-color: #0056b3;
-}
-
 
 
 
@@ -133,9 +147,11 @@ nav {
 
 .icons {
     margin-right: 20px;
+    font-size: 20px;
 }
 .nav-icons .user{
     padding-left: 1000px;
+    padding-right: 20px;
 }
 
 

@@ -1,37 +1,46 @@
-*{
-    padding: 0;
+body, h1, p {
     margin: 0;
-}
-body{
-    font-family: "Nunito", sans-serif;
-}
-.hero-section {
-    position: relative;
-    width: 100%;
-    overflow: hidden; /* Ensures images do not overflow the container */
+    padding: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-.slider {
-    width: 100%;
-    height: 550px; /* Adjust the height as needed */
+.cover-container {
     position: relative;
+    text-align: center;
+    color: white;
 }
 
-.slide {
+.cover-image {
     width: 100%;
-    height: 550px; /* Ensures the image fills the slider container */
-    object-fit: cover; /* Maintain aspect ratio while covering the entire slider */
+    height: 300px; /* Adjust height as needed */
+    object-fit: cover; /* Cover the container without losing aspect ratio */
+}
+
+.profile-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    display: none; 
-    transition: opacity 0.5s ease-in-out;
+    top: 115%; /* Center vertically in relation to the cover image */
+    left: 30px; /* Align to the left edge of the cover container */
+    transform: translateY(-50%); /* Center align the profile image vertically only */
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border: 5px solid white; /* White border around the profile image */
 }
 
-.slide.active {
-    display: block; /* Only display the active slide */
-    opacity: 1;
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+.description-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
 
 
 .trending-products{
@@ -60,9 +69,8 @@ body{
     justify-content: center;
 }
 .trending-products .container .card img{
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
+    width: 208px;
+    height: 208px;
 }
 
 .trending-products .container .card h2{
@@ -104,10 +112,6 @@ body{
     box-shadow:0 4px 20px rgba(249, 221, 221, 0.2); ;
 }
 
-.card a{
-    text-decoration: none;
-    color: black;
-}
 .products{
     padding: 50px 0;
 }
@@ -156,9 +160,8 @@ body{
     justify-content: center;
 }
 .products .container .card img{
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
+    width: 208px;
+    height: 208px;
 }
 
 .products .container .card h2{
@@ -187,91 +190,3 @@ body{
     display: flex;
 }
 
-
-.offer-products{
-    padding: 50px 0;
-}
-.offer-products h2{
-    text-align: center;
-    font-size: 64px;   
-    font-weight: 700;
-}
-.offer-products .container{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 120px;
-    margin: 50px 60px;
-}
-
-.offer-products .card{
-    border: 1px solid rgb(228, 223, 223);
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.offer-products .container .card .img-div{
-    position: relative;
-}
-
-.offer-products .container .card .img-div .logo-div{    
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    padding: 10px 20px;
-    background-color: white;
-    border: 1px solid rgb(228, 223, 223);
-    border-radius: 8px;
-    bottom: -80px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.offer-products .container .card .img-div .logo-div img{
-    width: 100%;
-}
-.offer-products .container .card .img-div img{
-    width: 100%;
-    max-height: 100%;
-}
-.offer-products .container .card h2{
-    text-align: center;
-    margin-top: 50px;
-    font-size: 25px;
-    font-weight: 900;
-}
-.offer-products .container .card p{
-    text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-    .trending-products .container,
-    .products .container,
-    .offer-products .container {
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-        gap: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .trending-products h2,
-    .products h2,
-    .offer-products h2 {
-        font-size: 20px;
-    }
-    .trending-products .container,
-    .products .container,
-    .offer-products .container {
-        grid-template-columns: repeat(1, minmax(200px, 1fr));
-        gap: 15px;
-        margin: 20px;
-    }
-    .trending-products,.products,.offer-products{
-        padding: 10px 0;
-    }
-    .products .container .card img,.trending-products .container .card img,.offer-products .container .img-div img{
-        width: 208px;
-        height: 208px;
-    }
-}

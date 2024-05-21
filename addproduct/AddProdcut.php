@@ -1,3 +1,9 @@
+<?php 
+    include ('../connect.php');
+    session_start();
+    $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +23,9 @@
         </div>
         <div class="navbar-right">
             <div class="profile">
-                <img src="profile-pic.jpg" alt="Profile Picture">
+                <img src="profile-pic.jpg" alt="PP">
                 <div class="dropdown">
-                    <button class="dropbtn">Harefield Farm <span class="arrow">&#9660;</span></button>
+                    <button class="dropbtn"><?php echo $shopName; ?><span class="arrow">&#9660;</span></button>
                     <div class="dropdown-content">
                         <!-- Add your dropdown content here -->
                         <a href="#">Link 1</a>
@@ -84,6 +90,12 @@
                                     <h3>Maximum Order</h3>
                                     <div class="input-box">
                                         <input type="text" placeholder="Maximum" name="max_order" required>
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h3>Discount (%)</h3>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Discount" name="discount">
                                     </div>
                                 </div>
                                 <div class="section">

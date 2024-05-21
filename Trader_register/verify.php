@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
     include "../connect.php";
 
     if (isset($_GET['email']) && isset($_GET['verification_code']))
@@ -22,20 +22,20 @@ session_start();
             $user_id = $row_user['USER_ID'];
     
             // QUERY TO SELECT * FROM CUSTOMER TABLE WITH USER_ID AND VERIFICATION CODE
-            $query_customer = "SELECT * FROM customer WHERE user_id = :user_id AND verification_code = :verification_code";
+            $query_trader = "SELECT * FROM trader WHERE user_id = :user_id AND verification_code = :verification_code";
     
-            $query_parse_customer = oci_parse($conn, $query_customer);
-            oci_bind_by_name($query_parse_customer, ':user_id', $user_id);
-            oci_bind_by_name($query_parse_customer, ':verification_code', $verification_code);
-            oci_execute($query_parse_customer);
+            $query_parse_trader = oci_parse($conn, $query_trader);
+            oci_bind_by_name($query_parse_trader, ':user_id', $user_id);
+            oci_bind_by_name($query_parse_trader, ':verification_code', $verification_code);
+            oci_execute($query_parse_trader);
     
-            $row_customer = oci_fetch_array($query_parse_customer, OCI_ASSOC);
+            $row_trader = oci_fetch_array($query_parse_trader, OCI_ASSOC);
     
-            if ($row_customer) {
+            if ($row_trader) {
                 //CHECKING IF USER IS VERIFIED
-                if ($row_customer['ISVERIFIED'] == 'N') {
-                    // QUERY TO UPDATE ISVERIFIED TO 'Y' FOR THE GIVEN USER_ID
-                    $query_update = "UPDATE customer SET isverified = 'Y' WHERE user_id = :user_id";
+                if ($row_trader['OTPVERIFIED'] == 'N') {
+                    // QUERY TO UPDATE OTPVERIFIED TO 'Y' FOR THE GIVEN USER_ID
+                    $query_update = "UPDATE trader SET otpverified = 'Y' WHERE user_id = :user_id";
 
                     $query_parse_update = oci_parse($conn, $query_update);
                     oci_bind_by_name($query_parse_update, ':user_id', $user_id);
