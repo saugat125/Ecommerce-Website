@@ -2,6 +2,7 @@
 // login.php
 session_start();
 include "../connect.php";
+include "../toast.js";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -78,12 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } 
     else {
-        $_SESSION['notification'] = [
-            'message' => 'Invalid email or password.',
-            'type' => 'error'
-        ];
-
-        // Redirect back to the login page
+        echo "<script>
+        window.onload = function() {
+            showToast('Invalid credentials, please try again.');
+        };
+        </script>";        // Redirect back to the login page
         header("Location: login.php");
         exit;
     }
