@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -20,19 +22,34 @@
     <div class="w-1/4 bg-white p-4 border-r mt-9">
       <!-- Manage My Account Button with increased margin from the top -->
       <button class="w-full bg-black text-white rounded py-2 mb-4">MANAGE MY ACCOUNT</button>
-      
+
       <!-- Navigation Menu with increased space between items -->
       <nav class="space-y-4">
-        <!-- My Orders with Dropdown Arrow -->
-        <div class="flex items-center justify-between">
-          <a href="#" class="text-black hover:text-gray-700 my-4 mx-8">MY ORDERS</a>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
+        <!-- My Orders -->
+        <div class="flex items-center my-4 mx-8">
+          <a href="#" class="text-black hover:text-gray-700 flex items-center">
+            <!-- SVG Icon -->
+            <span class="material-symbols-outlined mx-2">
+              deployed_code
+            </span>
+            MY ORDERS
+          </a>
         </div>
-        
+
         <!-- Logout Option -->
+<<<<<<< HEAD
         <a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
+=======
+        <div class="flex items-center my-4 mx-8">
+          <a href="#" class="text-black hover:text-gray-700 flex items-center">
+            <!-- SVG Icon -->
+            <span class="material-symbols-outlined mx-2">
+              logout
+            </span>
+            LOGOUT
+          </a>
+        </div>
+>>>>>>> f4a4189ab485b59a17db7d543b6df8c18f1746e2
       </nav>
     </div>
 
@@ -41,7 +58,6 @@
       <div class="container mx-auto my-8 p-6 border rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
           <h1 class="text-xl font-semibold">Manage My Account</h1>
-          <div class="w-32 h-32 rounded-full bg-gray-300"></div>
         </div>
         <form>
           <div class="mb-4">
@@ -73,7 +89,8 @@
             <button type="submit"
               class="bg-white text-black border border-gray-400 rounded py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline">Update</button>
             <button type="button"
-              class="bg-white text-black border border-gray-400 rounded py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline">Change Password</button>
+              class="bg-white text-black border border-gray-400 rounded py-2 px-4 hover:bg-gray-100 focus:outline-none focus:shadow-outline">Change
+              Password</button>
           </div>
         </form>
       </div>
