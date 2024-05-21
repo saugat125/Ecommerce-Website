@@ -57,6 +57,7 @@ session_start();
             while (($row = oci_fetch_assoc($result)) && $product_limit < 4) {
             ?>
                 <div class="card">
+                    <a href="../product_detail/product_detail.php?ID=<?php echo $row['PRODUCT_ID']; ?>">
                     <div class="img-div">
                         <img src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="<?php echo $row['PRODUCT_NAME']; ?>">
                     </div>
@@ -67,6 +68,7 @@ session_start();
                     <div class="btn-div">
                         <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
                     </div>
+                    </a>
                 </div>
             <?php
                 $product_limit++;
@@ -188,6 +190,7 @@ session_start();
             while (($row = oci_fetch_assoc($result)) && $product_limit < 10) {
             ?>
                 <div class="card">
+                    <a href="../product_detail/product_detail.php?ID=<?php echo $row['PRODUCT_ID']; ?>">
                     <div class="img-div">
                         <img src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="<?php echo $row['PRODUCT_NAME']; ?>">
                     </div>
@@ -198,6 +201,7 @@ session_start();
                     <div class="btn-div">
                         <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
                     </div>
+                    </a>
                 </div>
             <?php
                 $product_limit++;

@@ -50,6 +50,7 @@
     <div class="trending-products">
         <div class="container">
             <div class="card">
+                <a href="../product_detail/product_detail.php?ID=<?php echo $row['PRODUCT_ID']; ?>">
                 <div class="img-div">
                     <img src="../image/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="<?php echo $row['PRODUCT_NAME']; ?>">
                 </div>
@@ -61,6 +62,7 @@
                 <div class="btn-div">
                 <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
                 </div>
+                </a>
             </div>
         </div>
     </div>
