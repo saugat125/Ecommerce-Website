@@ -45,8 +45,8 @@
               <td class="p-2">Wed. 1pm</td>
               <td class="p-2">$120.00</td>
               <td class="p-2">
-                <button class="bg-blue-400 text-white px-2 py-1 text-sm rounded hover:bg-blue-600">View</button>
-                <button class="bg-red-400 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
+                <button class="bg-blue-500 text-white px-2 py-1 text-sm rounded hover:bg-blue-600">View</button>
+                <button class="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
               </td>
             </tr>
           </tbody>
