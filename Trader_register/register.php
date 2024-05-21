@@ -232,7 +232,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_shop = "UPDATE SHOP
     SET shop_name = :shop_name,
         shop_description = :shop_description,
-        address = :address
+        address = :address,
+        SHOP_LOGO = 'user.png',
+        SHOP_IMAGE = 'cover.png'
     WHERE trader_id = :trader_id";
 
     $stmt_shop = oci_parse($conn, $sql_shop);

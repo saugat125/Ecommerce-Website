@@ -46,13 +46,18 @@ session_start();
     <form action="update_shopinfo.php" method="post" enctype="multipart/form-data">
     <div class="profile-container">
         <div class="cover-photo">
-            <input type="file" id="cover-photo-input" accept="image/*">
-            <img src="cover-photo.jpg" alt="Cover Photo" id="cover-photo">
+            <input type="file" accept="image/*" id="simage" name="image" >
+            <input type="hidden" name="image-alt1" value="<?php echo $row['SHOP_IMAGE']; ?>">
+            <img id="cover-photo" src="../image/<?php echo $row['SHOP_IMAGE']; ?>" alt="Image Preview">
+            <!-- <img src="cover-photo.jpg" alt="Cover Photo" id="cover-photo"> -->
         </div>
         <div class="profile-info">
             <div class="profile-picture">
-                <input type="file" id="profile-picture-input" accept="image/*">
-                <img src="profile-picture.jpg" alt="Profile Picture" id="profile-picture">
+                <input type="file" accept="image/*" id="slogo" name="logo" >
+                <input type="hidden" name="image-alt" value="<?php echo $row['SHOP_LOGO']; ?>">
+                <img id="profile-picture"  src="../image/<?php echo $row['SHOP_LOGO']; ?>"
+                    alt="Image Preview">
+                <!-- <img src="profile-picture.jpg" alt="Profile Picture" id="profile-picture"> -->
             </div>
             <h1 id="store-name" ><?php echo $row['SHOP_NAME']; ?></h1>
             <p id="description"><?php echo $row['SHOP_DESCRIPTION']; ?></p>
@@ -77,5 +82,54 @@ session_start();
 
     </div>
     <script src="traderinfo.js"></script>
+    <script>
+        document.getElementById('slogo').addEventListener('change', function() {
+            const fileInput = this;
+            const fileNameDisplay = document.getElementById('file-name');
+            const imagePreview = document.getElementById('profile-picture');
+
+            const file = fileInput.files[0];
+            if (file) {
+
+
+                // Check if the selected file is an image
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+            } 
+            else {
+                fileNameDisplay.textContent = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('simage').addEventListener('change', function() {
+            const fileInput = this;
+            const fileNameDisplay = document.getElementById('file-name');
+            const imagePreview = document.getElementById('cover-photo');
+
+            const file = fileInput.files[0];
+            if (file) {
+
+
+                // Check if the selected file is an image
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+            } 
+            else {
+                fileNameDisplay.textContent = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
