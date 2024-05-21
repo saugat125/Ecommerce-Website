@@ -77,7 +77,7 @@
         <!--Logout Section-->
         <div class="p-2.5 mt-3 flex items-center rounded-full px-4 duration-300 cursor-pointer  hover:bg-gray-400">
           <i class="bi bi-box-arrow-in-right text-black"></i>
-          <span class="text-[15px] ml-4 text-black"><a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a></span>
+          <span class="text-[15px] ml-4 text-black"><a href="../logout/logout.php" class="text-black hover:text-gray-700 ">LOGOUT</a></span>
         </div>
 
       </div>

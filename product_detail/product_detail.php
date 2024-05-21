@@ -120,7 +120,7 @@
             </div>
             <div class="review-container">
                 <div class="review">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your review....."></textarea>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your comment....."></textarea>
                 </div>
                 <div class="add-review">
                     <a class="add-btn">Add Review</a>

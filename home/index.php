@@ -108,13 +108,13 @@ session_start();
         <div class="container">
 
             <?php
-
+                $product_limit = 0;
                 $offer_query = "SELECT * FROM PRODUCT WHERE DISCOUNT > 0";
 
                 $offer_stmt = oci_parse($conn, $offer_query);
                 oci_execute($offer_stmt);
 
-                while ($offer_row = oci_fetch_assoc($offer_stmt)){
+                while (($offer_row = oci_fetch_assoc($offer_stmt)) && $product_limit<5){
 
             ?>
 
@@ -132,7 +132,7 @@ session_start();
                 </div>
                 </a>
             </div>
-            <?php } ?>
+            <?php $product_limit++; } ?>
         </div>
     </div>
 
