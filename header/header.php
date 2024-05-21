@@ -28,8 +28,7 @@
                 <ul>
                     <li><a href="../login/login.php"><button class="login-btn">Login</button></a></li>
                     <li><a href="../Customer_register/customer_reg.php"><button class="signup-btn">Signup</button></a></li>
-                    <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
-                    <li><a href="../wishlist/wishlist.php"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -45,5 +44,4 @@
     <script src="header.js"></script>
  </body>
  </html>
-    
     

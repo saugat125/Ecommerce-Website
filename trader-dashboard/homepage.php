@@ -26,7 +26,7 @@
 <div class="flex-page">
 
 <div class="sidebar">
-  <?php include ('../sidebar/sidebar.html')?>
+  <?php include ('../sidebar/sidebar.php')?>
 </div>
 
 <div class="dashboard">

@@ -10,7 +10,9 @@
 
 <body>
   <!-- Include Header -->
-  <?php include ('../header/header.php') ?>
+  <?php
+    include('../header/home_header.php');
+    ?>
 
   <!-- Container for both sections -->
   <div class="flex">
@@ -30,7 +32,7 @@
         </div>
         
         <!-- Logout Option -->
-        <a href="#" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
+        <a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
       </nav>
     </div>
 
@@ -50,11 +52,6 @@
           <div class="mb-4">
             <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
             <input type="text" id="lastName" placeholder="Enter your last name"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-            <input type="email" id="email" value="abc@gmail.com"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div class="mb-4">

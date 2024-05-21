@@ -41,7 +41,7 @@
         
     <div class="main-container">
         <div class="sidebar">
-            <?php include ('../sidebar/sidebar.html')?>
+            <?php include ('../sidebar/sidebar.php')?>
           </div>          
 
         <div class="content">
