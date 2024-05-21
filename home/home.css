@@ -211,6 +211,7 @@ body{
 
 .offer-products .container .card .img-div{
     position: relative;
+    height: 200px;
 }
 
 .offer-products .container .card .img-div .logo-div{    
@@ -243,6 +244,7 @@ body{
 }
 .offer-products .container .card p{
     text-align: center;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
