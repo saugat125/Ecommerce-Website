@@ -78,54 +78,30 @@
     <div class="offer-products">
         <h2>Shops</h2>
         <div class="container">
+
+            <?php 
+
+                $query = "SELECT * FROM SHOP";
+                $result = oci_parse($conn,$query);
+                oci_execute($result);
+
+            while ($row = oci_fetch_assoc($result)){
+
+            ?>
+
             <div class="card">
                 <a href="../shop_detail/harefieldfarm.php">
                 <div class="img-div">
-                    <img src="images/dummy-image-square.jpg" alt="">
+                    <img src="../image/<?php echo $row['SHOP_IMAGE']; ?>" alt="">
                     <div class="logo-div">
-                        <img src="images/Hfield.png" alt="">
+                        <img src="../image/<?php echo $row['SHOP_LOGO']; ?>" alt="">
                     </div>
                 </div>
-                <h2>Harefield farms</h2>
-                <p>For veggies</p>
+                <h2><?php echo $row['SHOP_NAME']; ?></h2>
+                <p><?php echo $row['SHOP_DESCRIPTION']; ?></p>
                 </a>
             </div>
-            <div class="card">
-                <a href="../shop_detail/dryclough.php">
-                <div class="img-div">
-                    <img src="images/dummy-image-square.jpg" alt="">
-                    <div class="logo-div">
-                        <img src="images/Butcher 1.png" alt="">
-                    </div>
-                </div>
-                <h2>Dryclough Butchers</h2>
-                <p>For meats</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="../shop_detail/vitrition.php">
-                <div class="img-div">
-                    <img src="images/dummy-image-square.jpg" alt="">
-                    <div class="logo-div">
-                        <img src="images/FISH 1.png" alt="">
-                    </div>
-                </div>
-                <h2>Vitrition</h2>
-                <p>For Dairy and Bakery</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="../shop_detail/barrie.php">
-                <div class="img-div">
-                    <img src="images/dummy-image-square.jpg" alt="">
-                    <div class="logo-div">
-                        <img src="images/B.png" alt="">
-                    </div>
-                </div>
-                <h2>Barrie Petinger</h2>
-                <p>For Fish</p>
-                </a>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
