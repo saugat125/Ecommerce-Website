@@ -69,8 +69,9 @@ body, h1, p {
     justify-content: center;
 }
 .trending-products .container .card img{
-    width: 208px;
-    height: 208px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 
 .trending-products .container .card h2{

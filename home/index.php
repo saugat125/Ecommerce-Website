@@ -84,7 +84,7 @@ session_start();
             while ($row = oci_fetch_assoc($result)) {
             ?>
                 <div class="card">
-                    <a href="../shop_detail/harefieldfarm.php">
+                    <a href="../shop_detail/shop_detail.php?ID=<?php echo $row['SHOP_ID']; ?>">
                         <div class="img-div">
                             <img src="../image/<?php echo $row['SHOP_IMAGE']; ?>" alt="">
                             <div class="logo-div">
