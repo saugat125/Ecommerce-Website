@@ -61,6 +61,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
 
         if ($role == 'customer'){
+            $cart_query = "SELECT * FROM CART WHERE CUSTOMER_ID = '{$row['USER_ID']}'";
+            $cart_parse = oci_parse($conn, $cart_query);
+            oci_execute($cart_parse);
+            $cart_row = oci_fetch_assoc($cart_parse);
+
+            $_SESSION['cart_id'] = $cart_row['CART_ID'];
+
             // Redirect to the appropriate page
             header("Location: ../home/index.php");
         }
