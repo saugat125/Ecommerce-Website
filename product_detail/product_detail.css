@@ -59,7 +59,10 @@
 .stocks{
     margin: 30px 0;
 }
-
+.item a{
+    color: black;
+    text-decoration: none;
+}
 .quantity{
     display: flex;
     gap: 10px;
@@ -109,6 +112,17 @@
   font-weight: 700;
   position: relative;
   padding-right: 60px;
+}
+
+.product-section .text-container .image img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.product-section .text-container .text h4{
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .product-section .text-container .buttons .list::after{

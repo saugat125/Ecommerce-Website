@@ -99,7 +99,7 @@
                 <div id="payment-options" style="display: none;">
                     <ul>
                         <li>
-                            <a href="https://www.paypal.com/checkout" target="_blank">
+                            <a href="../payment.php" target="_blank">
                                 <img src="paypal-logo.png" alt="PayPal" class="paypal-logo">
                                 </a>
                         </li>
