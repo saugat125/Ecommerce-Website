@@ -66,7 +66,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             oci_execute($cart_parse);
             $cart_row = oci_fetch_assoc($cart_parse);
 
+            $wishlist_query = "SELECT * FROM WISHLIST WHERE CUSTOMER_ID = '{$row['USER_ID']}'";
+            $wishlist_parse = oci_parse($conn, $wishlist_query);
+            oci_execute($wishlist_parse);
+            $wishlist_row = oci_fetch_assoc($wishlist_parse);
+
             $_SESSION['cart_id'] = $cart_row['CART_ID'];
+            $_SESSION['wishlist_id'] = $wishlist_row['WISHLIST_ID'];
+
+            // Free the SQL statements
+            oci_free_statement($cart_parse);
+            oci_free_statement($wishlist_parse);
 
             // Redirect to the appropriate page
             header("Location: ../home/index.php");

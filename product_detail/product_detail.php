@@ -84,7 +84,7 @@ while ($row = oci_fetch_assoc($product_stmt)) {
                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                         <div class="buttons">
                             <button type="submit" class="cart">Add to cart</button>
-                            <a class="list">Add to list</a>
+                            <a class="list" href="../wishlist/add_to_wishlist.php?product_id=<?php echo $product_id; ?>">Add to Wishlist</a>
                         </div>
                     </form>
 
