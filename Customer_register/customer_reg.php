@@ -4,25 +4,42 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link rel="stylesheet" href="customer_reg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <style>
+        /* Custom Toastr Styles */
+        #toast-container > .toast-success {
+            background-color: #28a745; /* Custom success background color */
+            color: #fff; /* Custom success text color */
+        }
+
+        #toast-container > .toast-error {
+            background-color: #dc3545; /* Custom error background color */
+            color: #fff; /* Custom error text color */
+        }
+
+        #toast-container > .toast-info {
+            background-color: #17a2b8; /* Custom info background color */
+            color: #fff; /* Custom info text color */
+        }
+
+        #toast-container > .toast-warning {
+            background-color: #ffc107; /* Custom warning background color */
+            color: #fff; /* Custom warning text color */
+        }
+    </style>
+
+
 </head>
-
 <body>
-<?php
-    if (isset($_SESSION['message'])) {
-        $message = $_SESSION['message'];
-        $message_type = $_SESSION['message_type'];
-        echo "<div class='alert $message_type'>$message</div>";
-        unset($_SESSION['message']);
-        unset($_SESSION['message_type']);
-    }
-    ?>
-
     <div class="container">
         <div class="left-side blurred-background">
             <img src="../image/logos.png" alt="C-Fresh Logo" class="logo">
@@ -84,19 +101,24 @@ session_start();
         </div>
     </div>
     <script>
-        window.onload = function() {
-            var alert = document.querySelector('.alert');
-            if (alert) {
-                setTimeout(function() {
-                    alert.style.opacity = '0';
-                    setTimeout(function() {
-                        alert.remove();
-                    }, 600);
-                }, 3000);
-            }
-        };
-    </script>
-    
-</body>
+        $(document).ready(function() {
+    <?php if (isset($_SESSION['message'])): ?>
+        var message = "<?php echo $_SESSION['message']; ?>";
+        var messageType = "<?php echo $_SESSION['message_type']; ?>";
+        
+        if (messageType === 'success') {
+            toastr.success(message);
+        } else if (messageType === 'error') {
+            toastr.error(message);
+        }
+        
+        <?php
+        unset($_SESSION['message']);
+        unset($_SESSION['message_type']);
+        ?>
+    <?php endif; ?>
+});
 
+    </script>   
+</body>
 </html>
