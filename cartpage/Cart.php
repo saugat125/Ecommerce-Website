@@ -1,3 +1,38 @@
+<?php
+    include('../connect.php');
+    session_start();
+
+    $cart_id = $_SESSION['cart_id'];
+
+    $query = "
+        SELECT 
+            p.product_id,
+            p.product_name,
+            p.description,
+            p.price,
+            p.product_image,
+            cp.quantity
+        FROM 
+            CART_PRODUCT cp
+        JOIN 
+            PRODUCT p ON cp.product_id = p.product_id
+        WHERE 
+            cp.cart_id = :cart_id
+    ";
+
+    $statement = oci_parse($conn, $query);
+    oci_bind_by_name($statement, ':cart_id', $cart_id);
+    oci_execute($statement);
+
+    $products = [];
+    while ($row = oci_fetch_assoc($statement)) {
+        $products[] = $row;
+    }
+
+    oci_free_statement($statement);
+    oci_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,77 +50,39 @@
                 </div>
             </div>
             <h2 class="shopping-cart">Shopping Cart</h2>
-            <div class="product-count">You have <span id="product-count">3</span> product(s)</div>
-            
+
             <!-- Product Boxes -->
-            <div class="product-box">
-                <div class="product">
-                    <div class="product-image">
-                        <img src="strawberries.jpg" alt="Strawberries">
-                    </div>
-                    <div class="product-details">
-                        <h3>Strawberries</h3>
-                        <p class="additional-info">Fresh, Organic</p>
-                    </div>
-                    <div class="quantity">
-                        <span class="arrow">&#9650;</span>
-                        <span class="amount">1</span>
-                        <span class="arrow">&#9660;</span>
-                    </div>
-                    <div class="price">50€</div>
-                    <div class="delete-product">
-                        <span>&#128465;</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-box">
-                <div class="product">
-                    <div class="product-image">
-                        <img src="strawberries.jpg" alt="Strawberries">
-                    </div>
-                    <div class="product-details">
-                        <h3>Strawberries</h3>
-                        <p class="additional-info">Fresh, Organic</p>
-                    </div>
-                    <div class="quantity">
-                        <span class="arrow">&#9650;</span>
-                        <span class="amount">1</span>
-                        <span class="arrow">&#9660;</span>
-                    </div>
-                    <div class="price">50€</div>
-                    <div class="delete-product">
-                        <span>&#128465;</span>
+            <?php foreach ($products as $product) { ?>
+                <div class="product-box">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="../image/<?php echo $product['PRODUCT_IMAGE']; ?>" alt="<?php echo $product['PRODUCT_NAME']; ?>">
+                        </div>
+                        <div class="product-details">
+                            <h3><?php echo $product['PRODUCT_NAME']; ?></h3>
+                            <p class="additional-info"><?php echo $product['DESCRIPTION']; ?></p>
+                        </div>
+                        <div class="quantity">
+                            <a href="update_quantity.php?action=increment&product_id=<?php echo $product['PRODUCT_ID']; ?>" class="arrow">&#9650;</a>
+                            <span class="amount"><?php echo $product['QUANTITY']; ?></span>
+                            <a href="update_quantity.php?action=decrement&product_id=<?php echo $product['PRODUCT_ID']; ?>" class="arrow">&#9660;</a>
+                        </div>
+                        <div class="price"><?php echo $product['PRICE']; ?>€</div>
+                        <div class="delete-product">
+                            <a href="delete_product.php?ID=<?php echo $product['PRODUCT_ID']; ?>" class="delete-btn">Delete</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="product-box">
-                <div class="product">
-                    <div class="product-image">
-                        <img src="strawberries.jpg" alt="Strawberries">
-                    </div>
-                    <div class="product-details">
-                        <h3>Strawberries</h3>
-                        <p class="additional-info">Fresh, Organic</p>
-                    </div>
-                    <div class="quantity">
-                        <span class="arrow">&#9650;</span>
-                        <span class="amount">1</span>
-                        <span class="arrow">&#9660;</span>
-                    </div>
-                    <div class="price">50€</div>
-                    <div class="delete-product">
-                        <span>&#128465;</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat the product box structure for each product -->
+            <?php } ?>
             
             <!-- Total Box -->
             <div class="total-box">
-                <div class="total-items">Total items (<span id="total-items">3</span> items)</div>
-                <div class="total-price">Total price: <span id="total-price">150€</span></div>
+                <?php 
+                $total_items = count($products);
+                $total_price = array_sum(array_column($products, 'PRICE'));
+                ?>
+                <div class="total-items">Total items: <span id="total-items"><?php echo $total_items; ?></span> items</div>
+                <div class="total-price">Total price: <span id="total-price"><?php echo $total_price; ?>€</span></div>
             </div>
             
             <!-- Proceed to Checkout Box -->
