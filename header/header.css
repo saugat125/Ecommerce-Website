@@ -1,105 +1,145 @@
 header {
-    background-color: #fff;
-    padding: 10px 0;
-    transition: top 0.3s ease;
-    width: 100%;
-    z-index: 1000;
+  background-color: #fff;
+  padding: 10px 0;
+  transition: top 0.3s ease;
+  width: 100%;
+  z-index: 1000;
 }
 
 header.sticky {
-    position: fixed;
-    top: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for visual effect */
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for visual effect */
 }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 90px;
-  }
-  
-  .logo img {
-    width: 120px;
-    height: 60px;
-  }
-  
-  .search-bar input {
-    padding: 12px 16px;
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 440px;
-  }
 
-  .search-bar{
-    position: relative;
-  }
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 90px;
+}
 
-  .search-bar .search{
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translate(-50%,-50%);
-  }
+.logo img {
+  width: 100px;
+  height: 60px;
+}
 
-  .search button{
-    border: none;
-    cursor: pointer;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  nav ul li {
-    margin-left: 20px;
-  }
-  
-  nav ul li button {
+.search-bar input {
+  padding: 12px 16px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 440px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar .search {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.search button {
+  border: none;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li button {
+  padding: 10px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #fff;
+  color: black;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.signup-btn {
+  background-color: #000;
+  color: #fff;
+}
+
+.login-btn, .signup-btn {
     padding: 10px 32px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .login-btn {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color and background */
+    font-weight: bold;
+}
+
+.login-btn {
     background-color: #fff;
     color: black;
     border: 1px solid black;
-    font-weight: bold;
-  }
-  
-  .signup-btn {
+}
+
+.signup-btn {
     background-color: #000;
     color: #fff;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #1A1A1A;
-  }
-  
-  nav ul li a i {
-    margin-right: 5px;
-  }
-  
-  .menu {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
-  
-  .menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 56px;
-  }
-  
-  .menu ul li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
+}
+
+.login-btn:hover {
+    background-color: black; /* Black background on hover */
+    color: white; /* White text on hover */
+}
+
+.signup-btn:hover {
+    background-color: grey; 
+    color: black; /* Black text on hover */
+}
+
+
+nav ul li a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
+.menu {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  overflow: visible; /* Ensuring overflow is visible */
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; /* Ensure transition is declared here too */
+  display: inline-block; /* Allows transform to work properly */
+}
+
+.menu ul li a:hover {
+  color: green;
+  text-decoration: none;
+  transform: scale(1.5); /* Increase size on hover */
+}

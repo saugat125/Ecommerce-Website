@@ -14,11 +14,11 @@
 
 <?php include ('../header/header.php') ?>
 
-<section class="about-us">
-    <div class="about-heading">
-        <h2>About Us</h2>
-    </div>
-</section>
+<div class="header">
+    <h1>C-Fresh</h1>
+    <div class="about-us">ABOUT US</div> 
+</div>
+
 
 <section class="introduction">
     <div class="section-content">
