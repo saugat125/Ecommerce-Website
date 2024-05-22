@@ -9,15 +9,6 @@
     padding: 10px;
 }
 
-.about-heading h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.card a{
-    color: black;
-    text-decoration: none;
-}
 .products {
     padding: 50px 0;
 }
@@ -27,37 +18,68 @@
     font-size: 64px;
     font-weight: 700;
 }
+
 .products .container {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 50px;
-    margin: 50px 60px;
+    margin: 0 60px; 
 }
+
+.search-results {
+    margin-left: 60px;
+}
+
 .products .card {
     border: 1px solid rgb(228, 223, 223);
     padding: 10px;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.products .container .card .img-div {
+
+.products .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.products .card a {
+    color: black;
+    text-decoration: none;
+}
+
+.products .card .img-div {
     display: flex;
     justify-content: center;
 }
-.products .container .card img {
+
+.products .card img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
 }
-.products .container .card h2 {
+
+.products .card h2 {
     text-align: left;
     font-size: 20px;
     font-weight: 700;
 }
-.products .container .card .rate {
+
+.products .card p {
+    text-align: left;
+    font-size: 16px;
+}
+
+.products .card .rate {
     margin: 15px 0;
     font-weight: 700;
     font-size: 20px;
 }
-.products .container .card .add-btn {
+
+.products .card .btn-div {
+    display: flex;
+}
+
+.products .card .add-btn {
     width: 100%;
     background-color: black;
     color: white;
@@ -66,18 +88,8 @@
     text-align: center;
     border-radius: 5px;
 }
-.products .container .card .btn-div {
-    display: flex;
-}
 
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-.add-btn:hover {
+.products .card .add-btn:hover {
     box-shadow: 0 4px 20px rgba(249, 221, 221, 0.2);
 }
 
@@ -98,7 +110,7 @@
         gap: 15px;
         margin: 20px;
     }
-    .products .container .card img {
+    .products .card img {
         width: 208px;
         height: 208px;
     }
