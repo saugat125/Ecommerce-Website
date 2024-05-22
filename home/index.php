@@ -131,7 +131,10 @@ session_start();
                     <p class="rate">€ <?php echo $offer_row['PRICE']; ?></p>
                 </div>
                 <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                    <form method="POST" action="../cartpage/add_to_cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $offer_row['PRODUCT_ID']; ?>">
+                        <button type="submit" class="add-btn">ADD +</button>
+                    </form>                    
                 </div>
                 </a>
             </div>
@@ -164,7 +167,10 @@ session_start();
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>                    
                     </div>
                     </a>
                 </div>

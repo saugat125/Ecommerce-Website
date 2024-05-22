@@ -1,4 +1,7 @@
-<?php include ('../connect.php'); ?>
+<?php
+include ('../connect.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,13 @@
 </head>
 
 <body>
-    <?php include ('../header/header.php'); ?>
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 
     <section class="productheading">
         <div class="product-heading">
@@ -42,7 +51,10 @@
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <a href="" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>                    
                     </div>
                     </a>
                 </div>
