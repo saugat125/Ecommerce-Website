@@ -1,4 +1,7 @@
-<?php include ('../connect.php') ?>
+<?php
+include ('../connect.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,13 @@
 
 </html>
 
-<?php include ('../header/header.php') ?>
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+?>
 
 <?php
 
@@ -66,42 +75,19 @@ while ($row = oci_fetch_assoc($product_stmt)) {
                         <h2 style="color: #323E6B;font-weight: 900;">£ <?php echo $row['PRICE']; ?></h2>
                         <h4 class="stocks">Avaliable Stocks : <?php echo $row['STOCK_AVAILABLE']; ?></h4>
                     </div>
-                    <div class="quantity">
-                        <button id="decrement">-</button>
-                        <input type="text" id="quantity" value="1" readonly style="width: 30px; text-align: center;">
-                        <button id="increment">+</button>
-                    </div>
+                    <form action="../cartpage/add_to_cart.php" method="post" class="cart-form">
+                        <div class="quantity">
+                            <button id="decrement" type = "button">-</button>
+                            <input type="text" id="quantity" name="quantity" value="1" readonly style="width: 30px; text-align: center;">
+                            <button id="increment" type = "button">+</button>
+                        </div>
+                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                        <div class="buttons">
+                            <button type="submit" class="cart">Add to cart</button>
+                            <a class="list">Add to list</a>
+                        </div>
+                    </form>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const incrementButton = document.getElementById('increment');
-    const decrementButton = document.getElementById('decrement');
-    const quantityField = document.getElementById('quantity');
-
-    incrementButton.addEventListener('click', function() {
-        let currentValue = parseInt(quantityField.value, 10);
-        currentValue++;
-        quantityField.value = currentValue;
-    });
-
-    decrementButton.addEventListener('click', function() {
-        let currentValue = parseInt(quantityField.value, 10);
-        if (currentValue > 1) { // Prevents the quantity from going below 1
-            currentValue--;
-            quantityField.value = currentValue;
-        }
-    });
-});
-</script>
-
-
-
-
-                    <div class="buttons">
-                        <a class="cart">Add to cart</a>
-                        <a class="list">Add to list</a>
-                    </div>
                 </div>
 
             </div>
@@ -200,8 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <!-- <h5>3 lb bag</h5> -->
                                 <h4>£ <?php echo $shop_product_row['PRICE']; ?></h4>
                             </div>
-                            <div class="button">
-                                <a class="add-btn">ADD +</a>
+                            <div class="btn-div">
+                                <form method="POST" action="../cartpage/add_to_cart.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $shop_product_row['PRODUCT_ID']; ?>">
+                                    <button type="submit" class="add-btn">ADD +</button>
+                                </form>                    
                             </div>
                         </a>
                     </div>
@@ -211,5 +200,27 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     <?php } ?>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const incrementButton = document.getElementById('increment');
+    const decrementButton = document.getElementById('decrement');
+    const quantityField = document.getElementById('quantity');
+
+    incrementButton.addEventListener('click', function() {
+        let currentValue = parseInt(quantityField.value, 10);
+        currentValue++;
+        quantityField.value = currentValue;
+    });
+
+    decrementButton.addEventListener('click', function() {
+        let currentValue = parseInt(quantityField.value, 10);
+        if (currentValue > 1) { // Prevents the quantity from going below 1
+            currentValue--;
+            quantityField.value = currentValue;
+        }
+    });
+});
+</script>
 
 <?php include ('../footer/footer.php') ?>

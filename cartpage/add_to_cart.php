@@ -7,6 +7,7 @@ $cart_id = $_SESSION['cart_id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product_id = $_POST['product_id'];
+    $quantity = $_POST['quantity'] ?? 1; // Set quantity to 1 if it's null or not provided
     
     // Check if the product is already in the cart
     $checkQuery = "SELECT * FROM CART_PRODUCT WHERE cart_id = :cart_id AND product_id = :product_id";
@@ -19,10 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Product already in cart";
     } else {
         // If product is not in the cart, insert it
-        $insertQuery = "INSERT INTO CART_PRODUCT (product_id, cart_id, quantity) VALUES (:product_id, :cart_id, 1)";
+        $insertQuery = "INSERT INTO CART_PRODUCT (product_id, cart_id, quantity) VALUES (:product_id, :cart_id, :quantity)";
         $insertStmt = oci_parse($conn, $insertQuery);
         oci_bind_by_name($insertStmt, ':product_id', $product_id);
         oci_bind_by_name($insertStmt, ':cart_id', $cart_id);
+        oci_bind_by_name($insertStmt, ':quantity', $quantity);
         oci_execute($insertStmt);
         oci_free_statement($insertStmt);
     }
