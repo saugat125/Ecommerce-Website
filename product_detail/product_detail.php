@@ -201,7 +201,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <h4>£ <?php echo $shop_product_row['PRICE']; ?></h4>
                             </div>
                             <div class="button">
-                                <a class="add-btn">ADD +</a>
+                                <form method="POST" action="../cartpage/add_to_cart.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $shop_product_row['PRODUCT_ID']; ?>">
+                                    <button type="submit" class="add-btn">ADD +</button>
+                                </form>
                             </div>
                         </a>
                     </div>
