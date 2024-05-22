@@ -1,3 +1,5 @@
+<?php include ('../connect.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,21 +20,36 @@
     <div class="products">
         <div class="container">
 
+            <?php 
+                $search_text = $_POST['search_text'];
+                $search_query = "SELECT * FROM PRODUCT WHERE UPPER(PRODUCT_NAME) LIKE UPPER('%$search_text%')";
+
+                $search_stmt = oci_parse($conn, $search_query);
+                oci_execute($search_stmt);
+
+                while ($search_row = oci_fetch_assoc($search_stmt)){
+
+            ?>
             <div class="card">
-                <a href="../product_detail/product_detail.php?ID=PRODUCT_ID">
+                <a href="../product_detail/product_detail.php?ID=<?php echo $search_row['PRODUCT_ID']; ?>">
                     <div class="img-div">
-                        <img src="../image/PRODUCT_IMAGE" alt="alt text">
+                        <img src="../image/<?php echo $search_row['PRODUCT_IMAGE']; ?>" alt="<?php echo $search_row['PRODUCT_NAME']; ?>">
                     </div>
                     <div>
-                        <h2>Apple</h2>
-                        <p>This is a very good apple</p>
-                        <p class="rate" style="font-weight:400;">100</p>
+                        <h2><?php echo $search_row['PRODUCT_NAME']; ?></h2>
+                        <!-- <p>This is a very good apple</p> -->
+                        <p class="rate" style="font-weight:400;">£ <?php echo $search_row['PRICE']; ?></p>
                     </div>
+                    
                     <div class="btn-div">
-                        <a href="" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $search_row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>
                     </div>
                 </a>
             </div>
+            <?php } ?>
 
         </div>
     </div>
