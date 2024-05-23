@@ -44,8 +44,13 @@ oci_close($conn);
 </head>
 
 <body>
-    <?php include ('../header/header.php'); ?>
-    <div class="main-container">
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>    <div class="main-container">
         <div class="container">
             <div class="continue-shopping-box">
                 <div class="continue-shopping">

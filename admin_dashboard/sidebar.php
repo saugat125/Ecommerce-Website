@@ -21,23 +21,23 @@
       <div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer">
           <i class="bi bi-house-door-fill text-black"></i>
-          <a href="../trader-dashboard/homepage.php" class="text-[15px] ml-4 text-black">Customer</a>
+          <a href="" class="text-[15px] ml-4 text-black">Customer</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer">
           <i class="bi bi-house-door-fill text-black"></i>
-          <a href="../trader-dashboard/homepage.php" class="text-[15px] ml-4 text-black">Trader</a>
+          <a href="" class="text-[15px] ml-4 text-black">Trader</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer">
           <i class="bi bi-house-door-fill text-black"></i>
-          <a href="../trader-dashboard/homepage.php" class="text-[15px] ml-4 text-black">Product</a>
+          <a href="" class="text-[15px] ml-4 text-black">Product</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer">
           <i class="bi bi-house-door-fill text-black"></i>
-          <a href="../trader-dashboard/homepage.php" class="text-[15px] ml-4 text-black">Verify Traders</a>
+          <a href="" class="text-[15px] ml-4 text-black">Verify Traders</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer">
           <i class="bi bi-house-door-fill text-black"></i>
-          <a href="../trader-dashboard/homepage.php" class="text-[15px] ml-4 text-black">Verify Products</a>
+          <a href="" class="text-[15px] ml-4 text-black">Verify Products</a>
         </div>
       </div>
 
