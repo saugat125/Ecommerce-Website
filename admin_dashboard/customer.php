@@ -3,6 +3,42 @@
     session_start();
 ?>
 
+<?php
+
+if (isset($_POST['disable'])) {
+    $user_id = $_POST['user_id'];
+    $is_verified = 'N';
+
+    $disable_query = "UPDATE CUSTOMER SET ISVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
+
+    $disable_stmt = oci_parse($conn, $disable_query);
+
+    if (oci_execute($disable_stmt)) {
+        header('location: customer.php');
+    }
+
+}
+
+?>
+<?php
+
+if (isset($_POST['enable'])) {
+    $user_id = $_POST['user_id'];
+    $is_verified = 'Y';
+
+    $enable_query = "UPDATE CUSTOMER SET ISVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
+
+    $enable_stmt = oci_parse($conn, $enable_query);
+
+    if (oci_execute($enable_stmt)) {
+        header('location: customer.php');
+    }
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +52,8 @@
     <header>
         <nav>
             <div class="nav-icons">
-                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProducts  &nbsp >   &nbsp Product List</i></span>
-                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspADMIN  &nbsp >   &nbsp CUSTOMERS</i></span>
+                <span class="user"><i class="fa fa-user-circle" aria-hidden="true"></i> ADMIN</span>
             </div>
         </nav>
     </header>
@@ -27,14 +63,7 @@
             <?php include ('sidebar.php')?>
         </div>
         <main>
-            <h1>Customers</h1>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <select name="filter">
-                    <option value="all">All</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
+            <h1 style="font-size:20px;margin-bottom:20px;">Customers</h1>
             <div class="table-container">
                 <table>
                     <thead>
@@ -42,15 +71,18 @@
                             <th>Email</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Date of Birth</th>
                             <th>Phone Number</th>
                             <th>Date Joined</th>
+                            <th>Verified</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $query = "
-                                SELECT u.email, u.first_name, u.last_name, u.date_of_birth, u.phone_number, c.date_joined 
+                                SELECT u.email, u.first_name, u.last_name, u.phone_number, c.date_joined, c.isverified,c.user_id
                                 FROM USERS u
                                 INNER JOIN CUSTOMER c ON u.user_id = c.user_id";
 
@@ -62,9 +94,14 @@
                                 echo "<td>" . htmlspecialchars($row['EMAIL']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['FIRST_NAME']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['LAST_NAME']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['DATE_OF_BIRTH']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['PHONE_NUMBER']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['DATE_JOINED']) . "</td>";
+                                echo "<td>" . ($row['ISVERIFIED'] === 'Y' ? 'Yes' : 'No') . "</td>";
+                                echo "<form action='#' method='post'>";
+                                echo "<td>" . "<button type='submit' name='disable'>Disable</button>" . "</td>";
+                                echo "<td>" . '<input type="hidden" name="user_id" value="'. $row['USER_ID'].'">' . "</td>";
+                                echo "<td>" . "<button type='submit' name='enable'>Enable</button>" . "</td>";
+                                echo "</form>";
                                 echo "</tr>";
                             }
 
@@ -76,5 +113,9 @@
             </div>
         </main>
     </div>
+    
+
 </body>
 </html>
+
+

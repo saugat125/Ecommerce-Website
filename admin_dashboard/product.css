@@ -54,7 +54,7 @@ main {
 }
 
 h1 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .search-bar {
@@ -86,7 +86,9 @@ table {
     border-spacing: 0;
     border-radius: 10px;
 }
-
+thead{
+    background-color: #ddd;
+}
 th, td {
     padding: 10px;
     text-align: left;
@@ -94,8 +96,9 @@ th, td {
 }
 
 th {
-    background-color: #ddd;
+    /* background-color: #ddd; */
 }
+
 img {
     margin-left: 10px;
 }

@@ -24,7 +24,7 @@ session_start();
         $shop_id = $_GET['ID'];
 
         $shop_query = "SELECT * FROM SHOP WHERE SHOP_ID = '$shop_id'";
-        $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = '$shop_id'";
+        $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = '$shop_id' AND ISAPPROVED = 'Y'";
 
         $shop_stmt = oci_parse($conn, $shop_query);
         $product_stmt = oci_parse($conn, $product_query);
