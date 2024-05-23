@@ -50,7 +50,7 @@ oci_execute($stmt);
                 </div>
                 <div class="btn-div">
                     <form method="POST" action="../cartpage/add_to_cart.php">
-                        <input type="hidden" name="product_id" value="<?php echo $shop_product_row['PRODUCT_ID']; ?>">
+                        <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
                         <button type="submit" class="add-btn">ADD +</button>
                     </form>
                 </div>

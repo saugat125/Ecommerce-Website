@@ -1,40 +1,59 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f0f0f0; /* Slightly off-white background */
     margin: 0;
     padding: 0;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure full height to center vertically */
 }
 
 .main-container {
-    background-color: #f5f5f5; /* Off-white background color */
+    margin-left: 22.5%;
     padding: 20px;
+    width: 100%; /* Ensure it doesn't shrink */
+    max-width: 800px; /* Maintain the max width */
+    height: 100px; /* Allow height to adjust based on content */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align content to the top */
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    border-radius: 10px; /* Slightly larger border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Added drop shadow */
     background-color: #fff;
 }
+
 .continue-shopping-box {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin-bottom: 20px; /* Add margin to separate boxes */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
 }
 
 .continue-shopping-box a {
     text-decoration: none;
-    color: #333;
+    color: #000; /* Black color for the link */
+    font-weight: 500; /* Thinner font weight */
     transition: color 0.3s ease; /* Smooth transition for text color */
+    display: flex; /* Flex display to align items */
+    align-items: center; /* Center align items */
+}
+
+.continue-shopping-box a::before {
+    content: "←"; /* Pretty arrow before the link */
+    margin-right: 10px; /* Space between the arrow and the text */
+    font-size: 20px; /* Make the arrow bigger */
+    font-weight: bold; /* Make the arrow thicker */
 }
 
 .continue-shopping-box:hover {
-    background-color: black; /* Changes the background to black on hover */
+    background-color: #343434; /* Changes the background to dark gray on hover */
+    transform: scale(1.05); /* Slightly scale up the box on hover */
 }
 
 .continue-shopping-box:hover a {
@@ -83,6 +102,7 @@ body {
 
 .product-details {
     flex-grow: 1;
+    text-align: center; /* Center the product description */
 }
 
 .additional-info {
@@ -90,15 +110,31 @@ body {
     font-size: 14px;
 }
 
-.quantity {
+.quantity, .price, .delete-product {
+    margin: 0 10px; /* Add margin for even spacing */
     display: flex;
-    align-items: center;
-    margin-right: 20px;
+    align-items: center; /* Align items vertically */
 }
 
 .arrow {
     cursor: pointer;
     margin: 0 5px;
+    background-color: #000; /* Black background for arrows */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    text-decoration: none; /* Remove underline */
+}
+
+.arrow:hover {
+    background-color: #343434; /* Change color on hover */
 }
 
 .price {
@@ -107,6 +143,21 @@ body {
 
 .delete-product {
     cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #ff4d4d; /* Red background color */
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.delete-btn:hover {
+    background-color: #e60000; /* Darker red on hover */
 }
 
 .total-box {
@@ -139,35 +190,29 @@ body {
     margin-top: 10px;
 }
 
-.checkout-box {
-    background-color: #000;
+.checkout-box,
+.process-payment-button {
+    background-color: #28a221;
     color: #fff;
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+    font-weight: 500; /* Thinner font weight */
+    font-size: 16px; /* Make font sizes consistent */
 }
 
-.checkout-button {
+.checkout-button,
+.process-payment-button {
     text-decoration: none;
     color: #fff;
-    font-weight: bold;
+    display: block; /* Ensure the link fills the button area */
+    text-align: center; /* Center the text */
 }
 
-.checkout-button:hover {
-    background-color: #333;
-}
-
-.process-payment-button {
-    background-color: #000;
-    color: #fff;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-right: 10px; /* Add some spacing between the buttons */
-}
-
+.checkout-box:hover,
 .process-payment-button:hover {
-    background-color: #333;
+    background-color: #00c90d; /* Changes the background to dark gray on hover */
+    transform: scale(1.05); /* Slightly scale up the button on hover */
 }
