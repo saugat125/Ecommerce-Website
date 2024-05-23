@@ -42,21 +42,21 @@ body {
 }
 
 .heart-icon {
-    font-size: 200px;  /* Significantly increased from 120px to 200px */
+    font-size: 50px;  /* Significantly increased from 120px to 200px */
     color: #fff;  /* White color for the heart icon */
     position: absolute;
-    top: 50%;  /* Centered vertically */
+    top: 10%;  /* Centered vertically */
     left: 50%;
     transform: translate(-50%, -50%);  /* Center both horizontally and vertically */
     z-index: 2;  /* Ensures it's above the overlay */
 }
 
 
-.heart-icon {
-    font-size: 200px;
+.wishlist-header .heart-icon {
+    font-size: px;
     color: #fff;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;

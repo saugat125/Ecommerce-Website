@@ -28,7 +28,7 @@ oci_execute($stmt);
 
 <body>
     <div class="wishlist-header">
-        <i class="fa fa-heart"></i> <!-- Heart icon at the header -->
+       <i class="fa fa-heart heart-icon"></i> <!-- Heart icon at the header -->
         <h1>My Wishlist</h1>
         <div class="breadcrumbs">
             <a href="../home/index.php"><i class="fas fa-home"></i> Home</a> 
