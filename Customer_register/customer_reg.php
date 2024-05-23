@@ -14,30 +14,6 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <style>
-        /* Custom Toastr Styles */
-        #toast-container > .toast-success {
-            background-color: #28a745; /* Custom success background color */
-            color: #fff; /* Custom success text color */
-        }
-
-        #toast-container > .toast-error {
-            background-color: #dc3545; /* Custom error background color */
-            color: #fff; /* Custom error text color */
-        }
-
-        #toast-container > .toast-info {
-            background-color: #17a2b8; /* Custom info background color */
-            color: #fff; /* Custom info text color */
-        }
-
-        #toast-container > .toast-warning {
-            background-color: #ffc107; /* Custom warning background color */
-            color: #fff; /* Custom warning text color */
-        }
-    </style>
-
-
 </head>
 <body>
     <div class="container">
@@ -100,25 +76,36 @@ session_start();
             </form>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-    <?php if (isset($_SESSION['message'])): ?>
-        var message = "<?php echo $_SESSION['message']; ?>";
-        var messageType = "<?php echo $_SESSION['message_type']; ?>";
-        
-        if (messageType === 'success') {
-            toastr.success(message);
-        } else if (messageType === 'error') {
-            toastr.error(message);
-        }
-        
-        <?php
-        unset($_SESSION['message']);
-        unset($_SESSION['message_type']);
-        ?>
-    <?php endif; ?>
-});
 
-    </script>   
+    <?php if (isset($_SESSION['message'])): ?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            <?php if ($_SESSION['message_type'] == 'success'): ?>
+                toastr.success("<?php echo $_SESSION['message']; ?>");
+            <?php else: ?>
+                toastr.error("<?php echo $_SESSION['message']; ?>");
+            <?php endif; ?>
+            <?php unset($_SESSION['message']); ?>
+            <?php unset($_SESSION['message_type']); ?>
+        </script>
+    <?php endif; ?>
 </body>
 </html>

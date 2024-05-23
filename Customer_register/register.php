@@ -166,7 +166,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = oci_fetch_assoc($stmt_check_email);
 
     if ($row['CNT'] > 0) {
-        echo "Email already exists.";
+        $_SESSION['message'] = "Email already exists.";
+        $_SESSION['message_type'] = 'error';
+        header("Location: customer_reg.php");
         exit;
     }
     oci_free_statement($stmt_check_email);
