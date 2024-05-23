@@ -26,6 +26,8 @@
                     <label for="customer">Customer</label><br />
                     <input type="radio" id="trader" name="user_role" value="trader" />
                     <label for="trader">Trader</label><br />
+                    <input type="radio" id="admin" name="user_role" value="admin" />
+                    <label for="admin">Admin</label><br />
                 </div>
                 <div class="remember-forgot">
                     <label>
