@@ -1,5 +1,7 @@
-<?php include ('../connect.php');
-session_start();
+<?php
+    include "../connect.php";
+    session_start();
+    $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
 
 <!DOCTYPE html>
@@ -10,43 +12,28 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="traderprofile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-    <!-- Include Header -->
-    <?php
-    include ('../header/home_header.php');
-    ?>
-
-    <!-- Container for both sections -->
-    <div class="flex">
-        <!-- Left Section with increased margin from the top -->
-        <div class="w-1/4 bg-white p-4 border-r mt-9">
-            <!-- Manage My Account Button with increased margin from the top -->
-            <button class="w-full bg-black text-white rounded py-2 mb-4">MY ACCOUNT</button>
-
-            <!-- Navigation Menu with increased space between items -->
-            <nav class="space-y-4">
-                <!-- My Orders -->
-                <div class="flex items-center my-4 mx-8">
-                    <a href="#" class="text-black hover:text-gray-700 flex items-center">
-                        <!-- SVG Icon -->
-                        <span class="material-symbols-outlined mx-2">
-                            deployed_code
-                        </span>
-                        MY ORDERS
-                    </a>
-                </div>
-
-                <!-- Logout Option -->
-                <a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
-            </nav>
+<header>
+    <nav>
+        <div class="nav-icons">
+            <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHome  &nbsp >   &nbsp Account</i></span>
+            <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $shopName; ?></i></span>
         </div>
-
+    </nav>
+  </header>
+<div class="flex">
+        <div class="sidebar">
+        <?php include ('../sidebar/sidebar.php')?>
+        </div>
         <!-- Right Section -->
-        <div class="w-3/4 p-4">
+        <div class="w-full p-4">
             <div class="container mx-auto my-8 p-6 border rounded-lg shadow-lg">
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-xl font-semibold">My Account</h1>
@@ -64,7 +51,7 @@ session_start();
 
 
                     ?>
-                    <form action="update-user.php" method="post">
+                    <form action="update_trader.php" method="post">
                         <div class="mb-4">
                             <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
                             <input type="text" id="firstName" placeholder="Enter your first name"
@@ -96,9 +83,9 @@ session_start();
             </div>
         </div>
     </div>
+                </div>
 
-    <!-- Include Footer -->
-    <?php include ('../footer/footer.php') ?>
+
 
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
