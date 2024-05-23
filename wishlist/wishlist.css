@@ -142,6 +142,10 @@ body {
     background-color: #444;
 }
 
+.add-to-cart[href*="delete_from_wishlist.php"]:hover {
+    background-color: red; /* Change background to red only for DELETE buttons */
+}
+
 .product-details .price, .product-details .stock-status {
     font-weight: bold;
     margin-right: 20px; /* Ensures spacing before the button */
