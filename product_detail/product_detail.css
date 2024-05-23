@@ -18,6 +18,10 @@
     width: 50%;
 }
 
+.text .allergy{
+    margin-top: 40px;
+}
+
 /* General image styling with border */
 .product-container img,
 .item-container img {

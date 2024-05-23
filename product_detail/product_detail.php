@@ -94,6 +94,8 @@ if ($row) {
             <div class="text">
                 <h2>Description :</h2>
                 <p><?php echo $row['DESCRIPTION']; ?></p>
+                <h2 class="allergy">Allergy Information :</h2>
+                <p><?php echo $row['ALLERGY_INFORMATION']; ?></p>
             </div>
 
             <div class="text">

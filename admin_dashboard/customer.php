@@ -107,6 +107,7 @@ if (isset($_POST['enable'])) {
 
                             oci_free_statement($stid);
                             oci_close($conn);
+                            
                         ?>
                     </tbody>
                 </table>
