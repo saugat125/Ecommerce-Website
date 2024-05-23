@@ -25,7 +25,7 @@ session_start();
     <!-- Left Section with increased margin from the top -->
     <div class="w-1/4 bg-white p-4 border-r mt-9">
       <!-- Manage My Account Button with increased margin from the top -->
-      <button class="w-full bg-black text-white rounded py-2 mb-4">MANAGE MY ACCOUNT</button>
+      <button class="w-full bg-black text-white rounded py-2 mb-4">MY ACCOUNT</button>
 
       <!-- Navigation Menu with increased space between items -->
       <nav class="space-y-4">
@@ -49,7 +49,7 @@ session_start();
     <div class="w-3/4 p-4">
       <div class="container mx-auto my-8 p-6 border rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
-          <h1 class="text-xl font-semibold">Manage My Account</h1>
+          <h1 class="text-xl font-semibold">My Account</h1>
         </div>
         <?php 
               $user_id = $_SESSION['user_id'];

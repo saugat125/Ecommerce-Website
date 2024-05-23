@@ -68,6 +68,16 @@
             </span> -->
           </div>
         </div>
+        <div class="p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer  hover:bg-gray-400"
+          onclick="dropDown('submenu3', 'arrow3')">
+          <i class="bi bi-chat-left-text-fill text-black"></i>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-black"><a href="../Trader_Profile/traderprofile.php">My Account</a></span>
+            <!-- <span class="text-sm rotate-180" id="arrow3">
+              <i class="bi bi-chevron-down text-black"></i>
+            </span> -->
+          </div>
+        </div>
         <!-- <div class=" leading-7 text-left text-sm font-light mt-2 w-4/5 mx-auto hidden" id="submenu3">
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1">Order 1</h1>
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1">Order 2</h1>
