@@ -1,3 +1,8 @@
+<?php
+include ('../connect.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +17,13 @@
 </html>
 
 
-<?php include ('../header/header.php') ?>
-
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 <div class="header">
     <h1>C-Fresh</h1>
     <div class="about-us">ABOUT US</div> 
