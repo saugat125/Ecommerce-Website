@@ -1,8 +1,7 @@
 <?php
-// login.php
+// login_handle.php
 session_start();
 include "../connect.php";
-include "../toast.js";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -54,13 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['first_name'] = $row['FIRST_NAME'];
         $_SESSION['last_name'] = $row['LAST_NAME'];
 
+        // Set success message in session
+        $_SESSION['message'] = "Login successful!";
+        $_SESSION['message_type'] = 'success';
 
-        $_SESSION['notification'] = [
-            'message' => 'Login successful!',
-            'type' => 'success'
-        ];
-
-        if ($role == 'customer'){
+        if ($role == 'customer') {
             $cart_query = "SELECT * FROM CART WHERE CUSTOMER_ID = '{$row['USER_ID']}'";
             $cart_parse = oci_parse($conn, $cart_query);
             oci_execute($cart_parse);
@@ -80,9 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirect to the appropriate page
             header("Location: ../home/index.php");
-        }
-        else{
-            //Redirect to Trader Dashboard
+        } else {
+            // Redirect to Trader Dashboard
             $trader_id = $_SESSION['user_id'];
             $shop_query = "SELECT * FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
@@ -95,20 +91,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("Location: ../trader-dashboard/homepage.php");
         }
-        
+
         exit;
-    } 
-    else {
-        echo "<script>
-        window.onload = function() {
-            showToast('Invalid credentials, please try again.');
-        };
-        </script>";        // Redirect back to the login page
+    } else {
+        // Set error message in session
+        $_SESSION['message'] = "Invalid credentials, please try again.";
+        $_SESSION['message_type'] = 'error';
+
+        // Redirect back to the login page
         header("Location: login.php");
         exit;
     }
+
     // Freeing the statement and closing the connection
     oci_free_statement($stid);
     oci_close($conn);
-}   
+}
 ?>

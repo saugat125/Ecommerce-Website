@@ -107,5 +107,6 @@ session_start();
             <?php unset($_SESSION['message_type']); ?>
         </script>
     <?php endif; ?>
+
 </body>
 </html>
