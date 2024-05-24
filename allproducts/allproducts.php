@@ -32,7 +32,7 @@ session_start();
         <div class="container">
             <?php 
                 
-                $query = "SELECT * FROM PRODUCT";
+                $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y'";
 
                 $result = oci_parse($conn, $query);
                 oci_execute($result);

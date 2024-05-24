@@ -30,7 +30,7 @@ session_start();
 
             <?php 
                 $search_text = $_POST['search_text'];
-                $search_query = "SELECT * FROM PRODUCT WHERE UPPER(PRODUCT_NAME) LIKE UPPER('%$search_text%')";
+                $search_query = "SELECT * FROM PRODUCT WHERE UPPER(PRODUCT_NAME) LIKE UPPER('%$search_text%') AND ISAPPROVED = 'Y'";
 
                 $search_stmt = oci_parse($conn, $search_query);
                 oci_execute($search_stmt);
