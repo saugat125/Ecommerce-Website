@@ -20,6 +20,7 @@
 }
 .products {
     padding: 50px 0;
+    padding-top: 0px;
 }
 
 .products h2 {
@@ -79,6 +80,42 @@
 }
 .add-btn:hover {
     box-shadow: 0 4px 20px rgba(249, 221, 221, 0.2);
+}
+
+.sort-container {
+    margin: 20px 0; 
+    margin-left: 60px;
+}
+
+
+.sort-container form {
+    display: inline-block; 
+    padding: 10px; 
+    background-color: #f8f8f8; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+
+.sort-container label {
+    font-size: 16px;
+    color: #333; 
+    margin-right: 10px; 
+}
+
+
+.sort-container select {
+    font-size: 16px;
+    padding: 8px 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: white; 
+    cursor: pointer; 
+}
+
+
+.sort-container option {
+    padding: 8px; 
 }
 
 /* Media Queries for Responsive Adjustments */

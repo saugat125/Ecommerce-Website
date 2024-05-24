@@ -28,17 +28,37 @@ session_start();
         </div>
     </section>
 
+    <div class="sort-container">
+    <form action="" method="GET">
+        <label for="sortby">Sort by:</label>
+        <select name="sortby" onchange="this.form.submit()">
+            <option value="asc" <?php if (isset($_GET['sortby']) && $_GET['sortby'] == 'asc')
+                    echo 'selected'; ?>>Price:
+                    Low to High</option>
+                <option value="desc" <?php if (isset($_GET['sortby']) && $_GET['sortby'] == 'desc')
+                    echo 'selected'; ?>>Price:
+                    High to Low</option>
+            </select>
+        </form>
+    </div>
+
     <div class="products">
         <div class="container">
-            <?php 
-                
-                $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y'";
+            <?php
+            $sort_order = "ASC";  // Default sort order
+            if (isset($_GET['sortby']) && $_GET['sortby'] == 'desc') {
+                $sort_order = "DESC";
+            }    
+
+                $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y' ORDER BY PRICE $sort_order";
 
                 $result = oci_parse($conn, $query);
                 oci_execute($result);
 
                 while ($row = oci_fetch_assoc($result)){
                 ?>   
+
+                
 
                 <div class="card">
                     <a href="../product_detail/product_detail.php?ID=<?php echo $row['PRODUCT_ID']; ?>">
@@ -48,7 +68,7 @@ session_start();
                     <div>
                         <h2><?php echo $row['PRODUCT_NAME']; ?></h2>
                         <!-- <p><?php echo $row['DESCRIPTION']; ?></p> -->
-                        <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
+                        <p class="rate" style="font-weight:400;"><?php echo '€ ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
                         <form method="POST" action="../cartpage/add_to_cart.php">
