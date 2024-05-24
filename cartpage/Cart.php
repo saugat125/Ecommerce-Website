@@ -102,7 +102,7 @@ oci_close($conn);
             <!-- Proceed to Checkout Box -->
             <div class="checkout-container">
                 <div class="checkout-box">
-                    <a href="checkout.html" class="checkout-button">Proceed to Checkout</a>
+                    <a href="../checkout/checkout.php" class="checkout-button">Proceed to Checkout</a>
                 </div>
             </div>
         </div>

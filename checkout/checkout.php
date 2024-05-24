@@ -1,3 +1,8 @@
+<?php
+include ('../connect.php');
+include('../notification.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,32 +14,13 @@
 </head>
 <body>
 <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="../index.php">
-                    <img src="../image/logo.png" alt="Logo">
-                </a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for products, and more">
-                <div class="search"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i>Cart</a></li>
-                    <li><a href="#"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-            </ul>
-        </div>
-    </header>
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 
     <main>
         <section class="collection-slots">
