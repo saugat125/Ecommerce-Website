@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-<?php include ('../connect.php');
-session_start(); ?>
-=======
-<?php
+<?php 
 include ('../connect.php');
-session_start();
+session_start(); 
 ?>
->>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +20,7 @@ session_start();
     } else {
         include('../header/header.php');
     }
-<<<<<<< HEAD
     ?>
-=======
-?>
->>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
     <section class="productheading">
         <div class="product-heading">
