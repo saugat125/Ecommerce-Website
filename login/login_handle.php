@@ -20,16 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 AND u.password = :password 
                 AND u.user_role = :role 
                 AND c.isverified = 'Y'";
-    }
-    else if ($role == 'admin'){
-        // SQL statement for customer role
+    } else if ($role == 'admin') {
+        // SQL statement for admin role
         $sql = "SELECT * 
                 FROM users u 
                 WHERE u.user_name = :email 
                 AND u.password = :password 
-                AND u.user_role = :role ";    
-    }
-    else {
+                AND u.user_role = :role";
+    } else {
         // SQL statement for other roles (e.g., trader)
         $sql = "SELECT *
                 FROM users u 
@@ -86,13 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirect to the appropriate page
             header("Location: ../home/index.php");
-        }
-        else if ($role == 'admin'){
+        } else if ($role == 'admin') {
+            // Redirect to the admin dashboard or home page
             header("Location: ../home/index.php");
-
-        }
-        else{
-            //Redirect to Trader Dashboard
+        } else {
+            // Redirect to Trader Dashboard
             $trader_id = $_SESSION['user_id'];
             $shop_query = "SELECT * FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
@@ -107,13 +103,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         exit;
-    } 
-    else {
-        echo "<script>
-        window.onload = function() {
-            showToast('Invalid credentials, please try again.');
-        };
-        </script>";        // Redirect back to the login page
+    } else {
+        // Set error message in session
+        $_SESSION['message'] = "Invalid credentials, please try again.";
+        $_SESSION['message_type'] = 'error';
+
+        // Redirect back to the login page
+        header("Location: login.php");
         exit;
     }
 
