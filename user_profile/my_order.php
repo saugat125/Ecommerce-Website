@@ -1,3 +1,7 @@
+<?php
+include "../notification.php";
+?>
+
 <!doctype html>
 <html>
 

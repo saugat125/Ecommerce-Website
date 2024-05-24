@@ -1,7 +1,9 @@
 <?php
 include ('../connect.php');
+include('../notification.php');
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +53,7 @@ session_start();
         <div class="container">
             <?php
             $product_limit = 0;
-            $query = "SELECT * FROM PRODUCT ORDER BY DBMS_RANDOM.VALUE";
+            $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y' ORDER BY DBMS_RANDOM.VALUE";
             $result = oci_parse($conn, $query);
             oci_execute($result);
             while (($row = oci_fetch_assoc($result)) && $product_limit < 4) {
@@ -66,7 +68,10 @@ session_start();
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>                    
                     </div>
                     </a>
                 </div>
@@ -109,7 +114,7 @@ session_start();
 
             <?php
                 $product_limit = 0;
-                $offer_query = "SELECT * FROM PRODUCT WHERE DISCOUNT > 0";
+                $offer_query = "SELECT * FROM PRODUCT WHERE DISCOUNT > 0 AND ISAPPROVED = 'Y'" ;
 
                 $offer_stmt = oci_parse($conn, $offer_query);
                 oci_execute($offer_stmt);
@@ -128,7 +133,10 @@ session_start();
                     <p class="rate">€ <?php echo $offer_row['PRICE']; ?></p>
                 </div>
                 <div class="btn-div">
-                    <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                    <form method="POST" action="../cartpage/add_to_cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $offer_row['PRODUCT_ID']; ?>">
+                        <button type="submit" class="add-btn">ADD +</button>
+                    </form>                    
                 </div>
                 </a>
             </div>
@@ -146,7 +154,7 @@ session_start();
         <div class="container">
             <?php
             $product_limit = 0;
-            $query = "SELECT * FROM PRODUCT ORDER BY DBMS_RANDOM.VALUE";
+            $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y' ORDER BY DBMS_RANDOM.VALUE";
             $result = oci_parse($conn, $query);
             oci_execute($result);
             while (($row = oci_fetch_assoc($result)) && $product_limit < 10) {
@@ -161,7 +169,10 @@ session_start();
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>                    
                     </div>
                     </a>
                 </div>

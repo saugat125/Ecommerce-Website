@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?php include ('../connect.php');
 session_start(); ?>
+=======
+<?php
+include ('../connect.php');
+session_start();
+?>
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +21,10 @@ session_start(); ?>
 </body>
 </html>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 <?php
     if (isset($_SESSION['user_id'])) {
         include('../header/home_header.php');
@@ -21,12 +32,14 @@ session_start(); ?>
         include('../header/header.php');
     }
     ?>
+<<<<<<< HEAD
+=======
+<div class="header">
+    <h1>C-Fresh</h1>
+    <div class="about-us">ABOUT US</div> 
+</div>
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
-<section class="about-us">
-    <div class="about-heading">
-        <h2>About Us</h2>
-    </div>
-</section>
 
 <section class="introduction">
     <div class="section-content">

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?php include ('../connect.php');
 session_start(); ?>
+=======
+<?php
+include ('../connect.php');
+session_start();
+?>
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +25,11 @@ session_start(); ?>
     } else {
         include('../header/header.php');
     }
+<<<<<<< HEAD
     ?>
+=======
+?>
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
     <section class="productheading">
         <div class="product-heading">
@@ -30,7 +41,7 @@ session_start(); ?>
         <div class="container">
             <?php 
                 
-                $query = "SELECT * FROM PRODUCT";
+                $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y'";
 
                 $result = oci_parse($conn, $query);
                 oci_execute($result);
@@ -49,7 +60,10 @@ session_start(); ?>
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <a href="" class="add-btn">ADD +</a>
+                        <form method="POST" action="../cartpage/add_to_cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                            <button type="submit" class="add-btn">ADD +</button>
+                        </form>                    
                     </div>
                     </a>
                 </div>

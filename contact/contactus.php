@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?php include ('../connect.php');
 session_start(); ?>
+=======
+<?php
+include ('../connect.php');
+session_start();
+?>
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +27,10 @@ session_start(); ?>
         include('../header/header.php');
     }
     ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b09ee29938ba91b6da9b06b8425f38c61bae7ba
 <section class="contact-us">
     <div class="contact-heading">
         <h2>Contact Us</h2>

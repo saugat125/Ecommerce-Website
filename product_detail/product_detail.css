@@ -18,14 +18,83 @@
     width: 50%;
 }
 
-.product-section .text-container{
+.text .allergy{
+    margin-top: 40px;
+}
+
+/* General image styling with border */
+.product-container img,
+.item-container img {
+    border: 2px solid #ddd; /* Light grey border */
+    padding: 5px; /* Padding around the image */
+    transition: transform 0.3s ease, border 0.3s ease; /* Smooth transition for transform and border color */
+}
+
+/* Hover effect for images within the product details and item listings */
+.product-container img:hover,
+.item-container img:hover {
+    transform: scale(1.1); /* Scales the image to 110% of its original size */
+    border-color: #ccc; /* Darker border on hover */
+}
+
+/* Ensure that the container can handle the increased size without layout shift */
+.product-container,
+.item-container {
+    overflow: hidden; /* Prevents the image from overflowing its container */
+}
+
+
+.product-section .text-container {
     width: 30%;
     padding-left: 60px;
     padding-top: 30px;
-    box-shadow: 0 0 8px 0 #BBBBBB; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     height: 420px;
     padding-right: 30px;
+    background: #FFF; /* Ensures the background is white */
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for scaling and shadow */
 }
+
+
+/* Card Hover Effect - Scale Up */
+.product-section .text-container {
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
+
+.product-section .text-container:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover for more emphasis */
+}
+
+/* Button Hover Effects - Change Color to Grey */
+.product-section .text-container .buttons a:hover {
+    background-color: #A0A0A0; /* Grey color for hover state */
+    color: #FFF; /* Ensures text color is white for visibility */
+}
+
+.product-section .text-container .buttons .buy-now:hover {
+    background-color: #A0A0A0; /* Consistent hover effect for Buy Now button */
+}
+
+/* Specific Styles for 'Add to Cart' and 'Add to List' buttons */
+.product-section .text-container .buttons .cart,
+.product-section .text-container .buttons .list {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.product-section .text-container .buttons .list {
+    position: relative; /* Ensures the pseudo-element positions correctly */
+}
+
+.product-section .text-container .buttons .list::after {
+    transition: background-image 0.2s ease-in-out; /* Smooth transition for heart icon */
+}
+
+.product-section .text-container .buttons .list:hover::after {
+    background-image: url('./img/heart-hover.png'); /* Change heart icon on hover, ensure you have this hover image */
+}
+
 
 .product-container .other-images{
     margin-left: 70px;

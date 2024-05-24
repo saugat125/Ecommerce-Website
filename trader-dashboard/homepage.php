@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "../notification.php";
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
 

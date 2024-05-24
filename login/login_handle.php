@@ -1,8 +1,7 @@
 <?php
-// login.php
+// login_handle.php
 session_start();
 include "../connect.php";
-include "../toast.js";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -21,6 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 AND u.password = :password 
                 AND u.user_role = :role 
                 AND c.isverified = 'Y'";
+    } else if ($role == 'admin') {
+        // SQL statement for admin role
+        $sql = "SELECT * 
+                FROM users u 
+                WHERE u.user_name = :email 
+                AND u.password = :password 
+                AND u.user_role = :role";
     } else {
         // SQL statement for other roles (e.g., trader)
         $sql = "SELECT *
@@ -54,18 +60,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['first_name'] = $row['FIRST_NAME'];
         $_SESSION['last_name'] = $row['LAST_NAME'];
 
+        // Set success message in session
+        $_SESSION['message'] = "Login successful!";
+        $_SESSION['message_type'] = 'success';
 
-        $_SESSION['notification'] = [
-            'message' => 'Login successful!',
-            'type' => 'success'
-        ];
+        if ($role == 'customer') {
+            $cart_query = "SELECT * FROM CART WHERE CUSTOMER_ID = '{$row['USER_ID']}'";
+            $cart_parse = oci_parse($conn, $cart_query);
+            oci_execute($cart_parse);
+            $cart_row = oci_fetch_assoc($cart_parse);
 
-        if ($role == 'customer'){
+            $wishlist_query = "SELECT * FROM WISHLIST WHERE CUSTOMER_ID = '{$row['USER_ID']}'";
+            $wishlist_parse = oci_parse($conn, $wishlist_query);
+            oci_execute($wishlist_parse);
+            $wishlist_row = oci_fetch_assoc($wishlist_parse);
+
+            $_SESSION['cart_id'] = $cart_row['CART_ID'];
+            $_SESSION['wishlist_id'] = $wishlist_row['WISHLIST_ID'];
+
+            // Free the SQL statements
+            oci_free_statement($cart_parse);
+            oci_free_statement($wishlist_parse);
+
             // Redirect to the appropriate page
             header("Location: ../home/index.php");
-        }
-        else{
-            //Redirect to Trader Dashboard
+        } else if ($role == 'admin') {
+            // Redirect to the admin dashboard or home page
+            header("Location: ../home/index.php");
+        } else {
+            // Redirect to Trader Dashboard
             $trader_id = $_SESSION['user_id'];
             $shop_query = "SELECT * FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
@@ -78,20 +101,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("Location: ../trader-dashboard/homepage.php");
         }
-        
+
         exit;
-    } 
-    else {
-        echo "<script>
-        window.onload = function() {
-            showToast('Invalid credentials, please try again.');
-        };
-        </script>";        // Redirect back to the login page
+    } else {
+        // Set error message in session
+        $_SESSION['message'] = "Invalid credentials, please try again.";
+        $_SESSION['message_type'] = 'error';
+
+        // Redirect back to the login page
         header("Location: login.php");
         exit;
     }
+
     // Freeing the statement and closing the connection
     oci_free_statement($stid);
     oci_close($conn);
-}   
+}
 ?>

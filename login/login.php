@@ -1,3 +1,7 @@
+<?php
+include "../notification.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +30,8 @@
                     <label for="customer">Customer</label><br />
                     <input type="radio" id="trader" name="user_role" value="trader" />
                     <label for="trader">Trader</label><br />
+                    <input type="radio" id="admin" name="user_role" value="admin" />
+                    <label for="admin">Admin</label><br />
                 </div>
                 <div class="remember-forgot">
                     <label>
@@ -43,32 +49,5 @@
 
     <div id="notification" class="notification"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            <?php
-            session_start();
-            if (isset($_SESSION['notification'])) {
-                $message = $_SESSION['notification']['message'];
-                $type = $_SESSION['notification']['type'];
-                echo "showNotification('$message', '$type');";
-                unset($_SESSION['notification']);
-            }
-            ?>
-        });
-
-        function showNotification(message, type) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = `notification ${type}`;
-            notification.style.display = 'block';
-            setTimeout(() => {
-                notification.style.display = 'none';
-                if (type === 'success') {
-                    window.location.href = '../home/index.php';
-                }
-            }, 3000);
-        }
-    </script>
 </body>
-
 </html>

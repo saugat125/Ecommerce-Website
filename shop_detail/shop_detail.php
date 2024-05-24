@@ -1,5 +1,7 @@
-<?php include ('../connect.php') ?>
-
+<?php
+include ('../connect.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +10,13 @@
     <title>Shop</title>
     <link rel="stylesheet" href="shop_detail.css">
 </head>
-<?php include ('../header/header.php') ?>
-
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 <body>
 
     <?php
@@ -17,7 +24,7 @@
         $shop_id = $_GET['ID'];
 
         $shop_query = "SELECT * FROM SHOP WHERE SHOP_ID = '$shop_id'";
-        $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = '$shop_id'";
+        $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = '$shop_id' AND ISAPPROVED = 'Y'";
 
         $shop_stmt = oci_parse($conn, $shop_query);
         $product_stmt = oci_parse($conn, $product_query);
@@ -61,7 +68,10 @@
                     <p class="rate">€ <?php echo $row['PRICE']; ?></p>
                 </div>
                 <div class="btn-div">
-                <a href="../cartpage/Cart.html" class="add-btn">ADD +</a>
+                    <form method="POST" action="../cartpage/add_to_cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
+                        <button type="submit" class="add-btn">ADD +</button>
+                    </form>                    
                 </div>
                 </a>
             </div>

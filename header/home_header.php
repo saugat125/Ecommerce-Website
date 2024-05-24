@@ -1,5 +1,7 @@
 <?php
     $name = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : 'Customer';
+
+    $search_text = isset($_POST['search_text']) ? $_POST['search_text'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +26,20 @@
                    <img src="../image/logo.png" alt="Logo">
                </a>
            </div>
-           <div class="search-bar">
-               <input type="text" placeholder="Search for products, and more">
-               <div class="search"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-           </div>
+            <div class="search-bar">
+                <form action="../search/search.php" method="post">
+                    <input type="text" placeholder="Search for products ...." name="search_text" value="<?php echo htmlspecialchars($search_text ?? ''); ?>">
+                        <div class="search">
+                            <button type="submit" name="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                </form>
+            </div>
            <nav>
                <ul>
                    <li><a><a href="../user_profile/user_profile.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo $name; ?></a></li>
-                   <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
+                   <li><a href="../cartpage/Cart.php"><i class="fa fa-shopping-cart"></i>Cart</a></li>
                    <li><a href="../wishlist/wishlist.php"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
                    <li><a href="../logout/logout.php"><button class="login-btn">Logout</button></a></li>
                </ul>

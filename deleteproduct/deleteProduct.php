@@ -1,4 +1,7 @@
-<?php include ('../connect.php') ?>
+<?php 
+include ('../connect.php') ;
+include "../notification.php";
+?>
 
 <?php
 
