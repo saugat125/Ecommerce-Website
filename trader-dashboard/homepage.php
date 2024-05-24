@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include "../notification.php";
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
@@ -31,32 +30,31 @@
 </div>
 
 <div class="dashboard">
-<div class="dashboard-header">
-  <h1>Greetings,  <?php echo $shopName; ?></h1>
-  <button><a href="../addproduct/AddProdcut.php">Add Product +</a></button>
-</div>
-
-<div class="dashboard-stats">
-  <div class="stat-item">
-    <h2>300</h2>
-    <p>New orders today</p>
-  </div>
-  
-  <div class="stat-item">
-    <h2>275</h2>
-    <p>Total Products</p>
-  </div>
-
-  <div class="stat-item">
-    <h2>£30,000</h2>
-    <p>Total Earnings</p>
-  </div>
-
-  <div class="stat-item">
-    <h2>3</h2>
-    <p>New Orders Today</p>
-  </div>
-</div>
+            <a href="../Trader_Profile/traderprofile.php" class="box">
+                <h2>MY ACCOUNT</h2>
+                <p>Content for box 1</p>
+            </a>
+            <a href="trader.php" class="box">
+                <h2>ORACLE</h2>
+                <p>Content for box 2</p>
+            </a>
+            <a href="../trader info/traderinfo.php" class="box">
+                <h2>SHOP</h2>
+                <p>Content for box 3</p>
+            </a>
+            <a href="../product-table/manage_product.php" class="box">
+                <h2>PRODUCTS</h2>
+                <p>Content for box 4</p>
+            </a>
+            <a href="oracle.php" class="box">
+                <h2>ORDERS</h2>
+                <p>Content for box 4</p>
+            </a>
+            <a href="../logout/logout.php" class="box">
+                <h2>LOGOUT</h2>
+                <p>Content for box 4</p>
+            </a>
+        </div>
 </div>
 </div>
 

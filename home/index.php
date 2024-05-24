@@ -93,7 +93,12 @@ include('../notification.php');
         <h2>Shops</h2>
         <div class="container">
             <?php
-            $query = "SELECT * FROM SHOP";
+            $query = "
+            SELECT *
+            FROM SHOP S
+            JOIN TRADER T ON S.TRADER_ID = T.USER_ID
+            WHERE T.OTPVERIFIED = 'Y' AND T.ISVERIFIED = 'Y'
+            ";
             $result = oci_parse($conn, $query);
             oci_execute($result);
             while ($row = oci_fetch_assoc($result)) {

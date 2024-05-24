@@ -1,4 +1,4 @@
-<?php $conn = oci_connect('saugat', 'root', '//localhost/xe');
+<?php $conn = oci_connect('sweing', 'cruso122', '//localhost/xe'); 
 if (!$conn) {
    $m = oci_error();
    echo $m['message'], "\n";
