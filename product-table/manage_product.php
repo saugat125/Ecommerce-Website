@@ -85,15 +85,7 @@
                             echo "<td>" . $row['PRICE'] . "</td>";            
                             echo "<td>" . $row['MAX_ORDER'] . "</td>";
                             echo "<td>" . $row['DISCOUNT'] . "</td>";
-                            echo "<td>";
-                            if ($row['ISAPPROVED'] == 'Y') {
-                                $_SESSION['message'] = "Approved";
-                                $_SESSION['message_type'] = "success";
-                            } else {
-                                $_SESSION['message'] = "Not Approved";
-                                $_SESSION['message_type'] = "error";
-                            }
-                            echo "</td>";
+                            echo "<td>" . ($row['ISAPPROVED'] == 'Y' ? "Approved" : "Not Approved") . "</td>";
                             echo '    <td><button class="delete-btn"><a href="../deleteproduct/deleteProduct.php?ID=' . $row['PRODUCT_ID'] . '">Delete</a></button></td>';
                             echo '    <td><button class="update-btn"><a href="../updateproduct/UpdateProduct.php?ID=' . $row['PRODUCT_ID'] . '">Edit</a></button></td>';
                             echo "</tr>";
