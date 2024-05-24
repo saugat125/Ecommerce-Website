@@ -1,7 +1,6 @@
 <?php
 include "../notification.php";
 include ('../connect.php');
-session_start();
 
 $wishlist_id = $_SESSION['wishlist_id'];
 
