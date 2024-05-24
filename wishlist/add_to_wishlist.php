@@ -1,7 +1,6 @@
 <?php
 include ('../connect.php');
 include "../notification.php";
-session_start();
 
 $customer_id = $_SESSION['user_id'];
 $wishlist_id = $_SESSION['wishlist_id'];
@@ -27,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product_id'])) {
         oci_bind_by_name($insertStmt, ':wishlist_id', $wishlist_id);
         oci_execute($insertStmt);
         oci_free_statement($insertStmt);
+
+        //sucess message 
+
+        $_SESSION['message'] = "Product added to wishlist successfully";
+        $_SESSION['message_type'] = "success";
     }
     
     oci_free_statement($checkStmt);
