@@ -1,16 +1,7 @@
-<<<<<<< HEAD
-
-<?php
-=======
 <?php 
->>>>>>> 739ef4fa8451f3f77287a483014cc48ccb77a580
 include ('../connect.php');
 session_start(); 
 ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 739ef4fa8451f3f77287a483014cc48ccb77a580
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +20,7 @@ session_start();
     } else {
         include('../header/header.php');
     }
-<<<<<<< HEAD
-?>
-
-=======
     ?>
->>>>>>> 739ef4fa8451f3f77287a483014cc48ccb77a580
 
     <section class="productheading">
         <div class="product-heading">
