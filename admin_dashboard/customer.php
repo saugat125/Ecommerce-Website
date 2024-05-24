@@ -9,7 +9,7 @@ if (isset($_POST['disable'])) {
     $user_id = $_POST['user_id'];
     $is_verified = 'N';
 
-    $disable_query = "UPDATE CUSTOMER SET ISVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
+    $disable_query = "UPDATE CUSTOMER SET ADMINVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
 
     $disable_stmt = oci_parse($conn, $disable_query);
 
@@ -26,7 +26,7 @@ if (isset($_POST['enable'])) {
     $user_id = $_POST['user_id'];
     $is_verified = 'Y';
 
-    $enable_query = "UPDATE CUSTOMER SET ISVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
+    $enable_query = "UPDATE CUSTOMER SET ADMINVERIFIED = '$is_verified' WHERE user_id = '$user_id'";
 
     $enable_stmt = oci_parse($conn, $enable_query);
 
@@ -82,7 +82,7 @@ if (isset($_POST['enable'])) {
                     <tbody>
                         <?php
                             $query = "
-                                SELECT u.email, u.first_name, u.last_name, u.phone_number, c.date_joined, c.isverified,c.user_id
+                                SELECT u.email, u.first_name, u.last_name, u.phone_number, c.date_joined, c.adminverified,c.user_id
                                 FROM USERS u
                                 INNER JOIN CUSTOMER c ON u.user_id = c.user_id";
 
@@ -96,7 +96,7 @@ if (isset($_POST['enable'])) {
                                 echo "<td>" . htmlspecialchars($row['LAST_NAME']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['PHONE_NUMBER']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['DATE_JOINED']) . "</td>";
-                                echo "<td>" . ($row['ISVERIFIED'] === 'Y' ? 'Yes' : 'No') . "</td>";
+                                echo "<td>" . ($row['ADMINVERIFIED'] === 'Y' ? 'Yes' : 'No') . "</td>";
                                 echo "<form action='#' method='post'>";
                                 echo "<td>" . "<button type='submit' name='disable'>Disable</button>" . "</td>";
                                 echo "<td>" . '<input type="hidden" name="user_id" value="'. $row['USER_ID'].'">' . "</td>";
