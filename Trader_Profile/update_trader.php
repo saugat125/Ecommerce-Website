@@ -28,7 +28,8 @@ if (isset($_POST['submit'])) {
         header('location: traderprofile.php');
 
     } else {
-        echo "Error updating record: ";
+        $_SESSION['message'] ="Error updating record: ";
+        $_SESSION['message_type'] = "error";
     }
 }
 ?>

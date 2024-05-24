@@ -1,5 +1,6 @@
 <?php 
     include ('../connect.php');
+    include "../notification.php";
     session_start();
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
@@ -87,9 +88,11 @@
                             echo "<td>" . $row['DISCOUNT'] . "</td>";
                             echo "<td>";
                             if ($row['ISAPPROVED'] == 'Y') {
-                                echo "Approved";
+                                $_SESSION['message'] = "Approved";
+                                $_SESSION['message_type'] = "success";
                             } else {
-                                echo "Not Approved";
+                                $_SESSION['message'] = "Not Approved";
+                                $_SESSION['message_type'] = "error";
                             }
                             echo "</td>";
                             echo '    <td><button class="delete-btn"><a href="../deleteproduct/deleteProduct.php?ID=' . $row['PRODUCT_ID'] . '">Delete</a></button></td>';

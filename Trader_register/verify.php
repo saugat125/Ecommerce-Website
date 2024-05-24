@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "../notification.php";
     include "../connect.php";
 
     if (isset($_GET['email']) && isset($_GET['verification_code']))

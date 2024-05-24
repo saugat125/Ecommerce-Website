@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../connect.php";
+include "../notification.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -170,7 +171,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = oci_fetch_assoc($stmt_check_email);
 
     if ($row['CNT'] > 0) {
-        echo "Email already exists.";
+        $_SESSION['message']= "Email already exists.";
+        $_SESSION['message_type'] = "error";
         exit;
     }
     oci_free_statement($stmt_check_email);
@@ -256,7 +258,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_free_statement($stmt_trader);
     oci_free_statement($stmt_shop);
 
-    echo "Account created successfully!";
+    $_SESSION['message'] = "Account created successfully!";
+    $_SESSION['message_type'] = "success";
 
     // Redirect to login.php
     header("Location: ../login/login.php");

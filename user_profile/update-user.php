@@ -1,5 +1,6 @@
 <?php
     include ('../connect.php');
+    include "../notification.php";
     session_start();
 
     if(isset($_POST['submit'])){
@@ -28,7 +29,8 @@
             header('location: user_profile.php');
 
         } else {
-            echo "Error updating record: ";
+            $_SESSION['message'] = "Error updating record: ";
+            $_SESSION['message_type'] = "error";
         }
     }
  ?>
