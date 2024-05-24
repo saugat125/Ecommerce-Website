@@ -5,14 +5,22 @@ include('../notification.php');
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
-</head>
 
+    <script>
+        function checkLogin(event, form) {
+            <?php if (!isset($_SESSION['user_id'])) { ?>
+                event.preventDefault();
+                window.location.href = '../login/login.php';
+            <?php } ?>
+        }
+    </script>
+
+</head>
 <body>
     <?php
     if (isset($_SESSION['user_id'])) {
@@ -57,6 +65,7 @@ include('../notification.php');
             oci_execute($result);
             while (($row = oci_fetch_assoc($result)) && $product_limit < 4) {
             ?>
+
                 <div class="card">
                     <a href="../product_detail/product_detail.php?ID=<?php echo $row['PRODUCT_ID']; ?>">
                     <div class="img-div">
@@ -67,7 +76,7 @@ include('../notification.php');
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <form method="POST" action="../cartpage/add_to_cart.php">
+                    <form method="POST" action="../cartpage/add_to_cart.php" onsubmit="checkLogin(event, this)">
                             <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
                             <button type="submit" class="add-btn">ADD +</button>
                         </form>                    
@@ -137,7 +146,7 @@ include('../notification.php');
                     <p class="rate">€ <?php echo $offer_row['PRICE']; ?></p>
                 </div>
                 <div class="btn-div">
-                    <form method="POST" action="../cartpage/add_to_cart.php">
+                <form method="POST" action="../cartpage/add_to_cart.php" onsubmit="checkLogin(event, this)">
                         <input type="hidden" name="product_id" value="<?php echo $offer_row['PRODUCT_ID']; ?>">
                         <button type="submit" class="add-btn">ADD +</button>
                     </form>                    
@@ -173,7 +182,7 @@ include('../notification.php');
                         <p class="rate" style="font-weight:400;"><?php echo 'Rs ' . $row['PRICE']; ?></p>
                     </div>
                     <div class="btn-div">
-                        <form method="POST" action="../cartpage/add_to_cart.php">
+                    <form method="POST" action="../cartpage/add_to_cart.php" onsubmit="checkLogin(event, this)">
                             <input type="hidden" name="product_id" value="<?php echo $row['PRODUCT_ID']; ?>">
                             <button type="submit" class="add-btn">ADD +</button>
                         </form>                    
@@ -189,3 +198,5 @@ include('../notification.php');
 </body>
 <?php include ('../footer/footer.php') ?>
 </html>
+
+

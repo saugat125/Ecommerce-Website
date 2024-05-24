@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "../notification.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

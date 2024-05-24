@@ -1,6 +1,6 @@
-<?php
+<?php 
 include ('../connect.php');
-session_start();
+session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ session_start();
     } else {
         include('../header/header.php');
     }
-?>
+    ?>
 
     <section class="productheading">
         <div class="product-heading">
