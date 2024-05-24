@@ -1,5 +1,6 @@
 <?php
 include ('../connect.php');
+include "../notification.php";
 session_start();
 
 $cart_id = $_SESSION['cart_id'];

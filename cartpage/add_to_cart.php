@@ -1,5 +1,6 @@
 <?php
 include ('../connect.php');
+include "../notification.php";
 session_start();
 
 $customer_id = $_SESSION['user_id'];
@@ -17,7 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_execute($checkStmt);
     
     if (oci_fetch($checkStmt)) {
-        echo "Product already in cart";
+
+        $_SESSION['message'] = "Product already in cart.";
+        $_SESSION['message_type'] = 'error';
+
     } else {
         // If product is not in the cart, insert it
         $insertQuery = "INSERT INTO CART_PRODUCT (product_id, cart_id, quantity) VALUES (:product_id, :cart_id, :quantity)";
@@ -27,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         oci_bind_by_name($insertStmt, ':quantity', $quantity);
         oci_execute($insertStmt);
         oci_free_statement($insertStmt);
+
+        $_SESSION['message'] = "Product added to cart successfully!";
+        $_SESSION['message_type'] = 'success';
     }
     
     oci_free_statement($checkStmt);

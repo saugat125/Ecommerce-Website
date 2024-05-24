@@ -1,5 +1,6 @@
 <?php
 include('../connect.php');
+include "../notification.php";
 session_start();
 
 if (isset($_GET['action']) && isset($_GET['product_id'])) {
@@ -29,6 +30,7 @@ if (isset($_GET['action']) && isset($_GET['product_id'])) {
                       WHERE cart_id = :cart_id AND product_id = :product_id";
         } else {
             $_SESSION['message'] = "Invalid action.";
+            $_SESSION['message_type'] = "error";
             oci_free_statement($maxOrderStmt);
             oci_close($conn);
             header("Location: Cart.php");
@@ -42,13 +44,16 @@ if (isset($_GET['action']) && isset($_GET['product_id'])) {
 
         if (oci_execute($statement)) {
             $_SESSION['message'] = "Quantity updated successfully.";
+            $_SESSION['message_type'] = 'success';
         } else {
             $_SESSION['message'] = "Failed to update quantity.";
+            $_SESSION['message_type'] = 'error';
         }
 
         oci_free_statement($statement);
     } else {
         $_SESSION['message'] = "Product not found.";
+        $_SESSION['message_type'] = 'error';
     }
 
     oci_free_statement($maxOrderStmt);
@@ -60,6 +65,7 @@ if (isset($_GET['action']) && isset($_GET['product_id'])) {
 } else {
     // If no action or product ID is provided, redirect back to the cart page with an error message
     $_SESSION['message'] = "No action or product ID provided.";
+    $_SESSION['message_type'] = 'error';
     header("Location: Cart.php");
     exit();
 }

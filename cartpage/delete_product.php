@@ -1,5 +1,6 @@
 <?php
 include('../connect.php');
+include "../notification.php";
 session_start();
 
 if (isset($_GET['ID'])) {
@@ -14,8 +15,10 @@ if (isset($_GET['ID'])) {
 
     if (oci_execute($statement)) {
         $_SESSION['message'] = "Product removed from cart successfully.";
+        $_SESSION['message_type'] = 'success';
     } else {
         $_SESSION['message'] = "Failed to remove product from cart.";
+        $_SESSION['message_type'] = 'error';
     }
 
     oci_free_statement($statement);
@@ -27,6 +30,7 @@ if (isset($_GET['ID'])) {
 } else {
     // If no product ID is provided, redirect back to the cart page with an error message
     $_SESSION['message'] = "No product ID provided.";
+    $_SESSION['message_type'] = 'error';
     header("Location: Cart.php");
     exit();
 }
