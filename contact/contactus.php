@@ -1,3 +1,6 @@
+<?php include ('../connect.php');
+session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,13 @@
     
 </body>
 </html>
-<?php include ('../header/header.php') ?>
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 
 <section class="contact-us">
     <div class="contact-heading">
