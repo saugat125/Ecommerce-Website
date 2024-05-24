@@ -1,5 +1,6 @@
 <?php
 include ('../connect.php');
+include "../notification.php";
 session_start();
 
 $customer_id = $_SESSION['user_id'];
@@ -16,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product_id'])) {
     oci_execute($checkStmt);
     
     if (oci_fetch($checkStmt)) {
-        echo "Product already in wishlist";
+        $_SESSION['message'] = "Product already in wishlist";
+        $_SESSION['message_type'] = "error";
     } else {
         // If product is not in the wishlist, insert it
         $insertQuery = "INSERT INTO WISHLIST_PRODUCT (product_id, wishlist_id) VALUES (:product_id, :wishlist_id)";

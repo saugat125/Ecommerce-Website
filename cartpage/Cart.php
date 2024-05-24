@@ -1,7 +1,6 @@
 <?php
 include ('../connect.php');
 include "../notification.php";
-session_start();
 
 $cart_id = $_SESSION['cart_id'];
 
@@ -26,8 +25,10 @@ oci_bind_by_name($statement, ':cart_id', $cart_id);
 oci_execute($statement);
 
 $products = [];
+$total_price = 0;
 while ($row = oci_fetch_assoc($statement)) {
     $products[] = $row;
+    $total_price += $row['PRICE'] * $row['QUANTITY'];
 }
 
 oci_free_statement($statement);
@@ -51,7 +52,8 @@ oci_close($conn);
     } else {
         include('../header/header.php');
     }
-    ?>    <div class="main-container">
+?>    
+    <div class="main-container">
         <div class="container">
             <div class="continue-shopping-box">
                 <div class="continue-shopping">
@@ -90,11 +92,7 @@ oci_close($conn);
 
             <!-- Total Box -->
             <div class="total-box">
-                <?php
-                $total_items = count($products);
-                $total_price = array_sum(array_column($products, 'PRICE'));
-                ?>
-                <div class="total-items">Total items: <span id="total-items"><?php echo $total_items; ?></span> items
+                <div class="total-items">Total items: <span id="total-items"><?php echo count($products); ?></span> items
                 </div>
                 <div class="total-price">Total price: <span id="total-price"><?php echo $total_price; ?>€</span></div>
             </div>
@@ -102,7 +100,7 @@ oci_close($conn);
             <!-- Proceed to Checkout Box -->
             <div class="checkout-container">
                 <div class="checkout-box">
-                    <a href="checkout.html" class="checkout-button">Proceed to Checkout</a>
+                    <a href="../payment.php?total_price=<?php echo $total_price; ?>" class="checkout-button">Proceed to Checkout</a>
                 </div>
             </div>
         </div>

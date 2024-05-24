@@ -19,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 WHERE u.user_name = :email 
                 AND u.password = :password 
                 AND u.user_role = :role 
-                AND c.isverified = 'Y'";
+                AND c.isverified = 'Y'
+                AND c.adminverified ='Y' ";
     } else if ($role == 'admin') {
         // SQL statement for admin role
         $sql = "SELECT * 
