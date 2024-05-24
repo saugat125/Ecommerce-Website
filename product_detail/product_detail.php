@@ -29,7 +29,13 @@ if (isset($_SESSION['user_id'])) {
 
 <?php
 
-$product_id = $_GET['ID'];
+if (isset($_GET['ID'])) {
+    $product_id = $_GET['ID'];
+} else {
+    // Handle the error, for example by redirecting or displaying a message
+    echo "Product ID is missing.";
+    exit; // Stop further execution if ID is not provided
+}
 
 $product_query = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = :product_id";
 $product_stmt = oci_parse($conn, $product_query);
@@ -116,23 +122,39 @@ if ($row) {
 
     <section class="comment-section">
         <div class="custom-container">
-            <h2>Comments :</h2>
-            <div class="comment">
-                <p><span>Ram</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec justo eget magna fermentum iaculis.</p>
-            </div>
-            <div class="comment">
-                <p><span>Ram</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec justo eget magna fermentum iaculis.</p>
-            </div>
-            <div class="comment">
-                <p><span>Ram</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec justo eget magna fermentum iaculis.</p>
-            </div>
+            <h2>Reviews :</h2>
+
+        <?php 
+        $query = "SELECT r.COMMENTS, u.FIRST_NAME, u.LAST_NAME FROM REVIEW r
+                JOIN CUSTOMER c ON r.CUSTOMER_ID = c.USER_ID
+                JOIN USERS u ON c.USER_ID = u.USER_ID
+                WHERE r.PRODUCT_ID = :product_id";
+
+        $result = oci_parse($conn, $query);
+        // Binding the product ID to the SQL query
+        oci_bind_by_name($result, ':product_id', $product_id);
+        oci_execute($result);
+
+        while($comment_row = oci_fetch_assoc($result)) {
+        ?>
+
+        <div class="comment">
+            <p><span><?php echo htmlspecialchars($comment_row['FIRST_NAME']) . ' ' . htmlspecialchars($comment_row['LAST_NAME']); ?></span>: <?php echo htmlspecialchars($comment_row['COMMENTS']); ?></p>
+        </div>
+        <?php 
+        } 
+        ?>
+
+
             <div class="review-container">
-                <div class="review">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your comment....."></textarea>
-                </div>
-                <div class="add-review">
-                    <a class="add-btn">Add Review</a>
-                </div>
+                <form action="#" method="post">
+                    <div class="review">
+                        <textarea name="review" id="" cols="30" rows="10" placeholder="Write your review....." ></textarea>
+                    </div>
+                    <div class="add-review">
+                        <button class="add-btn" type="submit" name="review-submit">Add Review</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -179,6 +201,29 @@ if ($row) {
         </div>
     <?php } ?>
 </section>
+
+<?php 
+
+    if(isset($_POST['review-submit'])){
+        $review = $_POST['review'];
+        $user_id = $_SESSION['user_id'];
+        if (isset($_GET['ID'])) {
+            $product_id = $_GET['ID'];
+        }
+
+
+        $query = "INSERT INTO REVIEW (COMMENTS,CUSTOMER_ID,PRODUCT_ID) VALUES ('$review','$user_id','$product_id')";
+
+        $result = oci_parse($conn, $query);
+        if(oci_execute($result)){
+            $target_url = "product_detail.php?ID=".$product_id;
+            echo '<meta http-equiv="refresh" content="0;url=' . $target_url . '">';
+        }
+
+           
+    }
+
+?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
