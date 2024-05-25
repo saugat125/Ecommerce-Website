@@ -20,7 +20,8 @@ session_start();
     } else {
         include('../header/header.php');
     }
-    ?>
+?>
+
 
     <section class="productheading">
         <div class="product-heading">
