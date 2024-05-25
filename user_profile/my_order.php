@@ -33,8 +33,13 @@ while ($row = oci_fetch_assoc($statement)) {
 <body>
 
   <!-- Include Header -->
-  <?php include ('../header/header.php') ?>
-
+  <?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
   <!-- User Profile Section-->
   <div class="flex mx-16 mt-8 mb-20">
     <!-- Manage Account Section -->

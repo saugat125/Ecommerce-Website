@@ -17,9 +17,12 @@ include "../notification.php";
 <body>
   <!-- Include Header -->
   <?php
-    include('../header/home_header.php');
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
     ?>
-
   <!-- Container for both sections -->
   <div class="flex">
     <!-- Left Section with increased margin from the top -->
