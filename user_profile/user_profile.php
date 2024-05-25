@@ -23,26 +23,14 @@ include "../notification.php";
   <!-- Container for both sections -->
   <div class="flex">
     <!-- Left Section with increased margin from the top -->
-    <div class="w-1/4 bg-white p-4 border-r mt-9">
-      <!-- Manage My Account Button with increased margin from the top -->
-      <button class="w-full bg-black text-white rounded py-2 mb-4">MY ACCOUNT</button>
-
-      <!-- Navigation Menu with increased space between items -->
-      <nav class="space-y-4">
-        <!-- My Orders -->
-        <div class="flex items-center my-4 mx-8">
-          <a href="#" class="text-black hover:text-gray-700 flex items-center">
-            <!-- SVG Icon -->
-            <span class="material-symbols-outlined mx-2">
-              deployed_code
-            </span>
-            MY ORDERS
-          </a>
-        </div>
-
-        <!-- Logout Option -->
-        <a href="../logout/logout.php" class="text-black hover:text-gray-700 mx-8">LOGOUT</a>
-      </nav>
+        <!-- Manage Account Section -->
+      <div class="w-1/5 p-4 ml-6">
+        <h2 class="text-lg font-bold mb-4">Manage Account</h2>
+        <ul class="space-y-2">
+          <li><a href="user_profile.php" class="text-gray-600 hover:text-red-500">Account Information</a></li>
+          <li><a href="my_order.php" class="text-red-500 font-bold">My orders</a></li>
+          <li><a href="../logout/logout.php" class="text-gray-600 hover:text-red-500">Logout</a></li>
+        </ul>
     </div>
 
     <!-- Right Section -->
