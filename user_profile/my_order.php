@@ -27,6 +27,7 @@ while ($row = oci_fetch_assoc($statement)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link href="my_order.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +36,7 @@ while ($row = oci_fetch_assoc($statement)) {
   <?php include ('../header/header.php') ?>
 
   <!-- User Profile Section-->
-  <div class="flex mx-16 mt-8">
+  <div class="flex mx-16 mt-8 mb-20">
     <!-- Manage Account Section -->
     <div class="w-1/5 p-4 ml-6">
       <h2 class="text-lg font-bold mb-4">Manage Account</h2>

@@ -34,6 +34,7 @@ if (isset($_GET['order_id'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link href="order_details.css" rel="stylesheet">
   <style>
     /* Add any custom styles here */
   </style>
@@ -56,7 +57,7 @@ if (isset($_GET['order_id'])) {
         <tbody>
           <?php foreach ($orderProducts as $orderProduct): ?>
           <tr>
-            <td class="p-2"><img src="../image/<?php echo $orderProduct['PRODUCT_IMAGE']; ?>" alt="Product Image" class="h-10 w-10 object-cover"></td>
+            <td class="p-2"><img src="../image/<?php echo $orderProduct['PRODUCT_IMAGE']; ?>" alt="Product Image" class="h-20 w-20 object-cover"></td>
             <td class="p-2"><?php echo $orderProduct['PRODUCT_NAME']; ?></td>
             <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
             <td class="p-2">$<?php echo $orderProduct['PRICE']; ?></td>
