@@ -75,7 +75,6 @@ function generateTimeOptions($selectedDay = null) {
     return $options;
 }
 
-
 // SQL query to join CART_PRODUCT and PRODUCT tables
 $query = "
     SELECT 
@@ -114,7 +113,6 @@ oci_free_statement($stmt);
 oci_close($conn);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,10 +135,10 @@ oci_close($conn);
 <main>
     <section class="collection-slots">
         <h2>Collection Slots</h2>
-        <form action="process_order.php" method="post">
+        <form action="process_slot.php" method="post">
             <div class="day-slot">
                 <label for="day">Day:</label>
-                <select id="day" name="day">
+                <select id="day" name="date">
                     <option value="">Select Day >></option>
                     <?php echo generateDayOptions(); ?>
                 </select>
@@ -152,10 +150,9 @@ oci_close($conn);
                     <?php echo generateTimeOptions(); ?>
                 </select>
             </div>
-            <button type="submit">Place Order</button>
+            <button type="submit" name="choose_slot">Choose Slot</button>
         </form>
     </section>
-
 
     <section class="product-list">
         <!-- Header row for the product list -->
@@ -192,7 +189,10 @@ oci_close($conn);
                 ?>
             </span>
         </div>
-        <button class="place-order">Place Order</button>
+        <form action="../payment.php" method="get">
+            <input type="hidden" name="total_price" value="<?php echo number_format($total_payment, 2); ?>">
+            <button type="submit" class="place-order">Place Order</button>
+        </form>
     </section>
 </main>
 
