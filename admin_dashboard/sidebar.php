@@ -20,19 +20,19 @@
       <div>
         <!-- Sidebar links with hover effect and rounded borders added -->
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer hover:bg-gray-400 duration-300 rounded-full">
-          <i class="bi bi-chat-left-text-fill text-black"></i>
+          <i class="fas fa-home text-black"></i>
           <a href="home.php" class="text-[15px] ml-4 text-black">Home</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer hover:bg-gray-400 duration-300 rounded-full">
-          <i class="bi bi-chat-left-text-fill text-black"></i>
+          <i class="fas fa-user text-black"></i>
           <a href="customer.php" class="text-[15px] ml-4 text-black">Customers</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer hover:bg-gray-400 duration-300 rounded-full">
-          <i class="bi bi-chat-left-text-fill text-black"></i>
+          <i class="fas fa-user text-black"></i>
           <a href="trader.php" class="text-[15px] ml-4 text-black">Traders</a>
         </div>
         <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer hover:bg-gray-400 duration-300 rounded-full">
-          <i class="bi bi-chat-left-text-fill text-black"></i>
+          <i class="fas fa-box text-black"></i>
           <a href="product.php" class="text-[15px] ml-4 text-black">Products</a>
         </div>
         <!-- <div class="p-2.5 mt-2 flex items-center px-4 cursor-pointer hover:bg-gray-400 duration-300 rounded-full">

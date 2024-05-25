@@ -11,7 +11,7 @@
     <header>
         <nav>
             <div class="nav-icons">
-                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspADMIN  &nbsp >   &nbsp CUSTOMERS</i></span>
+                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspADMIN  &nbsp >   &nbsp HOME</i></span>
                 <span class="user"><i class="fa fa-user-circle" aria-hidden="true"></i> ADMIN</span>
             </div>
         </nav>
@@ -24,19 +24,15 @@
         <div class="dashboard">
             <a href="customer.php" class="box">
                 <h2>CUSTOMERS</h2>
-                <p>Content for box 1</p>
             </a>
             <a href="trader.php" class="box">
                 <h2>TRADERS</h2>
-                <p>Content for box 2</p>
             </a>
             <a href="product.php" class="box">
                 <h2>PRODUCTS</h2>
-                <p>Content for box 3</p>
             </a>
             <a href="oracle.php" class="box">
                 <h2>ORACLE</h2>
-                <p>Content for box 4</p>
             </a>
         </div>
     </div>
