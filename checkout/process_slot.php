@@ -7,6 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $time = $_POST['time'];
     $cart_id = $_SESSION['cart_id'];
     
+    $_SESSION['date'] = $date;
+    $_SESSION['time'] = $time;
+    
     // Validate the input
     if (empty($date) || empty($time)) {
         die('Please select a valid day and time slot.');
@@ -17,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get the day of the week
     $dayOfWeek = $datetime->format('l'); // 'l' (lowercase 'L') will return the full day name (e.g., "Wednesday")
+
+    $_SESSION['day'] = $dayOfWeek;
     
     $selectedDay = new DateTime($date);
     $currentDay = new DateTime();
@@ -51,21 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('This time slot is fully booked. Please select another slot.');
     }
     
-    // If valid, proceed to save the order
-    // $insert_query = oci_parse($conn, "INSERT INTO orders (cart_id, day, time_slot) VALUES (:cart_id, :day, :time_slot)");
-    // oci_bind_by_name($insert_query, ':cart_id', $cart_id);
-    // oci_bind_by_name($insert_query, ':day', $day);
-    // oci_bind_by_name($insert_query, ':time_slot', $time);
-    
-    // if (oci_execute($insert_query)) {
-    //     echo 'Order placed successfully!';
-    // } else {
-    //     echo 'Error placing order. Please try again.';
-    // }
-    
     oci_free_statement($query);
-    // oci_free_statement($insert_query);
     oci_close($conn);
+
+    // Redirect to checkout.php
+    header("Location: checkout.php");
+    exit; // Ensure that script execution stops after the redirect
+
 } else {
     die('Invalid request method.');
 }

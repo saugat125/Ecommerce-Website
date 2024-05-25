@@ -16,7 +16,8 @@ $total_price = isset($_GET['total_price']) ? $_GET['total_price'] : 0;
         <input type="hidden" name="cmd" value="_xclick" />
         <input type="hidden" name="amount" value="<?php echo $total_price; ?>" />
         <input type="hidden" name="currency_code" value="USD" />
-        <input type="hidden" name="return" value="http://localhost/CFresh/home/index.php" />
+        <input type="hidden" name="cancel_return" value="http://localhost/CFresh/checkout/checkout.php" />
+        <input type="hidden" name="return" value="http://localhost/CFresh/checkout/process_order.php?total_price=<?php echo $total_price; ?>" />
     </form>
 
     <script>
