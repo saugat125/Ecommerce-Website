@@ -137,10 +137,10 @@ oci_close($conn);
 <main>
     <section class="collection-slots">
         <h2>Collection Slots</h2>
-        <form action="process_order.php" method="post">
+        <form action="process_slot.php" method="post">
             <div class="day-slot">
                 <label for="day">Day:</label>
-                <select id="day" name="day">
+                <select id="day" name="date">
                     <option value="">Select Day >></option>
                     <?php echo generateDayOptions(); ?>
                 </select>
@@ -152,7 +152,7 @@ oci_close($conn);
                     <?php echo generateTimeOptions(); ?>
                 </select>
             </div>
-            <button type="submit">Place Order</button>
+            <button type="submit" name = "choose slot">Choose Slot</button>
         </form>
     </section>
 
@@ -192,7 +192,12 @@ oci_close($conn);
                 ?>
             </span>
         </div>
-        <button class="place-order">Place Order</button>
+        <!-- Form for placing the order -->
+        <form action="process_order.php" method="post">
+            <!-- Hidden input to store the total price -->
+            <input type="hidden" name="total_price" value="<?php echo number_format($total_payment, 2); ?>">
+            <button type="submit" class="place-order">Place Order</button>
+        </form>    
     </section>
 </main>
 
