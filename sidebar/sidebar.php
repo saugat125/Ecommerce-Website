@@ -72,7 +72,7 @@
           onclick="dropDown('submenu3', 'arrow3')">
           <i class="bi bi-chat-left-text-fill text-black"></i>
           <div class="flex justify-between w-full items-center">
-            <span class="text-[15px] ml-4 text-black"><a href="../">Order</a></span>
+            <span class="text-[15px] ml-4 text-black"><a href="../trader_order/trader_order.php">Order</a></span>
             <!-- <span class="text-sm rotate-180" id="arrow3">
               <i class="bi bi-chevron-down text-black"></i>
             </span> -->

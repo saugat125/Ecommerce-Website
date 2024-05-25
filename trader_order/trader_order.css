@@ -1,0 +1,40 @@
+.flex-page{
+    display : flex;
+}
+
+/* Target the table element */
+table {
+    border-collapse: collapse;
+    width: 1000px;
+    margin-left: 30%;
+    margin-bottom: 10%;
+  }
+  
+  /* Style the table header (<th>) elements */
+  th {
+    text-align: left;
+    padding: 1rem;
+    background-color: #3498db; /* Blue background */
+    color: white; /* White text */
+    border: 1px solid #ddd;
+  }
+  
+  /* Style the table body (<td>) elements */
+  td {
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  /* Alternate row color for zebra striping effect */
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+  }
+  
+  /* Style the image inside table cells */
+  td img {
+    width: 100%;
+    height: auto;
+  }
+  
+  

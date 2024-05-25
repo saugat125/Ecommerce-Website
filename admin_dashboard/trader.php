@@ -69,7 +69,7 @@ if (isset($_POST['enable'])) {
             <?php include ('sidebar.php') ?>
         </div>
         <main>
-            <h1 style="font-size:20px;margin-bottom:20px;">TRADERS</h1>
+            <h1 style="font-size:30px;margin-bottom:20px;">TRADERS</h1>
             <div class="table-container">
                 <table>
                     <thead>
@@ -105,9 +105,9 @@ if (isset($_POST['enable'])) {
                             echo "<td>" . htmlspecialchars($row['SHOP_NAME']) . "</td>";
                             echo "<td>" . ($row['ISVERIFIED'] === 'Y' ? 'Yes' : 'No') . "</td>";
                             echo "<form action='#' method='post'>";
-                            echo "<td>" . "<button type='submit' name='disable'>Disable</button>" . "</td>";
+                            echo "<td>" . "<button type='submit' name='disable' class='btn btn-disable'>Disable</button>" . "</td>";
                             echo "<td>" . '<input type="hidden" name="user_id" value="' . $row['USER_ID'] . '">' . "</td>";
-                            echo "<td>" . "<button type='submit' name='enable'>Enable</button>" . "</td>";
+                            echo "<td>" . "<button type='submit' name='enable' class='btn btn-enable'>Enable</button>" . "</td>";
                             echo "</form>";
                             echo "</tr>";
                         }
