@@ -96,7 +96,7 @@ while ($row = oci_fetch_assoc($statement)) {
   <script>
     function viewOrderDetails(orderId) {
       // Redirect to a PHP script passing order ID as parameter to fetch order details
-      window.open("order_details.php?order_id=" + orderId, "_blank", "width=600,height=400");
+      window.open("order_details.php?order_id=" + orderId, "_blank", "width=1000,height=400");
     }
   </script>
 </body>

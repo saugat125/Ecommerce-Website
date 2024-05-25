@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../home/index.php");
         } else if ($role == 'admin') {
             // Redirect to the admin dashboard or home page
-            header("Location: ../home/index.php");
+            header("Location: ../admin_dashboard/home.php");
         } else {
             // Redirect to Trader Dashboard
             $trader_id = $_SESSION['user_id'];

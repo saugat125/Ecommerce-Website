@@ -7,9 +7,10 @@ if (isset($_GET['order_id'])) {
     $orderId = $_GET['order_id'];
 
     // Prepare and execute the SQL query to fetch order details
-    $query = "SELECT op.ORDER_PRODUCT_ID, p.PRODUCT_NAME, p.PRODUCT_IMAGE, op.QUANTITY, p.PRICE
+    $query = "SELECT op.ORDER_PRODUCT_ID, p.PRODUCT_NAME, p.PRODUCT_IMAGE, op.QUANTITY, p.PRICE, s.SHOP_NAME
               FROM ORDER_PRODUCT op
               JOIN PRODUCT p ON op.PRODUCT_ID = p.PRODUCT_ID
+              JOIN SHOP s ON p.SHOP_ID = s.SHOP_ID
               WHERE op.ORDER_ID = :order_id";
     $statement = oci_parse($conn, $query);
     oci_bind_by_name($statement, ':order_id', $orderId);
@@ -52,6 +53,7 @@ if (isset($_GET['order_id'])) {
             <th class="text-left p-2">Quantity</th>
             <th class="text-left p-2">Price</th>
             <th class="text-left p-2">Total Price</th>
+            <th class="text-left p-2">Shop Name</th>
           </tr>
         </thead>
         <tbody>
@@ -62,6 +64,7 @@ if (isset($_GET['order_id'])) {
             <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
             <td class="p-2">$<?php echo $orderProduct['PRICE']; ?></td>
             <td class="p-2">$<?php echo $orderProduct['QUANTITY'] * $orderProduct['PRICE']; ?></td>
+            <td class="p-2"><?php echo $orderProduct['SHOP_NAME']; ?></td>
           </tr>
           <?php endforeach; ?>
         </tbody>
