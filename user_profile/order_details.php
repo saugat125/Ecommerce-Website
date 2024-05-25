@@ -50,8 +50,8 @@ if (isset($_GET['order_id'])) {
           <tr>
             <th class="text-left p-2">Product Image</th>
             <th class="text-left p-2">Product Name</th>
-            <th class="text-left p-2">Quantity</th>
             <th class="text-left p-2">Price</th>
+            <th class="text-left p-2">Quantity</th>
             <th class="text-left p-2">Total Price</th>
             <th class="text-left p-2">Shop Name</th>
           </tr>
@@ -61,8 +61,8 @@ if (isset($_GET['order_id'])) {
           <tr>
             <td class="p-2"><img src="../image/<?php echo $orderProduct['PRODUCT_IMAGE']; ?>" alt="Product Image" class="h-20 w-20 object-cover"></td>
             <td class="p-2"><?php echo $orderProduct['PRODUCT_NAME']; ?></td>
-            <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
             <td class="p-2">$<?php echo $orderProduct['PRICE']; ?></td>
+            <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
             <td class="p-2">$<?php echo $orderProduct['QUANTITY'] * $orderProduct['PRICE']; ?></td>
             <td class="p-2"><?php echo $orderProduct['SHOP_NAME']; ?></td>
           </tr>
