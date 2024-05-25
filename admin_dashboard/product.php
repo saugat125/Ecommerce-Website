@@ -70,7 +70,7 @@ if (isset($_POST['enable'])) {
             <?php include ('sidebar.php') ?>
         </div>
         <main>
-            <h1 style="font-size:20px;margin-bottom:20px;">Products</h1>
+            <h1 style="font-size:30px;margin-bottom:20px;">Products</h1>
             <div class="table-container">
                 <table>
                     <thead>
@@ -109,9 +109,9 @@ if (isset($_POST['enable'])) {
                             echo "<td>" . htmlspecialchars($row['SHOP_NAME']) . "</td>";
                             echo "<td>" . ($row['ISAPPROVED'] === 'Y' ? 'Approved' : 'Not Approved') . "</td>";
                             echo "<form action='#' method='post'>";
-                            echo "<td><button type='submit' name='disable'>Disable</button></td>";
+                            echo "<td><button type='submit' name='disable' class='btn btn-disable'>Disable</button></td>";
                             echo "<td><input type='hidden' name='product_id' value='" . $row['PRODUCT_ID'] . "'></td>";
-                            echo "<td><button type='submit' name='enable'>Approve</button></td>";
+                            echo "<td><button type='submit' name='enable' class='btn btn-enable'>Approve</button></td>";
                             echo "</form>";
                             echo "</tr>";
                         }
