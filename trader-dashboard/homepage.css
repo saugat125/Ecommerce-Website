@@ -10,39 +10,45 @@ body {
 }
 
 .sidebar {
-  width: 200px; /* Adjust as needed */
+  width: 200px;
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding-left: 0;
 }
 
 .dashboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the boxes */
+  justify-content: center;
   padding: 20px;
   width: 100%;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 .box {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Increased border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced drop shadow */
   margin: 10px;
   padding: 20px;
-  width: calc(50% - 40px); /* 2 boxes in a row with some margin */
+  width: calc(50% - 40px);
   box-sizing: border-box;
-  display: flex; /* Use flexbox for the box content */
-  flex-direction: column; /* Arrange children in a column */
-  justify-content: center; /* Center the children vertically */
-  align-items: center; /* Center the children horizontally */
-  text-align: center; /* Center align text inside the box */
-  text-decoration: none; /* Remove underline from links */
-  color: inherit; /* Inherit text color */
-  height: 200px; /* Set a fixed height for the boxes */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  height: 200px;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.box i {
+  font-size: 2em; /* Size of the icon */
+  margin-bottom: 10px; /* Space between icon and text */
 }
 
 .box h2 {
@@ -57,13 +63,14 @@ body {
 }
 
 .box:hover {
-  background-color: #e0e0e0; /* Change background on hover */
+  background-color: #f0f2f5; /* Light grey background on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Header Styles */
 header {
-  background-color: #f5f5f5;
-  color: #000000;
+  background-color: #000;
+  color: white;
   padding: 10px 20px;
   height: 70px;
 }
@@ -72,14 +79,31 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .nav-icons {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
+  width: 100%;
+}
+
+.nav-icons .icons,
+.nav-icons .user {
+  font-size: 1.2em;
+}
+
+.nav-icons .icons {
+  margin-left: 10px;
 }
 
 .nav-icons .user {
-  padding-left: 1100px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons .user i {
+  margin-right: 10px;
 }
