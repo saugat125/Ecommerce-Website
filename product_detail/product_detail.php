@@ -9,7 +9,11 @@ include "../notification.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Product Detail</title>
+=======
+    <title>Products</title>
+>>>>>>> e69e1565fe4fbd416bfc1d8cadc4a3eda4812439
     <link rel="stylesheet" href="../product_detail/product_detail.css">
 </head>
 
