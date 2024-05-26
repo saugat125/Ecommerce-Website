@@ -32,7 +32,7 @@
             <h3>Contact Us</h3>
             <p>+977-9857011098</p>
             <p>info@c-fresh.com</p>
-            <p>Clostkhodesfax, UK</p>
+            <p>Cleckheaton, UK</p>
             <h3>Social</h3>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>

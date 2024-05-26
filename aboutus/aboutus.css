@@ -7,7 +7,6 @@ body, html {
     font-family: "Montserrat", sans-serif;
 }
 
-
 body {
     font-weight: bold; 
     font-size: 16px; 
@@ -88,6 +87,8 @@ body {
     background-color: black;
     color: white;
     text-align: center;
+    border: 1px solid #ffffff; /* Adding a white border, adjust the color as needed */
+    margin: 10px; /* Adjust the margin around the section if needed */
 }
 
 .about-heading {
@@ -120,7 +121,6 @@ body {
     overflow: hidden; 
 }
 
-
 .introduction .section-image img {
     max-width: 100%; 
     height: auto; 
@@ -135,7 +135,7 @@ body {
 }
 
 .introduction .section-text h3 {
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 10px;
 }
 
@@ -154,12 +154,10 @@ body {
     font-weight: normal;
 }
 
-/* Establishment Section styles */
 .establishment .section-image {
     max-width: 500px; 
     max-height: 600px; 
     overflow: hidden; 
-
 }
 
 .establishment .section-image img {
@@ -176,10 +174,9 @@ body {
 }
 
 .establishment .section-text h3 {
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 10px;
 }
-
 
 /* Testimonials Carousel styles */
 .testimonials-carousel {
@@ -218,7 +215,7 @@ body {
 /* Navigation Arrows */
 .prev,
 .next {
-    position: absolute;
+    position:absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
@@ -236,8 +233,6 @@ body {
 .next {
     right: 10px;
 }
-
-
 
 /* Footer styles */
 .main-footer {
@@ -292,4 +287,58 @@ body {
     width: 60px; /* Adjust the size of social icons */
     height: 60px;
     border-radius: 10px; /* Rounded corners for square shape */
+}
+
+/* Hover Effects */
+.logo h1:hover,
+.main-nav ul li a:hover,
+.about-us h2:hover,
+.section-text h3:hover, .section-text p:hover,
+.section-image img:hover,
+.testimonial img:hover,
+.footer-section ul li a:hover,
+.social-icons a:hover,
+button:hover,
+a:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.logo h1:hover {
+    color: #ff6347; /* Tomato color for hover */
+}
+
+.main-nav ul li a:hover,
+.footer-section ul li a:hover {
+    color: #ff6347; /* Tomato color for hover */
+    font-weight: bold;
+}
+
+.about-us h2:hover {
+    background-color: #ff6347; /* Tomato color for hover */
+}
+
+.section-text h3:hover, .section-text p:hover {
+    color: #008080; /* Teal color for hover */
+}
+
+.section-image img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image */
+}
+
+.testimonial img:hover {
+    border-color: #ff6347; /* Changes border color on hover */
+}
+
+.social-icons a:hover {
+    transform: rotate(360deg); /* Rotates the icon */
+}
+
+button:hover {
+    background-color: #ff6347; /* Tomato color for hover */
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline; /* Underlines links on hover */
 }

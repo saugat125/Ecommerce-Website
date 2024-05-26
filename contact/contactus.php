@@ -20,40 +20,29 @@
 
     <div class="container">
         <div class="form-container">
-            <h2>Contact Us</h2>
+            <h2 style="margin-bottom:30px;">Contact Us</h2>
             <form id="contactForm">
-                <div class="form-group-inline">
-                    <div class="form-group">
-                        <label for="address">Address </label>
-                        <input type="text" id="address" name="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile">Mobile </label>
-                        <input type="text" id="mobile" name="mobile" required>
-                    </div>
-                </div>
-                <div class="form-group-inline">
-                    <div class="form-group">
-                        <label for="email">Email </label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time </label>
-                        <input type="text" id="time" name="time">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <h3>Drop us a line</h3>
-                    <div class="form-group-inline">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="senderEmail" name="senderEmail" placeholder="Your Email" required>
-                        </div>
-                    </div>
-                    <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
-                </div>
+            <div class="form-group-inline">
+    <div class="form-group">
+        <label for="name">Name </label>
+        <input type="text" id="name" name="name" required>
+    </div>
+</div>
+        <div class="form-group-inline">
+            <div class="form-group">
+                <label for="email">Email </label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number </label>
+                <input type="text" id="phone" name="phone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
                 <div class="button-container">
                     <button type="submit" id="submitBtn">Send</button>
                 </div>
@@ -64,50 +53,4 @@
         </div>
     </div>
 
-    <footer>
-    <div class="footer-container">
-        <div class="footer-left">
-            <ul>
-                <h3>Overview</h3>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">FAQs</a></li>
-            </ul>
-        </div>
-        <div class="footer-middle">
-            <ul>
-                <h3>Available Shops</h3>
-                <li>Haricekts Farm</li>
-                <li>Dyreborn Holland</li>
-                <li>Vitrion</li>
-                <li>Barne Pettinger</li>
-            </ul>
-        </div>
-        <div class="footer-right">
-            <ul>
-                <h3>Shop by Category</h3>
-                <li>Vegetables</li>
-                <li>Fruits</li>
-                <li>Meat & Fish</li>
-                <li>Dairy and Bakery</li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>+977-9857011098</p>
-            <p>info@c-fresh.com</p>
-            <p>Clostkhodesfax, UK</p>
-            <h3>Social</h3>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <p>&copy; 2024 - C-Fresh. All Rights Reserved.</p>
-    </div>
-</footer>
+    <?php include ('../footer/footer.php') ?>
