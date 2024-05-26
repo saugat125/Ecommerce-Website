@@ -1,5 +1,5 @@
-.flex-page{
-    display : flex;
+.flex-page {
+  display: flex;
 }
 
 .sidebar {
@@ -10,39 +10,44 @@
   padding-left: 0;
 }
 
-/* Target the table element */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
 table {
-    border-collapse: collapse;
-    width: 1000px;
-    margin-left: 30%;
-    margin-bottom: 10%;
-  }
-  
-  /* Style the table header (<th>) elements */
-  th {
-    text-align: left;
-    padding: 1rem;
-    background-color: #3498db; /* Blue background */
-    color: white; /* White text */
-    border: 1px solid #ddd;
-  }
-  
-  /* Style the table body (<td>) elements */
-  td {
-    text-align: left;
-    padding: 1rem;
-    border: 1px solid #ddd;
-  }
-  
-  /* Alternate row color for zebra striping effect */
-  tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray background for even rows */
-  }
-  
-  /* Style the image inside table cells */
-  td img {
-    width: 100%;
-    height: auto;
-  }
-  
-  
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #333; /* Black background */
+  color: white; /* White text */
+}
+
+th, td {
+  text-align: left;
+  padding: 1rem;
+  border: 1px solid #555;
+}
+
+th {
+  background-color: #444; /* Darker background for headers */
+}
+
+tr:nth-child(even) {
+  background-color: #555; /* Slightly lighter for even rows */
+}
+
+td img {
+  width: 100%;
+  height: auto;
+}

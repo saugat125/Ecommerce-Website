@@ -147,7 +147,25 @@ td button a{
     color: red;
 }
 .delete-btn:hover{
+    color: rgb(0, 0, 0);
+}
+.delete-btn{
+    background-color: red;
+}
+.update-btn{
+    background-color: rgb(64, 167, 64);
+}
+.update-btn a{
+    color: white;
+}
+.delete-btn a:hover{
+    color: rgb(0, 0, 0);
+}
+.delete-btn:hover{
     color: red;
+}
+.update-btn a:hover{
+    color: rgb(0, 0, 0);
 }
 
 /* Responsive Styles */
