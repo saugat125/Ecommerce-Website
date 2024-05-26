@@ -41,6 +41,9 @@
           <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
             <a href="../addproduct/AddProdcut.php" class="text-black">Add New Product</a>
           </h1>
+          <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
+            <a href="../product_category/product_category.php" class="text-black">Add Product Category</a>
+          </h1>
         </div>
         <!-- Shop Section -->
         <div class="p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-200">
