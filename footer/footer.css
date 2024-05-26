@@ -69,3 +69,46 @@ footer {
     width: 90%;
     margin: auto;
   }
+
+  .footer-right {
+    color: #ffffff; /* Adjust if your footer has a different color */
+    font-size: 16px; /* Suitable font size for footer content */
+    text-align: left; /* Align text to the left for consistency */
+    padding: 20px; /* Add padding for spacing inside the footer section */
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+.footer-right h3 {
+    margin-top: 0; /* Removes the default margin from the top of the heading */
+    margin-bottom: 20px; /* Space between the heading and list items */
+    font-size: 18px; /* Slightly larger font size for heading */
+    font-weight: bold; /* Bold font weight for heading */
+}
+
+.footer-right ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.footer-right li {
+    margin-bottom: 8px; /* Space between items */
+}
+
+.footer-right li:last-child {
+    margin-bottom: 0; /* Removes margin from the last item */
+}
+
+.footer-right a {
+    color: #ffffff; /* Ensures text is white, adjust if your footer has a different color */
+    text-decoration: none; /* No underline on links */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+
+.footer-container a:hover{
+  margin-left: 5px;
+  transition: 0.3s ease;
+}
+
