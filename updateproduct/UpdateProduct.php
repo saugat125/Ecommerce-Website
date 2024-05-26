@@ -2,6 +2,20 @@
     include ('../connect.php'); 
     session_start();
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
+    $shopId = isset($_SESSION['shop_id']) ? $_SESSION['shop_id'] : null;
+
+    $categories = [];
+    if ($shopId) {
+        $category_query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PRODUCT_CATEGORY WHERE SHOP_ID = :shop_id";
+        $category_stmt = oci_parse($conn, $category_query);
+        oci_bind_by_name($category_stmt, ':shop_id', $shopId);
+        oci_execute($category_stmt);
+
+        while ($row = oci_fetch_assoc($category_stmt)) {
+            $categories[] = $row;
+        }
+        oci_free_statement($category_stmt);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +55,7 @@
     <div class="flex-page">
 
     <div class="sidebar">
-        <?php include ('../sidebar/sidebar.html') ?>
+        <?php include ('../sidebar/sidebar.php') ?>
     </div>
 
     <div class="main-container">
@@ -111,6 +125,19 @@
                                     <h3>Discount (%)</h3>
                                     <div class="input-box">
                                         <input type="text" placeholder="Discount" name="discount" value="<?php echo $row['DISCOUNT']; ?>">
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h3>Category</h3>
+                                    <div class="input-box">
+                                        <select name="category" required>
+                                            <option value="">Select Category</option>
+                                            <?php
+                                            foreach ($categories as $category) {
+                                                echo '<option value="' . htmlspecialchars($category['CATEGORY_ID']) . '">' . htmlspecialchars($category['CATEGORY_NAME']) . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="section">

@@ -3,11 +3,10 @@
         <div class="footer-left">
             <ul>
                 <h3>Overview</h3>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">FAQs</a></li>
+                <li><a href="../aboutus/aboutus.php">About Us</a></li>
+                <li><a href="../contact/contactus.php">Contact Us</a></li>
+                <li><a href="../allproducts/allproducts.php">Products</a></li>
+                <li><a href="../terms&conditon/T&M.php">Terms & Conditions</a></li>               
             </ul>
         </div>
         <div class="footer-middle">
@@ -21,18 +20,16 @@
         </div>
         <div class="footer-right">
             <ul>
-                <h3>Shop by Category</h3>
-                <li>Vegetables</li>
-                <li>Fruits</li>
-                <li>Meat & Fish</li>
-                <li>Dairy and Bakery</li>
+                <h3>Register</h3>
+                <li><a href="../Trader_register/trader_reg.php">Register as Trader</a></li>   
+                <li><a href="../Customer_register/customer_reg.php">Register as Customer</a></li>   
             </ul>
         </div>
         <div class="footer-contact">
             <h3>Contact Us</h3>
-            <p>+977-9857011098</p>
-            <p>info@c-fresh.com</p>
-            <p>Cleckheaton, UK</p>
+            <p>+44 1632 960154</p>
+            <p>cfresh8008@gmail.com</p>
+            <p>Cleckhuddersfax, UK</p>
             <h3>Social</h3>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>

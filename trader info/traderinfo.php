@@ -26,7 +26,7 @@ session_start();
     <header>
         <nav>
             <div class="nav-icons">
-                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp </i>SHOP</span>
+                <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHome &nbsp> </i>SHOP</span>
                 <span class="user"><i class="fa fa-user-circle" aria-hidden="true"></i><?php echo $row['SHOP_NAME']; ?></span>
             </div>
         </nav>
@@ -36,7 +36,7 @@ session_start();
     <div class="flex-page">
 
     <div class="sidebar">
-        <?php include ('../sidebar/sidebar.html')?>
+        <?php include ('../sidebar/sidebar.php')?>
     </div>
 
     <div class="shop">

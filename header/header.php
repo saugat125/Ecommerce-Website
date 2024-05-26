@@ -1,3 +1,5 @@
+ <?php $search_text = isset($_POST['search_text']) ? $_POST['search_text'] : ''; ?>
+ 
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -16,20 +18,25 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="../index.php">
+                <a href="../home/index.php">
                     <img src="../image/logo.png" alt="Logo">
                 </a>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search for products, and more">
-                <div class="search"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                <form action="../search/search.php" method="post">
+                    <input type="text" placeholder="Search for products ...." name="search_text" value="<?php echo htmlspecialchars($search_text ?? ''); ?>">
+                        <div class="search">
+                            <button type="submit" name="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                </form>
             </div>
             <nav>
                 <ul>
                     <li><a href="../login/login.php"><button class="login-btn">Login</button></a></li>
                     <li><a href="../Customer_register/customer_reg.php"><button class="signup-btn">Signup</button></a></li>
-                    <li><a href="../cartpage/Cart.html"><i class="fa fa-shopping-cart"></i>Cart</a></li>
-                    <li><a href="../wishlist/wishlist.php"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -45,5 +52,4 @@
     <script src="header.js"></script>
  </body>
  </html>
-    
     

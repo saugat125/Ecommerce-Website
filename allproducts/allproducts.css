@@ -14,9 +14,13 @@
     margin-bottom: 20px;
 }
 
-
+.card a{
+    color: black;
+    text-decoration: none;
+}
 .products {
     padding: 50px 0;
+    padding-top: 0px;
 }
 
 .products h2 {
@@ -45,7 +49,7 @@
     margin-bottom: 20px;
 }
 .products .container .card h2 {
-    text-align: left;
+    text-align: center;
     font-size: 20px;
     font-weight: 700;
 }
@@ -53,6 +57,7 @@
     margin: 15px 0;
     font-weight: 700;
     font-size: 20px;
+    text-align: center;
 }
 .products .container .card .add-btn {
     width: 100%;
@@ -63,20 +68,122 @@
     text-align: center;
     border-radius: 5px;
 }
-.products .container .card .btn-div {
-    display: flex;
+.add-btn:hover {
+    background-color: #ff4500; /* Change the background color to orange */
+    color: white; /* Ensure the text color remains white */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* A stronger shadow for a more pronounced effect */
+    transform: translateY(-3px); /* Add a slight lift effect */
 }
 
+/* Container for Category Dropdown */
+.category-container {
+    margin: 20px 0;
+
+    display: inline-block; /* To align it next to the sort dropdown if there's enough space */
+}
+
+/* Styling for the Category Dropdown Form */
+.category-container form {
+    padding: 10px;
+    background-color: #f8f8f8; /* Light grey background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: flex; /* Ensures label and select are in line */
+    align-items: center; /* Vertically aligns the contents */
+}
+
+/* Label Style */
+.category-container label {
+    font-size: 16px;
+    color: #333; /* Dark grey text */
+    margin-right: 10px; /* Space between label and dropdown */
+}
+
+/* Dropdown Style */
+.category-container select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer; /* Indicates the dropdown is interactive */
+    outline: none; /* Removes the default focus outline */
+}
+
+/* Option Style */
+.category-container option {
+    padding: 8px; /* Comfortable padding inside options */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .category-container, .sort-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto; /* Allows the dropdowns to take necessary width */
+        display: block; /* Stacks the dropdowns vertically on smaller screens */
+    }
+}
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 .add-btn:hover {
     box-shadow: 0 4px 20px rgba(249, 221, 221, 0.2);
 }
+
+.sort-container {
+    margin: 20px 0; 
+    margin-left: 60px;
+}
+
+
+.sort-container form {
+    display: inline-block; 
+    padding: 10px; 
+    background-color: #f8f8f8; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+
+.sort-container label {
+    font-size: 16px;
+    color: #333; 
+    margin-right: 10px; 
+}
+
+
+.sort-container select {
+    font-size: 16px;
+    padding: 8px 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: white; 
+    cursor: pointer; 
+}
+
+
+.sort-container option {
+    padding: 8px; 
+}
+
+
+
+.filters-container {
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Centers dropdowns vertically */
+    justify-content: start; /* Aligns dropdowns to the start of the container */
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px 20px; /* Adjust margin as needed */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 
 /* Media Queries for Responsive Adjustments */
 @media screen and (max-width: 768px) {

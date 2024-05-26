@@ -1,0 +1,394 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", sans-serif;
+}
+
+.custom-container{
+    padding: 50px 80px;
+}
+
+.product-section .main-container{
+    display: flex;
+    gap: 60px;
+    margin-left: 50px;
+}
+
+.product-container{
+    width: 50%;
+}
+
+.text .allergy{
+    margin-top: 40px;
+}
+
+/* General image styling with border */
+.product-container img,
+.item-container img {
+    border: 2px solid #ddd; /* Light grey border */
+    padding: 5px; /* Padding around the image */
+    transition: transform 0.3s ease, border 0.3s ease; /* Smooth transition for transform and border color */
+}
+
+/* Hover effect for images within the product details and item listings */
+.product-container img:hover,
+.item-container img:hover {
+    transform: scale(1.1); /* Scales the image to 110% of its original size */
+    border-color: #ccc; /* Darker border on hover */
+}
+
+/* Ensure that the container can handle the increased size without layout shift */
+.product-container,
+.item-container {
+    overflow: hidden; /* Prevents the image from overflowing its container */
+}
+
+
+.product-section .text-container {
+    width: 30%;
+    padding-left: 60px;
+    padding-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    height: 420px;
+    padding-right: 30px;
+    background: #FFF; /* Ensures the background is white */
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for scaling and shadow */
+}
+
+
+/* Card Hover Effect - Scale Up */
+.product-section .text-container {
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
+
+.product-section .text-container:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover for more emphasis */
+}
+
+/* Button Hover Effects - Change Color to Grey */
+.product-section .text-container .buttons a:hover {
+    background-color: #A0A0A0; /* Grey color for hover state */
+    color: #FFF; /* Ensures text color is white for visibility */
+}
+
+.product-section .text-container .buttons .buy-now:hover {
+    background-color: #A0A0A0; /* Consistent hover effect for Buy Now button */
+}
+
+/* Specific Styles for 'Add to Cart' and 'Add to List' buttons */
+.product-section .text-container .buttons .cart:hover{
+    background-color: #402a34;
+}
+.product-section .text-container .buttons .list {
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+.product-section .text-container .buttons .cart
+.product-section .text-container .buttons .list {
+    position: relative; /* Ensures the pseudo-element positions correctly */
+}
+
+.product-section .text-container .buttons .list::after {
+    transition: background-image 0.2s ease-in-out; /* Smooth transition for heart icon */
+}
+
+.product-section .text-container .buttons .list:hover::after {
+    background-image: url('./img/heart-hover.png'); /* Change heart icon on hover, ensure you have this hover image */
+}
+.product-container .other-images{
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.product-container .other-images img{
+    margin-left: 24px;
+    border-radius: 10%;
+    width: 90px;
+    height: 90px;
+}
+.product-container .main-image img{
+    width: 460px;
+    height: 345px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.text-container .head{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.kg{
+    margin: 16px 0;
+}
+
+.stocks{
+    margin: 30px 0;
+}
+.item a{
+    color: black;
+    text-decoration: none;
+}
+.quantity{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.product-section .text-container .buttons{
+    display: flex;
+    gap: 16px;
+}
+
+.quantity button{
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: F4F4F4; 
+    color: 444444; 
+    text-align: center; 
+    cursor: pointer;
+}
+
+.quantity h4{
+    margin-right: 15px;
+}
+
+.product-section .text-container .buttons .cart{
+  width: auto;
+  padding: 12px 48px;
+  background-color: black;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.product-section .text-container .buttons .list{
+  width: auto;
+  padding: 12px 48px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  font-weight: 700;
+  position: relative;
+  padding-right: 60px;
+}
+
+.product-section .text-container .image img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.product-section .text-container .text h4{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.product-section .text-container .buttons .list::after{
+    content: "";
+    background-image: url(./img/heart.png);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    background-size: cover;
+}
+
+/* description */
+.description-section .text{
+    box-shadow: 0 0 8px 0 #BBBBBB; 
+    padding: 40px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.description-section p{
+    margin-top: 20px;
+}
+
+.description-section .rating{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.description-section .rating .star-btn{
+    width: auto;
+    padding: 8px 30px;
+    background-color: black;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.description-section .stars{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.description-section .stars img{
+    width: 35px;
+    height: 35px;
+}
+
+.comment-section .custom-container{
+    padding-top: 0;
+}
+
+.comment-section .comment{
+    box-shadow: 0 4px 8px 0 #BBBBBB; 
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.comment span{
+    font-weight: bold;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.review-container .review {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.review-container textarea {
+    width: 100%;
+    height: 150px; /* Larger area for text */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    resize: none; /* Prevent resizing */
+}
+
+.review-container .add-review {
+    text-align: right;
+}
+
+.review-container .add-btn {
+    padding: 10px 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-container .add-btn:hover {
+    background-color: green;
+}
+
+.more-products-section .heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.more-products-section .heading a{
+    text-decoration: none;
+    color: #FF187C;
+    margin-top: 10px;
+}
+
+.more-products-section .item-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.more-products-section .item-container .item{
+    width: 20%;
+    border: 1px solid #DDDDDD;
+    padding: 20px;
+    border-radius: 10px;
+    padding-bottom: 30px;
+}
+
+.more-products-section .item-container .image-container{
+    width: 130px;
+    height: 140px;
+}
+
+.more-products-section .item-container img{
+    width: 100%;
+}
+
+ .item .button{
+    margin-top: 30px
+}
+
+ .item h5{
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.item .add-btn{
+     width: auto;
+    padding: 8px 50px;
+    background-color: black;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;  
+}
+
+.item .text{
+    margin-left: 10px;
+}
+.rating-container {
+    text-align: left;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+    display: flex;
+    justify-content: left;
+    margin: 20px 0;
+}
+
+.star {
+    font-size: 2em;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.star.hover,
+.star.selected {
+    color: gold;
+}
+
+.rating-value {
+    font-size: 1.2em;
+    margin-top: 10px;
+}

@@ -1,17 +1,27 @@
+<?php
+include ('../connect.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Document</title> -->
+    <title>Contact Us</title>
     <link rel="stylesheet" href="../contact/contactus.css">
 </head>
 <body>
     
 </body>
 </html>
-<?php include ('../header/header.php') ?>
-
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 <section class="contact-us">
     <div class="contact-heading">
         <h2>Contact Us</h2>

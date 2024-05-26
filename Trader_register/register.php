@@ -1,6 +1,6 @@
 <?php
-session_start();
 include "../connect.php";
+include "../notification.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -158,6 +158,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
+    if (strlen($password) < 8) {
+        $_SESSION['message'] = "Password must be at least 8 characters long.";
+        $_SESSION['message_type'] = "error";
+        header("Location: trader_reg.php"); // Redirect to registration page
+        exit;
+    }
+
     $shop_name = $_POST['shop_name'];
     $shop_desc = $_POST['shop_desc'];
     $shop_address = $_POST['shop_address'];
@@ -170,7 +177,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = oci_fetch_assoc($stmt_check_email);
 
     if ($row['CNT'] > 0) {
-        echo "Email already exists.";
+        $_SESSION['message']= "Email already exists.";
+        $_SESSION['message_type'] = "error";
         exit;
     }
     oci_free_statement($stmt_check_email);
@@ -256,7 +264,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     oci_free_statement($stmt_trader);
     oci_free_statement($stmt_shop);
 
-    echo "Account created successfully!";
+    $_SESSION['message'] = "Account created successfully!";
+    $_SESSION['message_type'] = "success";
 
     // Redirect to login.php
     header("Location: ../login/login.php");

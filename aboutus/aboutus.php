@@ -1,9 +1,14 @@
+<?php
+include ('../connect.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="../aboutus/aboutus.css">
 </head>
 <body>
@@ -11,13 +16,21 @@
 </body>
 </html>
 
-<?php include ('../header/header.php') ?>
+<?php
+    if (isset($_SESSION['user_id'])) {
+        include('../header/home_header.php');
+    } else {
+        include('../header/header.php');
+    }
+    ?>
 
-<section class="about-us">
-    <div class="about-heading">
-        <h2>About Us</h2>
-    </div>
-</section>
+<div class="header">
+    <h1>C-Fresh</h1>
+    <div class="about-us">ABOUT US</div> 
+</div>
+
+
+
 
 <section class="introduction">
     <div class="section-content">

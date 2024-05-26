@@ -4,25 +4,18 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link rel="stylesheet" href="customer_reg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </head>
-
 <body>
-<?php
-    if (isset($_SESSION['message'])) {
-        $message = $_SESSION['message'];
-        $message_type = $_SESSION['message_type'];
-        echo "<div class='alert $message_type'>$message</div>";
-        unset($_SESSION['message']);
-        unset($_SESSION['message_type']);
-    }
-    ?>
-
     <div class="container">
         <div class="left-side blurred-background">
             <img src="../image/logos.png" alt="C-Fresh Logo" class="logo">
@@ -83,20 +76,37 @@ session_start();
             </form>
         </div>
     </div>
-    <script>
-        window.onload = function() {
-            var alert = document.querySelector('.alert');
-            if (alert) {
-                setTimeout(function() {
-                    alert.style.opacity = '0';
-                    setTimeout(function() {
-                        alert.remove();
-                    }, 600);
-                }, 3000);
-            }
-        };
-    </script>
-    
-</body>
 
+    <?php if (isset($_SESSION['message'])): ?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            <?php if ($_SESSION['message_type'] == 'success'): ?>
+                toastr.success("<?php echo $_SESSION['message']; ?>");
+            <?php else: ?>
+                toastr.error("<?php echo $_SESSION['message']; ?>");
+            <?php endif; ?>
+            <?php unset($_SESSION['message']); ?>
+            <?php unset($_SESSION['message_type']); ?>
+        </script>
+    <?php endif; ?>
+
+</body>
 </html>

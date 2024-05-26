@@ -1,6 +1,6 @@
 <?php 
     include ('../connect.php');
-    session_start();
+    include "../notification.php";
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
 ?>
 
@@ -27,7 +27,7 @@
     <div class="flex-page">
 
     <div class="sidebar">
-        <?php include ('../sidebar/sidebar.html')?>
+        <?php include ('../sidebar/sidebar.php')?>
     </div>
     <main>
         <h1>Products</h1>
@@ -48,6 +48,7 @@
                         <th>PRICE(£)</th>
                         <th>MAX ORDER</th>
                         <th>DISCOUNT (%)</th>
+                        <th>CATEGORY</th>
                         <th>STATUS</th>
                         <th></th>
                         <th></th>
@@ -60,7 +61,8 @@
 
                         $shop_id_query = "SELECT SHOP_ID FROM SHOP WHERE TRADER_ID = '$trader_id'";
 
-                        $product_query = "SELECT * FROM PRODUCT WHERE SHOP_ID = :shop_id";
+                        $product_query = "SELECT P.*, PC.CATEGORY_NAME FROM PRODUCT P LEFT JOIN PRODUCT_CATEGORY PC ON P.CATEGORY_ID = PC.CATEGORY_ID
+                        WHERE P.SHOP_ID = :shop_id";
 
                         $shop_id_stmt = oci_parse($conn, $shop_id_query);
 
@@ -85,13 +87,8 @@
                             echo "<td>" . $row['PRICE'] . "</td>";            
                             echo "<td>" . $row['MAX_ORDER'] . "</td>";
                             echo "<td>" . $row['DISCOUNT'] . "</td>";
-                            echo "<td>";
-                            if ($row['ISAPPROVED'] == 'Y') {
-                                echo "Approved";
-                            } else {
-                                echo "Not Approved";
-                            }
-                            echo "</td>";
+                            echo "<td>" . $row['CATEGORY_NAME'] . "</td>";
+                            echo "<td>" . ($row['ISAPPROVED'] == 'Y' ? "Approved" : "Not Approved") . "</td>";
                             echo '    <td><button class="delete-btn"><a href="../deleteproduct/deleteProduct.php?ID=' . $row['PRODUCT_ID'] . '">Delete</a></button></td>';
                             echo '    <td><button class="update-btn"><a href="../updateproduct/UpdateProduct.php?ID=' . $row['PRODUCT_ID'] . '">Edit</a></button></td>';
                             echo "</tr>";

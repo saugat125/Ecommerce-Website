@@ -82,14 +82,34 @@ body {
     color: #333;
 }
 
-.about-us {
-    padding: 0.5px 0;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border: 1px solid #ffffff; /* Adding a white border, adjust the color as needed */
-    margin: 10px; /* Adjust the margin around the section if needed */
+.header {
+    background-color: black; /* Assuming a black background for contrast */
+    text-align: center; /* Centering content in the header */
+    padding: 20px 0; /* Padding for spacing */
+    margin: 0; /* Removing default margins */
 }
+
+.header h1 {
+    color: red; /* Styling for C-Fresh, matching Citimart style */
+    font-family: 'Arial', sans-serif; /* Common sans-serif font */
+    font-size: 48px; /* Large font size for visibility */
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 20px; /* Space between C-Fresh and About Us */
+}
+
+.about-us {
+    display: inline-block; /* Making the div inline to center it like text */
+    background-color: red; /* Red background as shown */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around text */
+    font-size: 24px; /* Font size similar to example */
+    text-transform: uppercase; /* UPPERCASE text */
+    font-family: 'Arial', sans-serif; /* Keeping font consistent */
+    font-weight: bold; /* Bold text */
+    border-radius: 2px; /* Optional: slight rounding of corners */
+    margin: 20px auto; /* Margin for automatic horizontal centering */
+}
+
 
 .about-heading {
     padding: 10px;

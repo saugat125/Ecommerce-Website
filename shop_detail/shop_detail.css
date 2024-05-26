@@ -64,13 +64,18 @@ body, h1, p {
     padding: 10px;
     border-radius: 8px;
 }
+.card a{
+    color: black;
+    text-decoration: none;
+}
 .trending-products .container .card .img-div{
     display: flex;
     justify-content: center;
 }
 .trending-products .container .card img{
-    width: 208px;
-    height: 208px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 
 .trending-products .container .card h2{
