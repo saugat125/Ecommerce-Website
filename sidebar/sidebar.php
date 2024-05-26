@@ -49,6 +49,7 @@
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../product-table/manage_product.php">Product List</a></h1>
           <!-- <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../updateproduct/UpdateProduct.php">Update Product</a></h1> -->
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../addproduct/AddProdcut.php">Add New Product</a></h1>
+          <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../product_category/product_category.php">Product Categories</a></h1>
         </div>
 
         <!-- Dropdown 2-->

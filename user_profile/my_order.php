@@ -28,6 +28,7 @@ while ($row = oci_fetch_assoc($statement)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.tailwindcss.com" rel="stylesheet">
   <link href="my_order.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -41,20 +42,29 @@ while ($row = oci_fetch_assoc($statement)) {
     }
     ?>
   <!-- User Profile Section-->
-  <div class="flex mx-16 mt-8 mb-20">
+  <div class="flex">
     <!-- Manage Account Section -->
-    <div class="w-1/5 p-4 ml-6">
-      <h2 class="text-lg font-bold mb-4">Manage Account</h2>
-      <ul class="space-y-2">
-        <li><a href="user_profile.php" class="text-gray-600 hover:text-red-500">Account Information</a></li>
-        <li><a href="my_order.php" class="text-red-500 font-bold">My orders</a></li>
-        <li><a href="../logout/logout.php" class="text-gray-600 hover:text-red-500">Logout</a></li>
-      </ul>
-    </div>
+    <div class="w-1/5 p-4 ml-0 bg-gray-200 h-full min-h-screen rounded-lg">
+    <h2 class="text-2xl font-bold mb-10 mt-5 ml-4">Manage Account</h2>
+    <ul class="space-y-2">
+        <li class="flex items-center p-2.5 mt-2 rounded-full px-4 cursor-pointer hover:bg-gray-400 duration-300">
+            <i class="bi bi-person-fill text-black mr-2"></i>
+            <a href="user_profile.php" class="text-gray-600 hover:text-zinc-950 expand-link">Account Information</a>
+        </li>
+        <li class="flex items-center p-2.5 mt-2 rounded-full px-4 cursor-pointer hover:bg-gray-400 duration-300">
+            <i class="bi bi-bag-fill text-black mr-2"></i>
+            <a href="my_order.php" class="text-gray-600 hover:text-zinc-950 expand-link">My Orders</a>
+        </li>
+        <li class="flex items-center p-2.5 mt-2 rounded-full px-4 cursor-pointer hover:bg-gray-400 duration-300">
+            <i class="bi bi-box-arrow-right text-black mr-2"></i>
+            <a href="../logout/logout.php" class="text-gray-600 hover:text-zinc-950 expand-link">Logout</a>
+        </li>
+    </ul>
+</div>
 
     <!-- Manage My Account Section -->
-    <div class="w-2/3 p-4">
-      <h2 class="text-lg font-bold mb-4">Order History</h2>
+    <div class="w-2/3 p-4 pl-10 ">
+      <h2 class="text-2xl font-bold mb-4 mt-5">Order History</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full">
           <thead>
