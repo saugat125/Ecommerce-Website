@@ -25,13 +25,16 @@ body {
     font-size: 36px;
 }
 
+.form-container h2{
+    font-size: 30px;
+}
+
 .container {
     display:flex;
     justify-content: space-around;
     align-items:center;
     width: 80%;
     max-width: 1200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 40px;
     background-color: white;
@@ -46,7 +49,6 @@ body {
 .image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
@@ -56,6 +58,7 @@ body {
     height: auto;
     width: auto;
     object-fit: contain; 
+    margin-left: 100px;
 }
 
 .form-group {
@@ -67,52 +70,46 @@ body {
     font-weight: bold;
 }
 
-.form-group-inline {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px; 
-}
-
-.form-group-inline .form-group {
-    flex: 1;
-    margin-right: 10px;
-}
-
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 80%;
+    width: 100%; /* Set all input fields to the same width */
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ddd;
-    border-radius: 0; 
     background-color: lightgray;
     font-weight: normal;
 }
 
+.form-group-inline .form-group {
+    flex: 1;
+    margin-right: 10px; /* Adjusted margin to ensure inputs are aligned and space is consistent */
+}
+
 textarea {
-    width: 90%; 
+    resize: vertical; /* Allow resizing only vertically */
+}
+textarea { 
     resize: vertical; 
 }
 
 .button-container {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     margin-top: 20px; 
 }
 
 button {
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 10px 24px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
     background-color: black;
     color: #fff;
     border: none;
-    border-radius: 0; 
+    border-radius: 0;
     cursor: pointer;
-    flex:1;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: black;
+    background-color: black; /* No change on hover, keeping the same background color */
 }

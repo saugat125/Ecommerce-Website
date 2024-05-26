@@ -35,9 +35,8 @@ session_start();
 <section class="introduction">
     <div class="section-content">
         <div class="section-text">
-            <h3>Introduction</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies, tortor et ullamcorper commodo,
-                libero justo dignissim nisl.</p>
+            <h3><i>Introduction</i></h3>
+            <p><b>At C-Fresh, we are dedicated to bringing you the freshest and finest ingredients right to your doorstep. Our mission is to empower your culinary adventures with high-quality groceries, sourced responsibly and sustainably. Whether you're cooking a simple meal for one or a feast for the whole family, our carefully curated selection ensures that you have access to the best produce, meats, dairy, and more—all year round.</b></p>
         </div>
         <div class="section-image">
             <img src="Establishment.jpeg" alt="Introduction Image">
@@ -49,9 +48,8 @@ session_start();
 <section class="establishment">
     <div class="section-content">
         <div class="section-text">
-            <h3>Establishment</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies, tortor et ullamcorper commodo,
-                libero justo dignissim nisl.</p>
+            <h3><i>Establishment</i></h3>
+            <p><b>Founded in 2024, C-Fresh sprang from a commitment to enhance well-being through sustainable and high-quality groceries. Our roots are deeply planted in supporting local agriculture and promoting eco-friendly products. We started as a modest venture to connect conscientious consumers with the finest, ethically sourced ingredients and have grown into a trusted name in the health-conscious community. At [Your Brand Name], we continue to champion the cause of sustainable living, nurturing our vision of a healthier, greener future for all.</b></p>
         </div>
         <div class="section-image">
             <img src="Establishment.jpeg" alt="Establishment Image">
