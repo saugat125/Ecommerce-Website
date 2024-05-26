@@ -24,9 +24,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../trader_navbar/navbar.css">
-
+    <link rel="stylesheet" href="styles.css">z
 </head>
 <body>
 
