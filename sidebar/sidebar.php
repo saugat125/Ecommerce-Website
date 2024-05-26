@@ -38,21 +38,11 @@
             </span>
           </div>
         </div>
-<<<<<<< HEAD
-        <div class="leading-7 text-left text-sm font-light mt-2 w-4/5 mx-auto hidden" id="submenu1">
-          <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
-            <a href="../product-table/manage_product.php" class="text-black">Product List</a>
-          </h1>
-          <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
-            <a href="../addproduct/AddProdcut.php" class="text-black">Add New Product</a>
-          </h1>
-=======
         <div class=" leading-7 text-left text-sm font-light mt-2 w-4/5 mx-auto hidden" id="submenu1">
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../product-table/manage_product.php">Product List</a></h1>
           <!-- <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../updateproduct/UpdateProduct.php">Update Product</a></h1> -->
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../addproduct/AddProdcut.php">Add New Product</a></h1>
           <h1 class="cursor-pointer p-2 hover:bg-gray-500 rounded-full mt-1"><a href="../product_category/product_category.php">Product Categories</a></h1>
->>>>>>> 70acd98f3b062d65caa85b1f93011f24566ae8a0
         </div>
 
         <!-- Shop Section -->
