@@ -23,15 +23,19 @@
 
         <div class="dashboard">
             <a href="customer.php" class="box">
+                <i class="fas fa-users"></i>
                 <h2>CUSTOMERS</h2>
             </a>
             <a href="trader.php" class="box">
+                <i class="fas fa-handshake"></i>
                 <h2>TRADERS</h2>
             </a>
             <a href="product.php" class="box">
+                <i class="fas fa-shopping-cart"></i>
                 <h2>PRODUCTS</h2>
             </a>
             <a href="oracle.php" class="box">
+                <i class="fas fa-database"></i>
                 <h2>ORACLE</h2>
             </a>
         </div>
