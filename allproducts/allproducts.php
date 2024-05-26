@@ -28,6 +28,27 @@ session_start();
         </div>
     </section>
 
+
+    <!-- Category Filter -->
+<div class="filters-container">
+<div class="category-container">
+    <form action="" method="GET">
+        <label for="category">Category:</label>
+        <select name="category" onchange="this.form.submit()">
+            <option value="">Select a category</option>
+            <?php
+                $cat_query = "SELECT * FROM PRODUCT_CATEGORY ORDER BY CATEGORY_NAME";
+                $cat_result = oci_parse($conn, $cat_query);
+                oci_execute($cat_result);
+                while ($cat_row = oci_fetch_assoc($cat_result)) {
+                    $selected = (isset($_GET['category']) && $_GET['category'] == $cat_row['CATEGORY_ID']) ? 'selected' : '';
+                    echo "<option value=\"{$cat_row['CATEGORY_ID']}\" $selected>{$cat_row['CATEGORY_NAME']}</option>";
+                }
+                ?>
+            </select>
+        </form>
+    </div>
+
     <div class="sort-container">
     <form action="" method="GET">
         <label for="sortby">Sort by:</label>
@@ -41,6 +62,7 @@ session_start();
             </select>
         </form>
     </div>
+    </div>
 
     <div class="products">
         <div class="container">
@@ -48,9 +70,14 @@ session_start();
             $sort_order = "ASC";  // Default sort order
             if (isset($_GET['sortby']) && $_GET['sortby'] == 'desc') {
                 $sort_order = "DESC";
-            }    
+            }
 
-                $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y' ORDER BY PRICE $sort_order";
+            $category_condition = "";
+            if (isset($_GET['category']) && !empty($_GET['category'])) {
+                $category_condition = "AND CATEGORY_ID = " . $_GET['category'];
+            }
+
+            $query = "SELECT * FROM PRODUCT WHERE ISAPPROVED = 'Y' $category_condition ORDER BY PRICE $sort_order";
 
                 $result = oci_parse($conn, $query);
                 oci_execute($result);
