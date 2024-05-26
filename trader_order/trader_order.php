@@ -39,53 +39,52 @@ if(isset($_SESSION['shop_id'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-  <link href="trader_order.css" rel="stylesheet">zz
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
-    /* Add any custom styles here */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
   </style>
 </head>
 
-<body>
-    <div class="flex-page">
-        <div class="sidebar">
-        <?php include ('../sidebar/sidebar.php')?>
-        </div>
-        <div class="flex flex-col items-center justify-center h-screen">
-        <h2 class="text-3xl font-bold text-center mb-8">Order Details for Trader</h2>
-        <div>
-            <table>
-            <thead>
-                <tr>
-                <th class="text-left p-2">Product Image</th>
-                <th class="text-left p-2">Product Name</th>
-                <th class="text-left p-2">Quantity</th>
-                <th class="text-left p-2">Price</th>
-                <th class="text-left p-2">Total Price</th>
-                <th class="text-left p-2">Collection Day</th>
-                <th class="text-left p-2">Time Slot</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($orderProducts as $orderProduct): ?>
-                <tr>
-                <td class="p-2"><img src="../image/<?php echo $orderProduct['PRODUCT_IMAGE']; ?>" alt="Product Image" class="h-20 w-20 object-cover"></td>
-                <td class="p-2"><?php echo $orderProduct['PRODUCT_NAME']; ?></td>
-                <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
-                <td class="p-2">$<?php echo $orderProduct['PRICE']; ?></td>
-                <td class="p-2">$<?php echo $orderProduct['TOTAL_PRICE']; ?></td>
-                <td class="p-2"><?php echo $orderProduct['COLLECTION_DAY']; ?></td>
-                <td class="p-2"><?php echo $orderProduct['TIME_SLOT']; ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-            </table>
-        </div>
-        </div>
+<body class="bg-white">
+  <div class="flex min-h-screen">
+    <div class="w-64 bg-white">
+      <?php include ('../sidebar/sidebar.php')?>
     </div>
-
-
-  <script src="https://cdn.tailwindcss.com"></script>
+    <div class="flex-grow p-4">
+      <h2 class="text-3xl font-bold text-black mb-6">Order Details for Trader</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-black text-white">
+          <thead>
+            <tr>
+              <th class="py-3 px-4 text-left">Product Image</th>
+              <th class="py-3 px-4 text-left">Product Name</th>
+              <th class="py-3 px-4 text-left">Quantity</th>
+              <th class="py-3 px-4 text-left">Price</th>
+              <th class="py-3 px-4 text-left">Total Price</th>
+              <th class="py-3 px-4 text-left">Collection Day</th>
+              <th class="py-3 px-4 text-left">Time Slot</th>
+            </tr>
+          </thead>
+          <tbody class="bg-gray-700">
+            <?php foreach ($orderProducts as $orderProduct): ?>
+            <tr class="bg-gray-800 border-b border-gray-600">
+              <td class="py-3 px-4"><img src="../image/<?php echo $orderProduct['PRODUCT_IMAGE']; ?>" alt="Product Image" class="h-20 w-20 object-cover"></td>
+              <td class="py-3 px-4"><?php echo $orderProduct['PRODUCT_NAME']; ?></td>
+              <td class="py-3 px-4"><?php echo $orderProduct['QUANTITY']; ?></td>
+              <td class="py-3 px-4">$<?php echo $orderProduct['PRICE']; ?></td>
+              <td class="py-3 px-4">$<?php echo $orderProduct['TOTAL_PRICE']; ?></td>
+              <td class="py-3 px-4"><?php echo $orderProduct['COLLECTION_DAY']; ?></td>
+              <td class="py-3 px-4"><?php echo $orderProduct['TIME_SLOT']; ?></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
