@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-
->>>>>>> e69e1565fe4fbd416bfc1d8cadc4a3eda4812439
 include "../connect.php";
 include "../notification.php";
 
