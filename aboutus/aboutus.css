@@ -90,7 +90,7 @@ body {
 }
 
 .header h1 {
-    color: red; /* Styling for C-Fresh, matching Citimart style */
+    color: white; /* Styling for C-Fresh, matching Citimart style */
     font-family: 'Arial', sans-serif; /* Common sans-serif font */
     font-size: 48px; /* Large font size for visibility */
     font-weight: bold; /* Bold for emphasis */
@@ -99,7 +99,7 @@ body {
 
 .about-us {
     display: inline-block; /* Making the div inline to center it like text */
-    background-color: red; /* Red background as shown */
+ /* Red background as shown */
     color: white; /* White text color */
     padding: 10px 20px; /* Padding around text */
     font-size: 24px; /* Font size similar to example */
