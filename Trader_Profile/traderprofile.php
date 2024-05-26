@@ -23,7 +23,7 @@
 <header>
     <nav>
         <div class="nav-icons">
-            <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHome  &nbsp >   &nbsp Account</i></span>
+            <span class="icons"><i class="fa fa-bars" aria-hidden="true">&nbspHome&nbsp&nbsp>Account</i></span>
             <span class="user"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $shopName; ?></i></span>
         </div>
     </nav>

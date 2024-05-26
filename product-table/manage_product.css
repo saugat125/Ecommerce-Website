@@ -123,7 +123,7 @@ button:hover {
 .add-product {
     margin-top: 20px;
     padding: 15px 30px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     
 }
 .add-product a{
