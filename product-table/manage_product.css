@@ -123,7 +123,7 @@ button:hover {
 .add-product {
     margin-top: 20px;
     padding: 15px 30px;
-    background-color: #000000;
+    background-color: white;
     
 }
 .add-product a{
@@ -134,6 +134,12 @@ button:hover {
 td button a{
     color: black;
     text-decoration: none;
+}
+.delete-btn a{
+    color: white;
+}
+.update-btn a{
+    color: white;
 }
 .delete-btn a:hover{
     color: red;

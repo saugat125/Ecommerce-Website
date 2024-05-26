@@ -72,22 +72,22 @@ include "../notification.php";
           <div class="mb-4">
             <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
             <input type="text" id="firstName" placeholder="Enter your first name" value="<?php echo $row['FIRST_NAME']; ?>" name = "first_name"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
           </div>
           <div class="mb-4">
             <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
             <input type="text" id="lastName" placeholder="Enter your last name" value="<?php echo $row['LAST_NAME']; ?>" name = "last_name"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
           </div>
           <div class="mb-4">
             <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
             <input type="text" id="password" value="<?php echo $row['PASSWORD']; ?>" name = "password"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
           </div>
           <div class="mb-4">
             <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
             <input type="tel" id="phone" value="<?php echo $row['PHONE_NUMBER']; ?>" name = "phone"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
           </div>
           <div class="flex justify-between">
             <button type="submit" name = "submit"
