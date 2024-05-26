@@ -2,6 +2,20 @@
     include ('../connect.php');
     session_start();
     $shopName = isset($_SESSION['shop_name']) ? $_SESSION['shop_name'] : 'Your Shop Name';
+    $shopId = isset($_SESSION['shop_id']) ? $_SESSION['shop_id'] : null;
+
+    $categories = [];
+    if ($shopId) {
+        $category_query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PRODUCT_CATEGORY WHERE SHOP_ID = :shop_id";
+        $category_stmt = oci_parse($conn, $category_query);
+        oci_bind_by_name($category_stmt, ':shop_id', $shopId);
+        oci_execute($category_stmt);
+
+        while ($row = oci_fetch_assoc($category_stmt)) {
+            $categories[] = $row;
+        }
+        oci_free_statement($category_stmt);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +56,12 @@
     <div class="main-container">
         <div class="sidebar">
             <?php include ('../sidebar/sidebar.php')?>
-          </div>          
+        </div>          
 
         <div class="content">
             <div class="inner-box">
-                <h2 >Add New Product</h2>
+                <h2>Add New Product</h2>
                 <div class="form-container">
-
                     <form action="add_handle.php" method="post" enctype="multipart/form-data">
                         <div class="container">
                             <div class="section">
@@ -80,12 +93,6 @@
                                         <input type="text" placeholder="Allergy" name="allergy" required>
                                     </div>
                                 </div>
-                                <!-- <div class="section">
-                                    <h3>Minimum Order</h3>
-                                    <div class="input-box">
-                                        <input type="text" placeholder="Minumum">
-                                    </div>
-                                </div> -->
                                 <div class="section">
                                     <h3>Maximum Order</h3>
                                     <div class="input-box">
@@ -99,8 +106,21 @@
                                     </div>
                                 </div>
                                 <div class="section">
+                                    <h3>Category</h3>
+                                    <div class="input-box">
+                                        <select name="category" required>
+                                            <option value="">Select Category</option>
+                                            <?php
+                                            foreach ($categories as $category) {
+                                                echo '<option value="' . htmlspecialchars($category['CATEGORY_ID']) . '">' . htmlspecialchars($category['CATEGORY_NAME']) . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="section">
                                     <h3>Product Image</h3>
-                                    <p class ="grey-text">Upload image</p>
+                                    <p class="grey-text">Upload image</p>
                                     <div class="upload-box">
                                         <input type="file" accept="image/*" name="image" id="pimage" required>
                                     </div>
@@ -109,11 +129,9 @@
                             </div>
                         </div>
                     
-                    <button type="submit" name="submit" class = "add-product-button">Add Product</button>
+                    <button type="submit" name="submit" class="add-product-button">Add Product</button>
                 </form>
                 </div>
-
-                
             </div>
         </div>
     </div>
@@ -126,17 +144,13 @@
 
             const file = fileInput.files[0];
             if (file) {
-
-
-                // Check if the selected file is an image
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        imagePreview.src = e.target.result;
-                        imagePreview.style.display = 'block';
-                    };
-                    reader.readAsDataURL(file);
-            } 
-            else {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
                 fileNameDisplay.textContent = '';
                 imagePreview.style.display = 'none';
             }

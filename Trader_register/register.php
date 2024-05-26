@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "../connect.php";
 include "../notification.php";
 
@@ -158,6 +157,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_of_birth = $_POST['date_of_birth'];
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
+
+    if (strlen($password) < 8) {
+        $_SESSION['message'] = "Password must be at least 8 characters long.";
+        $_SESSION['message_type'] = "error";
+        header("Location: trader_reg.php"); // Redirect to registration page
+        exit;
+    }
 
     $shop_name = $_POST['shop_name'];
     $shop_desc = $_POST['shop_desc'];

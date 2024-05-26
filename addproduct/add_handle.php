@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $allergy = $_POST['allergy'];
     $max_order = $_POST['max_order'];
     $discount = $_POST['discount'];
+    $category_id = $_POST['category'];
     $image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name']; 
 
@@ -38,7 +39,7 @@ if (isset($_POST['submit'])) {
 
     $destination = "../image/" . $image; 
     if (move_uploaded_file($image_temp, $destination)) {
-        $query = "INSERT INTO PRODUCT (PRODUCT_NAME,DESCRIPTION,PRICE,STOCK_AVAILABLE,MAX_ORDER,ALLERGY_INFORMATION,DISCOUNT,PRODUCT_IMAGE,ISAPPROVED,SHOP_ID) VALUES('$name','$description','$price','$stock','$max_order','$allergy','$discount','$image','N','$shop_id')";
+        $query = "INSERT INTO PRODUCT (PRODUCT_NAME,DESCRIPTION,PRICE,STOCK_AVAILABLE,MAX_ORDER,ALLERGY_INFORMATION,DISCOUNT,PRODUCT_IMAGE,ISAPPROVED,SHOP_ID,CATEGORY_ID) VALUES('$name','$description','$price','$stock','$max_order','$allergy','$discount','$image','N','$shop_id','$category_id')";
 
         $insert_stmt = oci_parse($conn, $query);
 
