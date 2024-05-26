@@ -13,7 +13,7 @@
 
 <body class="bg-gray-100 font-[Poppins]">
   <!-- Sidebar Section -->
-  <div class="sidebar top-0 bottom-0 left-0 w-[200px] overflow-y-auto text-center bg-gray-200 shadow h-screen">
+  <div class="sidebar top-0 bottom-0 left-0 w-[200px] overflow-y-auto text-center bg-white shadow h-screen">
     <div class="text-xl">
       <div>
         <!-- Home Section -->
@@ -29,20 +29,20 @@
         </div>
 
         <!-- Products Dropdown -->
-        <div class="p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-200" onclick="dropDown('submenu1', 'arrow1')">
-          <i class="fa fa-box text-black"></i>
-          <div class="flex justify-between w-full items-center">
-            <span class="text-[15px] ml-4 text-black">Products</span>
-            <span class="text-sm rotate-180" id="arrow1">
+        <div class="p-2.5 mt-2 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-200">
+          <div class="flex justify-start items-center w-full rounded-full">
+            <i class="fa fa-box text-black mr-2"></i>
+            <span class="text-[15px] ml-2 text-black">Products</span>
+            <span class="text-sm rotate-180 ml-auto" id="arrow1">
               <i class="fa fa-chevron-down text-black"></i>
             </span>
           </div>
         </div>
         <div class="leading-7 text-left text-sm font-light mt-2 w-4/5 mx-auto hidden" id="submenu1">
-          <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
+          <h1 class="cursor-pointer p-2 rounded-full mt-1 hover:bg-gray-200">
             <a href="../product-table/manage_product.php" class="text-black">Product List</a>
           </h1>
-          <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
+          <h1 class="cursor-pointer p-2 rounded-full mt-1 hover:bg-gray-200">
             <a href="../addproduct/AddProdcut.php" class="text-black">Add New Product</a>
           </h1>
           <h1 class="cursor-pointer p-2 hover:bg-gray-200 rounded-full mt-1">
@@ -65,7 +65,7 @@
         <!-- Logout Section -->
         <div class="p-2.5 mt-3 flex items-center rounded-full px-4 duration-300 cursor-pointer hover:bg-gray-200">
           <i class="fa fa-sign-out-alt text-black"></i>
-          <a href="../logout/logout.php" class="text-[15px] ml-4 text-black hover:text-gray-700">LOGOUT</a>
+          <a href="../logout/logout.php" class="text-[15px] ml-4 text-black">LOGOUT</a>
         </div>
       </div>
     </div>
