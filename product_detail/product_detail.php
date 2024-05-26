@@ -9,7 +9,11 @@ include "../notification.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>Product Detail</title>
+=======
     <title>Products</title>
+>>>>>>> e69e1565fe4fbd416bfc1d8cadc4a3eda4812439
     <link rel="stylesheet" href="../product_detail/product_detail.css">
 </head>
 
@@ -104,19 +108,17 @@ if ($row) {
                 <p><?php echo $row['ALLERGY_INFORMATION']; ?></p>
             </div>
 
-            <div class="text">
-                <div class="rating">
-                    <h2>Add Rating :</h2>
-                    <a class="star-btn">Add stars</a>
-                </div>
-                <div class="stars">
-                    <img src="../image/product/star.png" alt="">
-                    <img src="../image/product/star.png" alt="">
-                    <img src="../image/product/star.png" alt="">
-                    <img src="../image/product/star.png" alt="">
-                    <img src="../image/product/star.png" alt="">
-                </div>
-            </div>
+            <div class="rating-container">
+        <h1>Rate this Product</h1>
+        <div class="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <p class="rating-value">Your rating: <span id="rating-value">0</span></p>
+    </div>
         </div>
     </section>
 
@@ -246,6 +248,38 @@ document.addEventListener('DOMContentLoaded', function() {
             currentValue--;
             quantityField.value = currentValue;
         }
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.star');
+    const ratingValue = document.getElementById('rating-value');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            stars.forEach(s => s.classList.remove('selected'));
+            star.classList.add('selected');
+            let prevStar = star.previousElementSibling;
+            while (prevStar) {
+                prevStar.classList.add('selected');
+                prevStar = prevStar.previousElementSibling;
+            }
+            const value = star.getAttribute('data-value');
+            ratingValue.textContent = value;
+        });
+
+        star.addEventListener('mouseover', () => {
+            stars.forEach(s => s.classList.remove('hover'));
+            star.classList.add('hover');
+            let prevStar = star.previousElementSibling;
+            while (prevStar) {
+                prevStar.classList.add('hover');
+                prevStar = prevStar.previousElementSibling;
+            }
+        });
+
+        star.addEventListener('mouseout', () => {
+            stars.forEach(s => s.classList.remove('hover'));
+        });
     });
 });
 </script>
