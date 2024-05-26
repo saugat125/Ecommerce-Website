@@ -66,3 +66,44 @@ body {
   background-color: #f0f2f5; /* Light grey background on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
+
+/* Header Styles */
+header {
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  height: 70px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-icons .icons,
+.nav-icons .user {
+  font-size: 1.2em;
+}
+
+.nav-icons .icons {
+  margin-left: 10px;
+}
+
+.nav-icons .user {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons .user i {
+  margin-right: 10px;
+}
