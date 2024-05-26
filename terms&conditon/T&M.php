@@ -1,3 +1,8 @@
+<?php
+include ('../connect.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +12,16 @@
 <link rel="stylesheet" href="T&M.css">
 </head>
 
+<?php
+if (isset($_SESSION['user_id'])) {
+  include ('../header/home_header.php');
+} else {
+  include ('../header/header.php');
+}
+?>
+
 <body>
 
-    <header>
-        <div class="header-container">
-          <div class="logo">
-            <a href="#">
-              <img src="logo.png" alt="Logo">
-            </a>
-          </div>
-          <div class="search-bar">
-            <input type="text" placeholder="Search for products, and more">
-          </div>
-          <nav>
-            <ul>
-              <li><button class="login-btn">Login</button></li>
-              <li><button class="signup-btn">Sign up</button></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-              <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="menu">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
-        </div>
-      </header>
 
 <div class="container">
     <h1>Terms and Conditions</h1>

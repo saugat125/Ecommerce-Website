@@ -6,7 +6,7 @@
                 <li><a href="../aboutus/aboutus.php">About Us</a></li>
                 <li><a href="../contact/contactus.php">Contact Us</a></li>
                 <li><a href="../allproducts/allproducts.php">Products</a></li>
-                <li><a href="../terms&conditon/T&M.html">Terms & Conditions</a></li>               
+                <li><a href="../terms&conditon/T&M.php">Terms & Conditions</a></li>               
             </ul>
         </div>
         <div class="footer-middle">
