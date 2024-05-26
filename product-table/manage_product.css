@@ -104,7 +104,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #000000;
+    background-color: #ff0000;
     color: #fff;
     transition: background-color 0.3s ease;
     border-radius: 10px;
@@ -138,14 +138,20 @@ td button a{
 .delete-btn a{
     color: white;
 }
+.update-btn{
+    background-color: rgb(64, 167, 64);
+}
 .update-btn a{
     color: white;
 }
 .delete-btn a:hover{
-    color: red;
+    color: rgb(0, 0, 0);
 }
 .delete-btn:hover{
     color: red;
+}
+.update-btn a:hover{
+    color: rgb(0, 0, 0);
 }
 
 /* Responsive Styles */
