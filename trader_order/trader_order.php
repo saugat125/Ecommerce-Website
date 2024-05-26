@@ -7,10 +7,16 @@ if(isset($_SESSION['shop_id'])) {
     $shopId = $_SESSION['shop_id'];
 
     // Prepare and execute the SQL query to fetch order details
-    $query = "SELECT op.ORDER_PRODUCT_ID, p.PRODUCT_NAME, p.PRODUCT_IMAGE, op.QUANTITY, p.PRICE
-              FROM ORDER_PRODUCT op
-              JOIN PRODUCT p ON op.PRODUCT_ID = p.PRODUCT_ID
-              WHERE p.SHOP_ID = :shop_id";
+    $query = "SELECT op.ORDER_PRODUCT_ID, p.PRODUCT_NAME, p.PRODUCT_IMAGE, op.QUANTITY, p.PRICE,
+                (op.QUANTITY * p.PRICE) AS TOTAL_PRICE,
+                cs.COLLECTION_DAY, cs.TIME_SLOT
+            FROM ORDER_PRODUCT op
+            JOIN PRODUCT p ON op.PRODUCT_ID = p.PRODUCT_ID
+            JOIN SHOP s ON p.SHOP_ID = s.SHOP_ID
+            JOIN ORDERS o ON op.ORDER_ID = o.ORDER_ID
+            JOIN COLLECTION_SLOT cs ON o.COLLECTION_SLOT_ID = cs.COLLECTION_SLOT_ID
+            WHERE s.SHOP_ID = :shop_id";
+
     $statement = oci_parse($conn, $query);
     oci_bind_by_name($statement, ':shop_id', $shopId);
     oci_execute($statement);
@@ -56,6 +62,8 @@ if(isset($_SESSION['shop_id'])) {
                 <th class="text-left p-2">Quantity</th>
                 <th class="text-left p-2">Price</th>
                 <th class="text-left p-2">Total Price</th>
+                <th class="text-left p-2">Collection Day</th>
+                <th class="text-left p-2">Time Slot</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +73,9 @@ if(isset($_SESSION['shop_id'])) {
                 <td class="p-2"><?php echo $orderProduct['PRODUCT_NAME']; ?></td>
                 <td class="p-2"><?php echo $orderProduct['QUANTITY']; ?></td>
                 <td class="p-2">$<?php echo $orderProduct['PRICE']; ?></td>
-                <td class="p-2">$<?php echo $orderProduct['QUANTITY'] * $orderProduct['PRICE']; ?></td>
+                <td class="p-2">$<?php echo $orderProduct['TOTAL_PRICE']; ?></td>
+                <td class="p-2"><?php echo $orderProduct['COLLECTION_DAY']; ?></td>
+                <td class="p-2"><?php echo $orderProduct['TIME_SLOT']; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
