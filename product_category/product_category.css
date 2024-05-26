@@ -38,6 +38,14 @@ nav {
     display: flex;
 }
 
+.sidebar {
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-left: 0;
+  }
+  
 .nav-icons .user {
     padding-left: 1000px;
 }
