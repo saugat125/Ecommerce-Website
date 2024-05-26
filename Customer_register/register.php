@@ -158,6 +158,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
+    if (strlen($password) < 8) {
+        $_SESSION['message'] = "Password must be at least 8 characters long.";
+        $_SESSION['message_type'] = "error";
+        header("Location: customer_reg.php"); // Redirect to registration page
+        exit;
+    }
+
     // Check for existing email
     $check_email_query = "SELECT COUNT(*) AS CNT FROM USERS WHERE email = :email";
     $stmt_check_email = oci_parse($conn, $check_email_query);
